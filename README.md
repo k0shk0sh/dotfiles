@@ -1,5 +1,9 @@
-Install
--------
+# dotfiles
+
+![](http://i.imgur.com/cDfUrgx.png)
+
+## Install
+
     $ cd
     $ git init
     $ git remote add origin https://gitlab.com/Kutsan/dotfiles.git
