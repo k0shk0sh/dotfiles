@@ -93,7 +93,7 @@ prompt_git() {
 
 # Dir: current working directory
 prompt_dir() {
-  prompt_segment white black "%-5<...<%~%<<"
+  prompt_segment white black "%-30<...<%~%<<"
   # echo $(pwd | sed -e "s,^$HOME,~," | sed "s@\(.\)[^/]*/@\1/@g")
 }
 

@@ -12,7 +12,7 @@ if [[ $(uname) = "Darwin" ]]; then
 	alias dotfiles="cd ~/Google\ Drive/Digital/dotfiles"
 
 elif [[ $(uname -o) = "Android" ]]; then
-   	plugins=(git z zsh-syntax-highlighting history git-extras)
+   	plugins=(git zsh-syntax-highlighting history)
 	ZSH_THEME="kutsan-mobile"
 	
 	export ZSH=/data/data/com.termux/files/home/.oh-my-zsh
