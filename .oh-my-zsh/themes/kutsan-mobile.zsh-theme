@@ -71,7 +71,7 @@ prompt_context() {
   local user=`whoami`
 
   if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-    prompt_segment black white "%(!.%{%F{yellow}%}.)Kutsan"
+    prompt_segment black white "%(!.%{%F{yellow}%}.)$"
   fi
 }
 
@@ -93,7 +93,7 @@ prompt_git() {
 
 # Dir: current working directory
 prompt_dir() {
-  prompt_segment white black "%-55<...<%~%<<"
+  prompt_segment white black "%-5<...<%~%<<"
   # echo $(pwd | sed -e "s,^$HOME,~," | sed "s@\(.\)[^/]*/@\1/@g")
 }
 
