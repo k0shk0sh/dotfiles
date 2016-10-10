@@ -9,7 +9,6 @@ if [[ $(uname) = "Darwin" ]]; then
 
 	# Alias
 	alias god="cd ~/Google\ Drive/Digital"
-	alias dotfiles="cd ~/Google\ Drive/Digital/dotfiles"
 
 elif [[ $(uname -o) = "Android" ]]; then
    	plugins=(git zsh-syntax-highlighting history)
@@ -17,9 +16,6 @@ elif [[ $(uname -o) = "Android" ]]; then
 	
 	export ZSH=/data/data/com.termux/files/home/.oh-my-zsh
 	export PATH="/data/data/com.termux/files/usr/bin:/data/data/com.termux/files/usr/bin/applets"
-
-	# Alias
-	alias dotfiles="cd ~/dotfiles"
 fi
 
 source $ZSH/oh-my-zsh.sh
