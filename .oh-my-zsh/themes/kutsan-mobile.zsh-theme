@@ -28,12 +28,6 @@
 CURRENT_BG='NONE'
 SEGMENT_SEPARATOR=''
 
-## huh dont need this
-collapse_pwd() {
-   # echo $(pwd | sed -e "s,^$HOME,~,")
-   echo $(pwd | sed -e "s,^$HOME,~," | sed "s@\(.\)[^/]*/@\1/@g")
-}
-
 # Begin a segment
 # Takes two arguments, background and foreground. Both can be omitted,
 # rendering default background/foreground.
