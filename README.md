@@ -22,3 +22,7 @@
     $ git remote add origin https://github.com/Kutsan/dotfiles.git
     $ git fetch origin
     $ git checkout --force -b master --track origin/master
+
+For Vim:
+
+    :PlugInstall
