@@ -37,17 +37,17 @@ colorscheme monokai
 "set wildmenu
 "set undofile
 "set undodir=~/.vim/undodir
-set tabstop=4 						" Tab'lar icin size.
-set mouse=a 						" GUI elementleri icin mouse modunu devreye sokar. 
+set tabstop=4
+set mouse=a
 "set conceallevel=0
-set relativenumber number 			" Satir numaralarini goreceli olarak gosterir.
+set relativenumber number
 "set splitright
 "set splitbelow
 "set ignorecase
 "set smartcase
 "set synmaxcol=500
-set nocompatible					" 
-set backspace=1						" Backspace tusunun aksiyonu.
+set nocompatible
+set backspace=1
 
 "let g:two_firewatch_italics=1
 "let g:one_allow_italics = 1
