@@ -4,6 +4,7 @@
 
 ## Uses
 - Vim
+    - VimPlug
 - ZSH
     - oh-my-zsh  
 - npm

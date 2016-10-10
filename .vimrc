@@ -12,7 +12,7 @@ call plug#begin('~/.vim/plugged')
 		let g:NERDTreeShowHidden=1
 		let g:NERDTreeShowBookmarks=1
 		let g:NERDTreeActivateNode='<Space>'
-  	Plug 'powerline/powerline'
+  	Plug 'aert/vim-powerline'
 call plug#end()
 
 " -- Global Configuration --------------------------------------------------------------------------
