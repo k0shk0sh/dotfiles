@@ -15,13 +15,29 @@ call plug#begin('~/.vim/plugged')
 
 		" Automatically quit Vim if NERDTree is last and only buffer
 		autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-  	Plug 'aert/vim-powerline'
+
+		" Move the cursor to the file editing area when vim starts up. Then, you can navigate between C+W H|J|K|L
+		autocmd VimEnter * NERDTree | wincmd p
   	Plug 'pangloss/vim-javascript'
+  	Plug 'bling/vim-airline'
+  		let g:airline_powerline_fonts = 1
+	Plug 'spf13/vim-autoclose'
 call plug#end()
 
 " -- Global Configuration --------------------------------------------------------------------------
 
-" Color Ccheme and Syntax
+" General
+set nocompatible
+set encoding=utf-8
+set cursorline
+set mouse=a
+set title
+set ruler
+
+" Editor
+set relativenumber number
+
+" Color Scheme and Syntax
 syntax on
 colorscheme monokai
 set t_Co=256
@@ -30,33 +46,42 @@ let g:monokai_term_italic = 1
 let g:monokai_gui_italic = 1
 let g:javascript_plugin_jsdoc = 1
 
-"syntax enable
+" Indentation
+set tabstop=4
+set backspace=1
+set shiftwidth=4
+set softtabstop=4
+set autoindent
+set smartindent
+set cindent
+map <Tab> >gv
+map <S-Tab> <gv
 
+" Backup
+set undodir=~/.vim/temp/undo//
+set backupdir=~/.vim/temp/backup//
+set directory=~/.vim/temp/swap//
+
+" Other
+"let g:two_firewatch_italics=1
+"let g:one_allow_italics = 1
+"let g:material_allow_italics = 1
+"syntax enable
 "filetype off
 "filetype indent on
 "filetype plugin on
-
-"set noswapfile
-"set nobackup
-"set nowritebackup
-"set scrolloff=5
-"set hidden
-"set wildmode=longest:list,full
-"set wildmenu
-"set undofile
-"set undodir=~/.vim/undodir
-set tabstop=4
-set mouse=a
-"set conceallevel=0
-set relativenumber number
 "set splitright
 "set splitbelow
 "set ignorecase
 "set smartcase
 "set synmaxcol=500
-set nocompatible
-set backspace=1
+"set conceallevel=0
+"set scrolloff=5
+"set hidden
+"set wildmode=longest:list,full
+"set wildmenu
+"set undofile
 
-"let g:two_firewatch_italics=1
-"let g:one_allow_italics = 1
-"let g:material_allow_italics = 1
+" -- Shortcuts -------------------------------------------------------------------------------------
+
+imap jj <esc> " ESC to normal mode
