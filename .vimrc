@@ -12,22 +12,30 @@ call plug#begin('~/.vim/plugged')
 		let g:NERDTreeShowHidden=1
 		let g:NERDTreeShowBookmarks=1
 		let g:NERDTreeActivateNode='<Space>'
+
+		" Automatically quit Vim if NERDTree is last and only buffer
+		autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
   	Plug 'aert/vim-powerline'
+  	Plug 'pangloss/vim-javascript'
 call plug#end()
 
 " -- Global Configuration --------------------------------------------------------------------------
 
+" Color Ccheme and Syntax
+syntax on
 colorscheme monokai
+set t_Co=256
+set cursorline
+let g:monokai_term_italic = 1
+let g:monokai_gui_italic = 1
+let g:javascript_plugin_jsdoc = 1
 
-"syntax on
 "syntax enable
 
 "filetype off
 "filetype indent on
 "filetype plugin on
 
-"set background=dark
-"set cursorline
 "set noswapfile
 "set nobackup
 "set nowritebackup
