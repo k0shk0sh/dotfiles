@@ -36,6 +36,7 @@
     - [Monokai](https://github.com/Kutsan/dotfiles/blob/master/.config/iterm/monokai.itermcolors) - Color scheme
 - **[Termux](https://play.google.com/store/apps/details?id=com.termux)** - Terminal emulator for Android
     - [Styling](https://play.google.com/store/apps/details?id=com.termux.styling) - Color schemes and powerline-ready font support
+        - [Monokai](https://github.com/Kutsan/dotfiles/blob/master/.termux/colors.properties) - Color scheme
 
 ## Installation
 
