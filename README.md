@@ -58,5 +58,5 @@ $ git checkout --force -b master --track origin/master
 
 > _Logo from [jglovier/dotfiles-logo]_
 
-[screenshot]: http://i.imgur.com/cDfUrgx.png
+[screenshot]: https://i.imgur.com/luTixwP.png
 [jglovier/dotfiles-logo]: https://github.com/jglovier/dotfiles-logo
