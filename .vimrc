@@ -16,25 +16,29 @@ call plug#begin('~/.vim/plugged')
 		" Automatically quit Vim if NERDTree is last and only buffer
 		autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-		" Move the cursor to the file editing area when vim starts up. Then, you can navigate between C+W H|J|K|L
+		" Move the cursor to the file editing area when vim starts up. Then, you can navigate between ^W H|J|K|L
 		autocmd VimEnter * NERDTree | wincmd p
   	Plug 'pangloss/vim-javascript'
   	Plug 'bling/vim-airline'
   		let g:airline_powerline_fonts = 1
+  		let g:airline_theme = "laederon"
+	Plug 'edkolev/tmuxline.vim'
 	Plug 'spf13/vim-autoclose'
 call plug#end()
 
 " -- Global Configuration --------------------------------------------------------------------------
 
 " General
-set nocompatible
-set encoding=utf-8
+set nocompatible " be iMproved, required
+set encoding=utf-8 " Default encoding
 set cursorline
-set mouse=a
-set title
+set mouse=a " Enable mouse use in all modes
+set title " Show title in title section
 set ruler
+set wildmenu
 
 " Editor
+syntax enable
 set relativenumber number
 
 " Color Scheme and Syntax
@@ -66,7 +70,7 @@ set directory=~/.vim/temp/swap//
 "let g:two_firewatch_italics=1
 "let g:one_allow_italics = 1
 "let g:material_allow_italics = 1
-"syntax enable
+
 "filetype off
 "filetype indent on
 "filetype plugin on

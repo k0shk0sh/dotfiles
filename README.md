@@ -7,6 +7,7 @@
     - VimPlug
 - **ZSH**
     - oh-my-zsh  
+- **Tmux**
 - **Node**
 - **Termux** for Android
     - Styling plugin  
