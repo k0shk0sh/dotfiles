@@ -16,14 +16,20 @@ call plug#begin('~/.vim/plugged')
 		" Automatically quit Vim if NERDTree is last and only buffer
 		autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-		" Move the cursor to the file editing area when vim starts up. Then, you can navigate between ^W H|J|K|L
+		" Move the cursor to editor when vim starts up. Then, you can navigate between ^W H|J|K|L
 		autocmd VimEnter * NERDTree | wincmd p
-  	Plug 'pangloss/vim-javascript'
-  	Plug 'bling/vim-airline'
+
+	Plug 'bling/vim-airline'
   		let g:airline_powerline_fonts = 1
   		let g:airline_theme = "laederon"
-	Plug 'edkolev/tmuxline.vim'
-	Plug 'spf13/vim-autoclose'
+
+		Plug 'edkolev/tmuxline.vim'
+
+	Plug 'jiangmiao/auto-pairs'
+
+	Plug 'pangloss/vim-javascript'
+		let g:javascript_plugin_jsdoc = 1
+
 call plug#end()
 
 " -- Global Configuration --------------------------------------------------------------------------
@@ -41,14 +47,15 @@ set wildmenu
 syntax enable
 set relativenumber number
 
-" Color Scheme and Syntax
+" Syntax
 syntax on
 colorscheme monokai
 set t_Co=256
 set cursorline
+
+" Color Scheme
 let g:monokai_term_italic = 1
 let g:monokai_gui_italic = 1
-let g:javascript_plugin_jsdoc = 1
 
 " Indentation
 set tabstop=4

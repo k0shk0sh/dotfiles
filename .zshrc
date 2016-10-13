@@ -1,7 +1,7 @@
 # -- Setup -----------------------------------------------------------------------------------------
 
 if [[ $(uname) = "Darwin" ]]; then
-	plugins=(git tmux osx z zsh-syntax-highlighting history git-extras)
+	plugins=(git tmux osx z zsh-syntax-highlighting history)
 	ZSH_THEME="kutsan"
 
 	export ZSH=/Users/Kutsan/.oh-my-zsh
@@ -10,32 +10,21 @@ if [[ $(uname) = "Darwin" ]]; then
 	# Alias
 	alias god="cd ~/Google\ Drive/Digital"
 
-	# Tmux
-	ZSH_TMUX_AUTOSTART=true
-
 elif [[ $(uname -o) = "Android" ]]; then
-   	plugins=(git zsh-syntax-highlighting history)
+   	plugins=(git tmux zsh-syntax-highlighting history)
 	ZSH_THEME="kutsan-mobile"
 	
 	export ZSH=/data/data/com.termux/files/home/.oh-my-zsh
 	export PATH="/data/data/com.termux/files/usr/bin:/data/data/com.termux/files/usr/bin/applets"
 
-	# Tmux
-	if [[ -z "$TMUX" ]]
-	then
-	    ID="`tmux ls | grep -vm1 attached | cut -d: -f1`"
-	    if [[ -z "$ID" ]]
-	    then
-	        tmux new-session
-	    else
-	        tmux attach-session -t "$ID"
-	    fi
-	fi
-
 elif [[ $(uname) = "Linux" ]]; then
-   	plugins=(git tmux osx z zsh-syntax-highlighting history git-extras)
+   	plugins=(git tmux osx z zsh-syntax-highlighting history)
 	ZSH_THEME="kutsan"
 fi
+
+# Tmux
+ZSH_TMUX_AUTOSTART=true
+export TERM="xterm-256color"
 
 source $ZSH/oh-my-zsh.sh
 

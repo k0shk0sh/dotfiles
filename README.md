@@ -3,17 +3,31 @@
 ![Terminal Screenshot][screenshot]
 
 ## Uses
-- **Vim**
-    - VimPlug
-- **ZSH**
-    - oh-my-zsh  
-- **Tmux**
-- **Node**
-- **Termux** for Android
-    - Styling plugin  
-- **iTerm**
-    - Meslo LG S for Powerline font
-    - Monokai color scheme
+- **[Vim](http://www.vim.org)** - The ubiquitous text editor
+    - [VimPlug](https://github.com/junegunn/vim-plug) - Plugin manager
+        - [NERDTree](https://github.com/scrooloose/nerdtree) - A tree explorer
+        - [Airline](https://github.com/vim-airline/vim-airline) - Statusline bar & tabline
+            - [Tmuxline](https://github.com/edkolev/tmuxline.vim) - Tmux statusline generator
+        - [Auto Pairs](https://github.com/jiangmiao/auto-pairs) - Insert or delete brackets, parens, quotes in pair
+        - [vim-javascript](https://github.com/pangloss/vim-javascript) - Vastly improved JavaScript indentation and syntax support
+    - [Monokai](https://github.com/crusoexia/vim-monokai) - Color scheme
+- **[Zsh](http://www.zsh.org)** - A Unix shell
+    - [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) - Framework for managing Zsh configuration
+        - [git](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins#git) - Git aliases and functions
+        - [tmux](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins#tmux) - Several options for effecting the startup behavior of tmux
+        - [osx](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins#osx) - A few shortcuts for native Mac OS features
+        - [z](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/z) - Tracks your most used directories, based on frecency
+        - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) - Command highlighting
+        - [history](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins#history) - Command line history
+- **[Tmux](https://tmux.github.io)** - Terminal multiplexer
+- **[Node](https://nodejs.org)** - JavaScript runtime environment for developing a diverse variety of tools and applications
+    - [NPM](https://www.npmjs.com) - Node Package Manager
+        - [ngrok](https://www.npmjs.com/package/ngrok) - Secure tunnels to localhost
+- **[Termux](https://play.google.com/store/apps/details?id=com.termux)** - Terminal emulator for Android
+    - [Styling](https://play.google.com/store/apps/details?id=com.termux.styling) - Color schemes and powerline-ready font support
+- **[iTerm](https://www.iterm2.com)** - Terminal emulator for Mac OS
+    - [Meslo LG S](https://github.com/powerline/fonts) - Font
+    - [Monokai](https://github.com/Kutsan/dotfiles/blob/master/.config/iterm/monokai.itermcolors) - Color scheme
 
 ## Installation
 
