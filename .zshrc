@@ -1,7 +1,7 @@
 # -- Setup -----------------------------------------------------------------------------------------
 
 if [[ $(uname) = "Darwin" ]]; then
-	plugins=(git tmux osx z zsh-syntax-highlighting history)
+	plugins=(git tmux osx z zsh-syntax-highlighting)
 	ZSH_THEME="kutsan"
 
 	export ZSH=/Users/Kutsan/.oh-my-zsh
@@ -11,14 +11,14 @@ if [[ $(uname) = "Darwin" ]]; then
 	alias god="cd ~/Google\ Drive/Digital"
 
 elif [[ $(uname -o) = "Android" ]]; then
-   	plugins=(git tmux zsh-syntax-highlighting history)
+   	plugins=(git tmux zsh-syntax-highlighting)
 	ZSH_THEME="kutsan-mobile"
 	
 	export ZSH=/data/data/com.termux/files/home/.oh-my-zsh
 	export PATH="/data/data/com.termux/files/usr/bin:/data/data/com.termux/files/usr/bin/applets"
 
 elif [[ $(uname) = "Linux" ]]; then
-   	plugins=(git tmux osx z zsh-syntax-highlighting history)
+   	plugins=(git tmux osx z zsh-syntax-highlighting)
 	ZSH_THEME="kutsan"
 fi
 
@@ -33,3 +33,4 @@ source $ZSH/oh-my-zsh.sh
 alias zshrc="vim ~/.zshrc"
 alias vimrc="vim ~/.vimrc"
 alias :q="exit"
+alias h="history"
