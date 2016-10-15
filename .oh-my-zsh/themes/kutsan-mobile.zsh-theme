@@ -77,7 +77,7 @@ prompt_git() {
     dirty=$(parse_git_dirty)
     ref=$(git symbolic-ref HEAD 2> /dev/null) || ref="➦ $(git show-ref --head -s --abbrev |head -n1 2> /dev/null)"
     if [[ -n $dirty ]]; then
-      prompt_segment meganta black
+      prompt_segment magenta black
     else
       prompt_segment green black
     fi
