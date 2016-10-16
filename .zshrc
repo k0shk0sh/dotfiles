@@ -26,7 +26,7 @@ fi
 ZSH_TMUX_AUTOSTART=true
 export TERM="xterm-256color" # For right colors
 
-# Vi Mode
+# Vi-Style
 bindkey -M viins 'jj' vi-cmd-mode # jj to switch Normal mode
 
 # -- Global Alias ----------------------------------------------------------------------------------
@@ -35,5 +35,6 @@ alias zshrc="vim ~/.zshrc"
 alias vimrc="vim ~/.vimrc"
 alias :q="exit"
 alias h="history"
+alias ip="curl ipecho.net/plain;echo"
 
 source $ZSH/oh-my-zsh.sh

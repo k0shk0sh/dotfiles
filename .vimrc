@@ -16,12 +16,12 @@ call plug#begin('~/.vim/plugged')
 		" Automatically quit Vim if NERDTree is last and only buffer
 		autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-		" Move the cursor to editor when vim starts up. Then, you can navigate between ^W H|J|K|L
+		" Move the cursor to editor when vim starts up.
 		autocmd VimEnter * NERDTree | wincmd p
 
 	Plug 'bling/vim-airline'
-  		let g:airline_powerline_fonts = 1
-  		let g:airline_theme = "laederon"
+		let g:airline_powerline_fonts = 1
+		let g:airline_theme = "laederon"
 
 		Plug 'edkolev/tmuxline.vim'
 
@@ -35,7 +35,7 @@ call plug#end()
 " -- Global Configuration --------------------------------------------------------------------------
 
 " General
-set nocompatible " be iMproved, required
+set nocompatible " Use Vim settings, rather then Vi settings
 set encoding=utf-8 " Default encoding
 set cursorline
 set mouse=a " Enable mouse use in all modes
@@ -95,4 +95,11 @@ set directory=~/.vim/temp/swap//
 
 " -- Shortcuts -------------------------------------------------------------------------------------
 
-imap jj <esc> " ESC to normal mode
+" ESC to normal mode
+imap jj <esc>
+
+" Pane nagivation with ^ + h|j|k|l
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
