@@ -2,7 +2,7 @@ if [[ $(uname) = "Darwin" ]]; then
 	plugins=(git tmux osx z zsh-syntax-highlighting vi-style)
 	ZSH_THEME="kutsan"
 
-	export ZSH=/Users/Kutsan/.oh-my-zsh
+	export ZSH=/Users/$(whoami)/.oh-my-zsh
 	export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/"
 
 	# Alias
@@ -19,7 +19,7 @@ elif [[ $(uname) = "Linux" ]]; then
    	plugins=(git tmux osx z zsh-syntax-highlighting vi-style)
 	ZSH_THEME="kutsan"
 
-	export ZSH=/home/Kutsan/.oh-my-zsh
+	export ZSH=/home/$(whoami)/.oh-my-zsh
 fi
 
 # -- Plugins ---------------------------------------------------------------------------------------
