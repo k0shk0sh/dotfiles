@@ -3,7 +3,7 @@
 ![Terminal Screenshot][screenshot]
 
 ## Uses
-- **[Homebrew](http://brew.sh/)** - Package manager for Mac OS
+- [Homebrew](http://brew.sh/) - Package manager for Mac OS
     - [Zsh](http://www.zsh.org) - Unix shell
         - [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) - Framework for managing Zsh configuration
             - Theme
@@ -34,13 +34,12 @@
           - [ngrok](https://www.npmjs.com/package/ngrok) - Secure tunnels to localhost
     - [git-extras](https://github.com/tj/git-extras) - Extra commands for Git
     - [GnuPG](https://www.gnupg.org) - Replacement for Symantec's PGP cryptographic software suite
-    - [Keybase](https://keybase.io) - Publicly auditable proofs of identity
     - [Tree](http://mama.indstate.edu/users/ice/tree) - Recursive directory listing
     - [Trash](https://github.com/sindresorhus/trash) - Move files and folders to the trash
-- **[iTerm](https://www.iterm2.com)** - Terminal emulator for Mac OS
+- [iTerm](https://www.iterm2.com) - Terminal emulator for Mac OS
     - [Meslo LG S](https://github.com/powerline/fonts) - Font
     - [Monokai](https://github.com/Kutsan/dotfiles/blob/master/.config/iterm/monokai.itermcolors) - Color scheme
-- **[Termux](https://play.google.com/store/apps/details?id=com.termux)** - Terminal emulator for Android
+- [Termux](https://play.google.com/store/apps/details?id=com.termux) - Terminal emulator for Android
     - [Styling](https://play.google.com/store/apps/details?id=com.termux.styling) - Color schemes and powerline-ready font support
         - [Monokai](https://github.com/Kutsan/dotfiles/blob/master/.termux/colors.properties) - Color scheme
 
@@ -49,16 +48,8 @@
 :warning: _Do not install if you don't know what you are doing._
 
 ```bash
-$ cd
-$ git init
-$ git remote add origin https://github.com/Kutsan/dotfiles.git
-$ git fetch origin
-$ git checkout --force -b master --track origin/master
+curl -L https://github.com/Kutsan/dotfiles/tree/master/.tools/install.sh | bash
 ```
-
-#### Vim
-
-    :PlugInstall
 
 ## Credits
 

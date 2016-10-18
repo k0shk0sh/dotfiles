@@ -18,6 +18,8 @@ elif [[ $(uname -o) = "Android" ]]; then
 elif [[ $(uname) = "Linux" ]]; then
    	plugins=(git tmux osx z zsh-syntax-highlighting vi-style)
 	ZSH_THEME="kutsan"
+
+	export ZSH=/home/Kutsan/.oh-my-zsh
 fi
 
 # -- Plugins ---------------------------------------------------------------------------------------
