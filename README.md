@@ -48,7 +48,7 @@
 :warning: _Do not install if you don't know what you are doing._
 
 ```bash
-curl -L https://github.com/Kutsan/dotfiles/tree/master/.tools/install.sh | bash
+curl -L https://raw.githubusercontent.com/Kutsan/dotfiles/master/.tools/install.sh | bash
 ```
 
 ## Credits
