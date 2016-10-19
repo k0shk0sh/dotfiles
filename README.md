@@ -47,6 +47,8 @@
 
 :warning: _Do not install if you don't know what you are doing._
 
+The following installation script is compatible with Android (via Termux), Linux (Debian and Ubuntu based Linux distributions) and Mac OS. But be aware, a “dotfiles” is a very personal thing, a question of taste. Look the source code first, before you install.
+
 ```bash
 curl -L https://raw.githubusercontent.com/Kutsan/dotfiles/master/.tools/install.sh | bash
 ```
