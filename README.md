@@ -45,8 +45,7 @@
 
 ## Installation
 
-The following installation script is compatible with Android (via Termux), Linux (Debian and Ubuntu based distributions) and Mac OS. But be aware, a “dotfiles” is a very personal thing, a question of taste. Look the source code first, before you install.
-Also, you may need a Powerline compatible font for special characters.  
+The following installation script is compatible with Android (via Termux), Linux (Debian and Ubuntu based distributions) and Mac OS. But be aware, a “dotfiles” is a very personal thing, a question of taste. Look the source code first, before you install. Also, you may need a Powerline compatible font for special characters.
 
 ```bash
 curl -L https://raw.githubusercontent.com/Kutsan/dotfiles/master/.tools/install.sh | bash

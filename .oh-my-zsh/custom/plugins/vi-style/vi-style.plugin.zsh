@@ -36,10 +36,6 @@ bindkey '^e' end-of-line
 
 # if mode indicator wasn't setup by theme, define default
 if [[ "$MODE_INDICATOR" == "" ]]; then
-  bg=%K{black}
-  fg=%F{white}
-  CURRENT_BG=black
-  
   MODE_INDICATOR="%F{white}%K{white} %F{black}NORMAL "
 fi
 
