@@ -19,4 +19,4 @@
 	untracked = red
 [core]
 	editor = 'vim'
-	excludesfile = /Users/Kutsan/.config/.gitignore_global
+	excludesfile = /Users/Kutsan/.config/git/.gitignore_global

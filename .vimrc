@@ -13,10 +13,16 @@ call plug#begin('~/.vim/plugged')
 		let g:NERDTreeShowBookmarks=1
 		let g:NERDTreeActivateNode='<Space>'
 
+		" Open folders with single-click
+		let g:NERDTreeMouseMode=2
+
+		" Open files/folders using space
+		let NERDTreeMapActivateNode='<space>'
+	
 		" Automatically quit Vim if NERDTree is last and only buffer
 		autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-		" Move the cursor to editor when vim starts up.
+	
+		" Move the cursor to editor when Vim starts up
 		autocmd VimEnter * NERDTree | wincmd p
 
 	Plug 'bling/vim-airline'
@@ -29,6 +35,8 @@ call plug#begin('~/.vim/plugged')
 
 	Plug 'pangloss/vim-javascript'
 		let g:javascript_plugin_jsdoc = 1
+	
+	Plug 'kien/ctrlp.vim'
 
 call plug#end()
 
@@ -45,7 +53,28 @@ set wildmenu
 
 " Editor
 syntax enable
-set relativenumber number
+
+set backspace=indent,eol,start " Allow backspacing over everything in insert mode.
+set showcmd " Display incomplete commands
+
+map Q gq " Don't use Ex mode, use Q for formatting. Revert with ":unmap Q".
+
+set linespace=0 " Clears the space between lines, more compact
+set showmatch " Show matching parantheses (), {}, [] etc.
+set hlsearch " Highlight the matched search results
+set incsearch " Instantly show results when you start searching like /searchTerm
+set ignorecase " Default search is not case sensitive /searchresults
+set smartcase " If a uppercase character is entered, the search will be case sensitive
+set visualbell " Instead of beeping, shows a visual bell on errors
+
+" Line numbers
+set relativenumber number " Show line numbers as default
+autocmd InsertEnter * :set norelativenumber " Disable relative numbers in Insert mode
+autocmd InsertLeave * :set relativenumber " Enable relative numbers in Normal mode
+
+" Clear highlighting on escape in normal mode
+nnoremap <esc> :noh<return><esc>
+nnoremap <esc>^[ <esc>^[
 
 " Syntax
 syntax on
@@ -59,7 +88,6 @@ let g:monokai_gui_italic = 1
 
 " Indentation
 set tabstop=4
-set backspace=1
 set shiftwidth=4
 set softtabstop=4
 set autoindent

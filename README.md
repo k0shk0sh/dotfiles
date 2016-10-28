@@ -2,7 +2,7 @@
 
 ![Terminal Screenshot][screenshot]
 
-## Uses
+## Overview
 - [Homebrew](http://brew.sh/) - Package manager for Mac OS
     - [Zsh](http://www.zsh.org) - Unix shell
         - [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) - Framework for managing Zsh configuration
@@ -37,7 +37,7 @@
     - [Tree](http://mama.indstate.edu/users/ice/tree) - Recursive directory listing
     - [Trash](https://github.com/sindresorhus/trash) - Move files and folders to the trash
 - [iTerm](https://www.iterm2.com) - Terminal emulator for Mac OS
-    - [Meslo LG S](https://github.com/powerline/fonts) - Font
+    - [Roboto Mono](https://github.com/powerline/fonts) - Font
     - [Monokai](https://github.com/Kutsan/dotfiles/blob/master/.config/iterm/monokai.itermcolors) - Color scheme
 - [Termux](https://play.google.com/store/apps/details?id=com.termux) - Terminal emulator for Android
     - [Styling](https://play.google.com/store/apps/details?id=com.termux.styling) - Color schemes and powerline-ready font support
