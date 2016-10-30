@@ -1,0 +1,102 @@
+"*":
+  "atom-beautify":
+    css: {}
+    general:
+      _analyticsUserId: "d625d45c-c85c-4a39-b1b9-6b72d08e554c"
+      analytics: false
+      beautifyEntireFileOnSave: false
+  "atom-material-ui":
+    colors:
+      abaseColor: "#7e57c2"
+      accentColor: "#b0e457"
+      paintCursor: true
+      predefinedColor: "Purple"
+    tabs: {}
+    treeView:
+      compactList: true
+    ui:
+      animations: false
+      panelContrast: true
+      panelShadows: true
+  "atom-ternjs": {}
+  autosave:
+    enabled: true
+  core:
+    disabledPackages: [
+      "go-to-line"
+      "language-c"
+      "language-clojure"
+      "language-csharp"
+      "language-go"
+      "language-objective-c"
+      "language-perl"
+      "language-php"
+      "language-python"
+      "language-ruby"
+      "language-ruby-on-rails"
+      "language-toml"
+      "welcome"
+      "metrics"
+    ]
+    packagesWithKeymapsDisabled: [
+      "bracket-matcher"
+    ]
+    telemetryConsent: "no"
+    themes: [
+      "atom-material-ui"
+      "atom-monokai"
+    ]
+  editor:
+    fontFamily: "Roboto Mono for Powerline"
+    fontSize: 13
+    invisibles: {}
+    preferredLineLength: 100
+    scrollPastEnd: true
+    showIndentGuide: true
+    softTabs: false
+    softWrap: true
+    tabLength: 4
+  "exception-reporting":
+    userId: "488dd77b-bf3d-4eb5-38aa-9468ec20436d"
+  "git-diff": {}
+  linter: {}
+  notifications: {}
+  "status-bar": {}
+  "sync-settings":
+    _analyticsUserId: "3672f53e-e053-4789-afd8-b693822c3bd7"
+    _lastBackupHash: "c17921e2f87d3670646976f040be7cbefb413f30"
+    gistId: "7a7d3c9b01d6eb10844148d8a5a9e0be"
+    personalAccessToken: "6ffd8a5cf8a26a223588b395cdf5f42be93153f0"
+  tabs:
+    enableVcsColoring: true
+  "terminal-plus":
+    core: {}
+  "tokamak-terminal":
+    ansiColors:
+      normal:
+        black: "#3c3c3c"
+        blue: "#ae81ff"
+        cyan: "#66d9ef"
+        green: "#a6e22e"
+        magenta: "#f92a72"
+        red: "#f92a72"
+        white: "#f1f1f1"
+        yellow: "#fd971f"
+      zBright:
+        brightBlack: "#75715e"
+        brightBlue: "#ae81ff"
+        brightCyan: "#66d9ef"
+        brightGreen: "#a6e22e"
+        brightMagenta: "#f92a72"
+        brightRed: "#f92a72"
+        brightWhite: "#f8f8f2"
+        brightYellow: "#e6db74"
+    core: {}
+    style:
+      animationSpeed: 0
+      defaultPanelHeight: "600px"
+      fontFamily: "Roboto Mono for Powerline"
+  "tree-view":
+    hideIgnoredNames: true
+  welcome:
+    showOnStartup: false
