@@ -8,7 +8,6 @@
         - [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) - Framework for managing Zsh configuration
             - Theme
                 - [Kutsan](https://github.com/Kutsan/dotfiles/blob/master/.oh-my-zsh/themes/kutsan.zsh-theme) - (_forked from [wesbos/Cobalt2-iterm](https://github.com/wesbos/Cobalt2-iterm)_)
-                - [Kutsan-Mobile](https://github.com/Kutsan/dotfiles/blob/master/.oh-my-zsh/themes/kutsan-mobile.zsh-theme) - (_forked from [wesbos/Cobalt2-iterm](https://github.com/wesbos/Cobalt2-iterm)_)
             - Plugins
                 - Built-in
                     - [git](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins#git) - Git aliases and functions
@@ -42,6 +41,7 @@
 - [Termux](https://play.google.com/store/apps/details?id=com.termux) - Terminal emulator for Android
     - [Styling](https://play.google.com/store/apps/details?id=com.termux.styling) - Color schemes and powerline-ready font support
         - [Monokai](https://github.com/Kutsan/dotfiles/blob/master/.termux/colors.properties) - Color scheme
+- [Atom](https://atom.io) - A hackable text editor for the 21st Century
 
 ## Installation
 
