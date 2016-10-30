@@ -1,6 +1,7 @@
+ZSH_THEME="kutsan"
+
 if [[ $(uname) = "Darwin" ]]; then
 	plugins=(git tmux osx z zsh-syntax-highlighting vi-style)
-	ZSH_THEME="kutsan"
 
 	export ZSH=/Users/$(whoami)/.oh-my-zsh
 	export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/"
@@ -10,14 +11,12 @@ if [[ $(uname) = "Darwin" ]]; then
 
 elif [[ $(uname -o) = "Android" ]]; then
    	plugins=(git tmux zsh-syntax-highlighting vi-style)
-	ZSH_THEME="kutsan-mobile"
-	
+
 	export ZSH=/data/data/com.termux/files/home/.oh-my-zsh
 	export PATH="/data/data/com.termux/files/usr/bin:/data/data/com.termux/files/usr/bin/applets"
 
 elif [[ $(uname) = "Linux" ]]; then
    	plugins=(git tmux osx z zsh-syntax-highlighting vi-style)
-	ZSH_THEME="kutsan"
 
 	export ZSH=/home/$(whoami)/.oh-my-zsh
 fi
