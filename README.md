@@ -19,7 +19,7 @@
                     - [vi-style](https://github.com/Kutsan/dotfiles/tree/master/.oh-my-zsh/custom/plugins/vi-style/vi-style.plugin.zsh) - Vi mode (_forked from [robbyrussell/oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/vi-mode/vi-mode.plugin.zsh)_)
     - [Vim](http://www.vim.org) - The ubiquitous text editor
         - [VimPlug](https://github.com/junegunn/vim-plug) - Plugin manager
-            - [NERDTree](https://github.com/scrooloose/nerdtree) - A tree explorer
+            1. [NERDTree](https://github.com/scrooloose/nerdtree) - A tree explorer
             - [Airline](https://github.com/vim-airline/vim-airline) - Statusline bar & tabline
                 - [Laederon](https://github.com/vim-airline/vim-airline-themes/blob/master/autoload/airline/themes/laederon.vim) - Theme
                 - [Tmuxline](https://github.com/edkolev/tmuxline.vim) - Tmux statusline generator
@@ -42,6 +42,33 @@
     - [Styling](https://play.google.com/store/apps/details?id=com.termux.styling) - Color schemes and powerline-ready font support
         - [Monokai](https://github.com/Kutsan/dotfiles/blob/master/.termux/colors.properties) - Color scheme
 - [Atom](https://atom.io) - A hackable text editor for the 21st Century
+	- Theme
+		- [atom-material-ui](https://atom.io/packages/atom-material-ui) - A dark UI theme for Atom that follows Google's Material Design Guidelines
+		- [atom-monokai](https://atom.io/packages/atom-monokai) - Monokai syntax theme for Atom Dark, One Dark, Seti UI and other
+	- Plugins
+		1. [atom-beautify](https://atom.io/packages/atom-beautify) - Beautify HTML, CSS, JavaScript, PHP, Python, Ruby, Java, C, C++, C#, Objective-C, CoffeeScript, TypeScript, Coldfusion, SQL, and more in Atom
+		- [atom-ternjs](https://atom.io/packages/atom-ternjs) - JavaScript code intelligence for atom with Tern. Adds support for ES5, ES6 (JavaScript 2015), Node.js, jQuery & Angular. Extendable via plugins. Uses suggestion provider by autocomplete-plus.
+		- [docblockr](https://atom.io/packages/docblockr) - A helper package for writing documentation
+		- [editorconfig](https://atom.io/packages/editorconfig) - Helps developers maintain consistent coding styles between different editors
+		- [file-icons](https://atom.io/packages/file-icons) - Assign file extension icons and colours for improved visual grepping
+		- [highlight-selected](https://atom.io/packages/highlight-selected) - Highlights the current word selected when double clicking
+		- [js-hyperclick](https://atom.io/packages/js-hyperclick) - A hyperclick provider that lets you jump to where variables are defined.
+		- [js-refactor](https://atom.io/packages/js-refactor) - Refactoring support for JavaScript
+		- [language-javascript-jsx](https://atom.io/packages/language-javascript-jsx) - JavaScript, ES6, ES7, React JSX, Flow, etc… by SubtleGradient of Facebook
+		- [language-markdown](https://atom.io/packages/language-markdown) - Adds grammar support for Markdown (including Github flavored, AtomDoc, Markdown Extra, CriticMark, YAML/TOML front-matter, and R Markdown), and smart context-aware behavior to lists, and keyboard shortcuts for inline emphasis.
+		- [linter](https://atom.io/packages/linter) - A Base Linter with Cow Powers
+		- [linter-eslint](https://atom.io/packages/linter-eslint) - Lint JavaScript on the fly, using ESLint
+		- [local-history](https://atom.io/packages/local-history) - Maintaining local history of files (history of your changes to the code files).
+		- [open-recent](https://atom.io/packages/open-recent) - Open recent files in the current window, and recent folders (optionally) in a new window.
+		- [open-this](https://atom.io/packages/open-this) - Open file under cursor like `gf`(Vim), `C-x C-f`(Emacs)
+		- [pigments](https://atom.io/packages/pigments) - A package to display colors in project and files.
+		- [react](https://atom.io/packages/react) - React.js (JSX) language support, indentation, snippets, auto completion, reformatting
+		- [refactor](https://atom.io/packages/refactor) - Refactoring support
+		- [relative-numbers](https://atom.io/packages/relative-numbers) - Relative line numbers for Atom
+		- [todo-show](https://atom.io/packages/todo-show) - Finds all the TODOs, FIXMEs, CHANGEDs, etc. in your project.
+		- [tokamak-terminal](https://atom.io/packages/tokamak-terminal) - A terminal package for Atom, complete with themes, API and more for Tokamak IDE. Fork of terminal-plus.
+		- [vim-mode-plus](https://atom.io/packages/vim-mode-plus) - vim-mode improved
+		- [wakatime](https://atom.io/packages/wakatime) - Fitbit for programmers. Get automated metrics and insights about your programming.
 
 ## Installation
 

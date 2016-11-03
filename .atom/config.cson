@@ -1,26 +1,24 @@
 "*":
   "atom-beautify":
-    css: {}
     general:
-      _analyticsUserId: "d625d45c-c85c-4a39-b1b9-6b72d08e554c"
       analytics: false
       beautifyEntireFileOnSave: false
+    jsx:
+      space_after_anon_function: true
   "atom-material-ui":
     colors:
       abaseColor: "#7e57c2"
       accentColor: "#b0e457"
       paintCursor: true
       predefinedColor: "Purple"
-    tabs: {}
+    tabs:
+      compactTabs: true
     treeView:
       compactList: true
     ui:
       animations: false
       panelContrast: true
       panelShadows: true
-  "atom-ternjs": {}
-  autosave:
-    enabled: true
   core:
     disabledPackages: [
       "go-to-line"
@@ -37,10 +35,11 @@
       "language-toml"
       "welcome"
       "metrics"
+      "spell-check"
+      "language-gfm"
     ]
-    packagesWithKeymapsDisabled: [
-      "bracket-matcher"
-    ]
+    openEmptyEditorOnStart: false
+    projectHome: "/Users/Kutsan/Google Drive/Digital"
     telemetryConsent: "no"
     themes: [
       "atom-material-ui"
@@ -58,19 +57,35 @@
     tabLength: 4
   "exception-reporting":
     userId: "488dd77b-bf3d-4eb5-38aa-9468ec20436d"
+  "file-icons": {}
   "git-diff": {}
-  linter: {}
+  "highlight-selected": {}
+  "js-hyperclick":
+    usePendingPanes: true
+  linter:
+    displayLinterStatus: false
+    ignoreMatchedFiles: "/**/*.{min,bundle}.{js,css}"
+    lintOnFlyInterval: 600
+  "linter-eslint": {}
+  "local-history":
+    daysLimit: 2
   notifications: {}
-  "status-bar": {}
-  "sync-settings":
-    _analyticsUserId: "3672f53e-e053-4789-afd8-b693822c3bd7"
-    _lastBackupHash: "c17921e2f87d3670646976f040be7cbefb413f30"
-    gistId: "7a7d3c9b01d6eb10844148d8a5a9e0be"
-    personalAccessToken: "6ffd8a5cf8a26a223588b395cdf5f42be93153f0"
+  "open-recent":
+    maxRecentFiles: 4
+    replaceProjectOnOpenDirectory: true
   tabs:
     enableVcsColoring: true
-  "terminal-plus":
-    core: {}
+  "todo-show":
+    ignoreThesePaths: [
+      "**/node_modules/"
+      "**/vendor/"
+      "**/bower_components/"
+      "*.bundle.js"
+      "*.min.css"
+    ]
+    sortAscending: false
+    sortBy: "Type"
+    statusBarIndicator: true
   "tokamak-terminal":
     ansiColors:
       normal:
@@ -98,5 +113,45 @@
       fontFamily: "Roboto Mono for Powerline"
   "tree-view":
     hideIgnoredNames: true
+  wakatime:
+    apikey: "Saved in your ~/.wakatime.cfg file"
+  "wakatime-hidden":
+    lastInit: 1478138923
   welcome:
     showOnStartup: false
+".attribute-values.js.jsx.source":
+  editor:
+    preferredLineLength: 100
+    tabLength: 4
+".basic.html.text":
+  editor:
+    preferredLineLength: 100
+    tabLength: 4
+".editorconfig.source":
+  editor:
+    preferredLineLength: 100
+    tabLength: 4
+".js.jsx.react.source":
+  editor:
+    preferredLineLength: 100
+    tabLength: 4
+".js.jsx.source":
+  editor:
+    preferredLineLength: 100
+    tabLength: 4
+".js.source.subtlegradient":
+  editor:
+    preferredLineLength: 100
+    tabLength: 4
+".json.source":
+  editor:
+    preferredLineLength: 100
+    tabLength: 4
+".md.text":
+  editor:
+    preferredLineLength: 100
+    tabLength: 4
+".text.todo":
+  editor:
+    preferredLineLength: 100
+    tabLength: 4
