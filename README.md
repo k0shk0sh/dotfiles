@@ -46,7 +46,7 @@
 	- Theme
 		- [atom-material-ui](https://atom.io/packages/atom-material-ui) - A dark UI theme for Atom that follows Google's Material Design Guidelines
 		- [atom-monokai](https://atom.io/packages/atom-monokai) - Monokai syntax theme for Atom Dark, One Dark, Seti UI and other
-	- Plugins
+	- Packages
 		- [atom-beautify](https://atom.io/packages/atom-beautify) - Beautify HTML, CSS, JavaScript, PHP, Python, Ruby, Java, C, C++, C#, Objective-C, CoffeeScript, TypeScript, Coldfusion, SQL, and more in Atom
 		- [atom-ternjs](https://atom.io/packages/atom-ternjs) - JavaScript code intelligence for atom with Tern. Adds support for ES5, ES6 (JavaScript 2015), Node.js, jQuery & Angular. Extendable via plugins. Uses suggestion provider by autocomplete-plus.
 		- [docblockr](https://atom.io/packages/docblockr) - A helper package for writing documentation
@@ -79,7 +79,7 @@ curl -L https://raw.githubusercontent.com/Kutsan/dotfiles/master/.tools/install.
 
 ## Credits
 
-> _Logo from [jglovier/dotfiles-logo]_
+- Logo from [jglovier/dotfiles-logo]
 
 [screenshot]: https://i.imgur.com/luTixwP.png
 [jglovier/dotfiles-logo]: https://github.com/jglovier/dotfiles-logo
