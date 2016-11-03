@@ -1,0 +1,25 @@
+{
+	"env":
+	{
+		"node": true,
+		"es6": true,
+		"browser": true
+	},
+	"extends": "eslint:recommended",
+	"parserOptions":
+	{
+		"ecmaFeatures":
+		{
+			"impliedStrict": false
+		}
+	},
+	"rules":
+	{
+		"indent": ["warn", "tab"],
+		"linebreak-style": ["warn", "unix"],
+		"quotes": ["off", "single"],
+		"semi": ["off", "always"],
+		"no-console": "off",
+		"no-unused-vars": "warn"
+	}
+}

@@ -19,7 +19,7 @@
                     - [vi-style](https://github.com/Kutsan/dotfiles/tree/master/.oh-my-zsh/custom/plugins/vi-style/vi-style.plugin.zsh) - Vi mode (_forked from [robbyrussell/oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/vi-mode/vi-mode.plugin.zsh)_)
     - [Vim](http://www.vim.org) - The ubiquitous text editor
         - [VimPlug](https://github.com/junegunn/vim-plug) - Plugin manager
-            1. [NERDTree](https://github.com/scrooloose/nerdtree) - A tree explorer
+            - [NERDTree](https://github.com/scrooloose/nerdtree) - A tree explorer
             - [Airline](https://github.com/vim-airline/vim-airline) - Statusline bar & tabline
                 - [Laederon](https://github.com/vim-airline/vim-airline-themes/blob/master/autoload/airline/themes/laederon.vim) - Theme
                 - [Tmuxline](https://github.com/edkolev/tmuxline.vim) - Tmux statusline generator
@@ -31,6 +31,7 @@
     - [NodeJS](https://nodejs.org) - JavaScript runtime environment for developing a diverse variety of tools and applications
       - [NPM](https://www.npmjs.com) - Node Package Manager
           - [ngrok](https://www.npmjs.com/package/ngrok) - Secure tunnels to localhost
+		  - [eslint](https://www.npmjs.com/package/eslint) - An AST-based pattern checker for JavaScript
     - [git-extras](https://github.com/tj/git-extras) - Extra commands for Git
     - [GnuPG](https://www.gnupg.org) - Replacement for Symantec's PGP cryptographic software suite
     - [Tree](http://mama.indstate.edu/users/ice/tree) - Recursive directory listing
@@ -46,7 +47,7 @@
 		- [atom-material-ui](https://atom.io/packages/atom-material-ui) - A dark UI theme for Atom that follows Google's Material Design Guidelines
 		- [atom-monokai](https://atom.io/packages/atom-monokai) - Monokai syntax theme for Atom Dark, One Dark, Seti UI and other
 	- Plugins
-		1. [atom-beautify](https://atom.io/packages/atom-beautify) - Beautify HTML, CSS, JavaScript, PHP, Python, Ruby, Java, C, C++, C#, Objective-C, CoffeeScript, TypeScript, Coldfusion, SQL, and more in Atom
+		- [atom-beautify](https://atom.io/packages/atom-beautify) - Beautify HTML, CSS, JavaScript, PHP, Python, Ruby, Java, C, C++, C#, Objective-C, CoffeeScript, TypeScript, Coldfusion, SQL, and more in Atom
 		- [atom-ternjs](https://atom.io/packages/atom-ternjs) - JavaScript code intelligence for atom with Tern. Adds support for ES5, ES6 (JavaScript 2015), Node.js, jQuery & Angular. Extendable via plugins. Uses suggestion provider by autocomplete-plus.
 		- [docblockr](https://atom.io/packages/docblockr) - A helper package for writing documentation
 		- [editorconfig](https://atom.io/packages/editorconfig) - Helps developers maintain consistent coding styles between different editors
@@ -71,8 +72,6 @@
 		- [wakatime](https://atom.io/packages/wakatime) - Fitbit for programmers. Get automated metrics and insights about your programming.
 
 ## Installation
-
-The following installation script is compatible with Android (via Termux), Linux (Debian and Ubuntu based distributions) and Mac OS. But be aware, a “dotfiles” is a very personal thing, a question of taste. Look the source code first, before you install. Also, you may need a Powerline compatible font for special characters.
 
 ```bash
 curl -L https://raw.githubusercontent.com/Kutsan/dotfiles/master/.tools/install.sh | bash
