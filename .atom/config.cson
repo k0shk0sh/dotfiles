@@ -4,6 +4,7 @@
       analytics: false
       beautifyEntireFileOnSave: false
     jsx:
+      indent_with_tabs: true
       space_after_anon_function: true
   "atom-material-ui":
     colors:
@@ -11,6 +12,7 @@
       accentColor: "#b0e457"
       paintCursor: true
       predefinedColor: "Purple"
+    fonts: {}
     tabs:
       compactTabs: true
     treeView:
@@ -19,6 +21,8 @@
       animations: false
       panelContrast: true
       panelShadows: true
+  autosave:
+    enabled: true
   core:
     disabledPackages: [
       "go-to-line"
@@ -36,14 +40,14 @@
       "welcome"
       "metrics"
       "spell-check"
-      "language-gfm"
+      "exception-reporting"
     ]
     openEmptyEditorOnStart: false
     projectHome: "/Users/Kutsan/Google Drive/Digital"
     telemetryConsent: "no"
     themes: [
       "atom-material-ui"
-      "atom-monokai"
+      "atom-material-syntax-dark"
     ]
   editor:
     fontFamily: "Roboto Mono for Powerline"
@@ -51,15 +55,22 @@
     invisibles: {}
     preferredLineLength: 100
     scrollPastEnd: true
-    showIndentGuide: true
     softTabs: false
     tabLength: 4
-  "exception-reporting":
-    userId: "488dd77b-bf3d-4eb5-38aa-9468ec20436d"
   "file-icons": {}
+  "genesis-ui":
+    distractionFree: {}
+    treeView:
+      toggleHovers: false
   "git-diff": {}
   "highlight-selected": {}
   "js-hyperclick":
+    extensions: [
+      ".js"
+      ".json"
+      ".node"
+      ".jsx"
+    ]
     usePendingPanes: true
   linter:
     displayLinterStatus: false
@@ -68,6 +79,15 @@
   "linter-eslint": {}
   "local-history":
     daysLimit: 2
+  "markdown-preview": {}
+  minimap:
+    absoluteMode: true
+    adjustMinimapWidthToSoftWrap: false
+    plugins:
+      cursorline: true
+      cursorlineDecorationsZIndex: 0
+      "minimap-hide": true
+      "minimap-hideDecorationsZIndex": 0
   notifications: {}
   "open-recent":
     maxRecentFiles: 4
@@ -115,10 +135,14 @@
   wakatime:
     apikey: "Saved in your ~/.wakatime.cfg file"
   "wakatime-hidden":
-    lastInit: 1478138923
+    lastInit: 1478439536
   welcome:
     showOnStartup: false
 ".attribute-values.js.jsx.source":
+  editor:
+    preferredLineLength: 100
+    tabLength: 4
+".babel.regexp.source":
   editor:
     preferredLineLength: 100
     tabLength: 4
@@ -126,7 +150,19 @@
   editor:
     preferredLineLength: 100
     tabLength: 4
+".css.source.styled":
+  editor:
+    preferredLineLength: 100
+    tabLength: 4
 ".editorconfig.source":
+  editor:
+    preferredLineLength: 100
+    tabLength: 4
+".gfm.source":
+  editor:
+    preferredLineLength: 100
+    tabLength: 4
+".hyperlink.text":
   editor:
     preferredLineLength: 100
     tabLength: 4
@@ -146,7 +182,19 @@
   editor:
     preferredLineLength: 100
     tabLength: 4
+".languagebabel.ttlextension":
+  editor:
+    preferredLineLength: 100
+    tabLength: 4
 ".md.text":
+  editor:
+    preferredLineLength: 100
+    softWrap: false
+    softWrapAtPreferredLineLength: false
+    tabLength: 4
+  whitespace:
+    removeTrailingWhitespace: false
+".plain.text":
   editor:
     preferredLineLength: 100
     tabLength: 4

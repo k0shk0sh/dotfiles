@@ -36,6 +36,7 @@
     - [GnuPG](https://www.gnupg.org) - Replacement for Symantec's PGP cryptographic software suite
     - [Tree](http://mama.indstate.edu/users/ice/tree) - Recursive directory listing
     - [Trash](https://github.com/sindresorhus/trash) - Move files and folders to the trash
+	- [nmap](https://nmap.org) - Network security scanner
 - [iTerm](https://www.iterm2.com) - Terminal emulator for Mac OS
     - [Roboto Mono](https://github.com/powerline/fonts) - Font
     - [Monokai](https://github.com/Kutsan/dotfiles/blob/master/.config/iterm/monokai.itermcolors) - Color scheme
