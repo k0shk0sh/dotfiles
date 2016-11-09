@@ -43,7 +43,7 @@
       "exception-reporting"
     ]
     openEmptyEditorOnStart: false
-    projectHome: "/Users/Kutsan/Google Drive/Digital"
+    projectHome: "/Users/Kutsan/Google Drive/"
     telemetryConsent: "no"
     themes: [
       "atom-material-ui"
@@ -58,11 +58,8 @@
     softTabs: false
     tabLength: 4
   "file-icons": {}
-  "genesis-ui":
-    distractionFree: {}
-    treeView:
-      toggleHovers: false
   "git-diff": {}
+  "grammar-selector": {}
   "highlight-selected": {}
   "js-hyperclick":
     extensions: [
@@ -80,18 +77,11 @@
   "local-history":
     daysLimit: 2
   "markdown-preview": {}
-  minimap:
-    absoluteMode: true
-    adjustMinimapWidthToSoftWrap: false
-    plugins:
-      cursorline: true
-      cursorlineDecorationsZIndex: 0
-      "minimap-hide": true
-      "minimap-hideDecorationsZIndex": 0
   notifications: {}
-  "open-recent":
-    maxRecentFiles: 4
-    replaceProjectOnOpenDirectory: true
+  "project-plus":
+    notifications: false
+    showPath: true
+  "relative-numbers": {}
   tabs:
     enableVcsColoring: true
   "todo-show":
@@ -135,7 +125,7 @@
   wakatime:
     apikey: "Saved in your ~/.wakatime.cfg file"
   "wakatime-hidden":
-    lastInit: 1478439536
+    lastInit: 1478686970
   welcome:
     showOnStartup: false
 ".attribute-values.js.jsx.source":
@@ -159,6 +149,18 @@
     preferredLineLength: 100
     tabLength: 4
 ".gfm.source":
+  editor:
+    preferredLineLength: 100
+    tabLength: 4
+".git-commit.text":
+  editor:
+    preferredLineLength: 100
+    tabLength: 4
+".git-config.source":
+  editor:
+    preferredLineLength: 100
+    tabLength: 4
+".git-rebase.text":
   editor:
     preferredLineLength: 100
     tabLength: 4
