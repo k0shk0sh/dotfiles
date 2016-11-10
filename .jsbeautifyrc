@@ -33,7 +33,6 @@ js:
     - js
     - json
     - eslintrc
-    - jsbeautifyrc
     - jsx
   brace_style: expand
   break_chained_methods: false

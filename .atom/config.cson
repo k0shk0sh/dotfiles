@@ -21,6 +21,8 @@
       animations: false
       panelContrast: true
       panelShadows: true
+  "atom-ternjs":
+    useSnippets: true
   autosave:
     enabled: true
   core:
@@ -125,7 +127,7 @@
   wakatime:
     apikey: "Saved in your ~/.wakatime.cfg file"
   "wakatime-hidden":
-    lastInit: 1478686970
+    lastInit: 1478775648
   welcome:
     showOnStartup: false
 ".attribute-values.js.jsx.source":

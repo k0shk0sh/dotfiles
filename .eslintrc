@@ -15,7 +15,7 @@
 	},
 	"rules":
 	{
-		"indent": ["warn", "tab"],
+		"indent": ["warn", "tab", {"SwitchCase": 1}],
 		"linebreak-style": ["warn", "unix"],
 		"quotes": ["off", "single"],
 		"semi": ["off", "always"],

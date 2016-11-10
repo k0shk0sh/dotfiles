@@ -47,32 +47,30 @@
 - [Atom](https://atom.io) - A hackable text editor for the 21st Century
 	- Theme
 		- [atom-material-ui](https://atom.io/packages/atom-material-ui) - A dark UI theme for Atom that follows Google's Material Design Guidelines
-		- [atom-material-syntax-dark](https://atom.io/packages/atom-material-syntax-dark) - Monokai syntax theme for Atom Dark, One Dark, Seti UI and other
+		- [atom-material-syntax-dark](https://atom.io/packages/atom-material-syntax-dark) - A darker syntax theme for Atom that uses Google's Material Design color palette
 	- Packages
-		- [atom-beautify](https://atom.io/packages/atom-beautify) - Beautify HTML, CSS, JavaScript, PHP, Python, Ruby, Java, C, C++, C#, Objective-C, CoffeeScript, TypeScript, Coldfusion, SQL, and more in Atom
-		- [atom-ternjs](https://atom.io/packages/atom-ternjs) - JavaScript code intelligence for atom with Tern. Adds support for ES5, ES6 (JavaScript 2015), Node.js, jQuery & Angular. Extendable via plugins. Uses suggestion provider by autocomplete-plus.
+		- [atom-beautify](https://atom.io/packages/atom-beautify) - Code beautify
+		- [atom-ternjs](https://atom.io/packages/atom-ternjs) - JavaScript intelligent code completion
 		- [docblockr](https://atom.io/packages/docblockr) - A helper package for writing documentation
 		- [editorconfig](https://atom.io/packages/editorconfig) - Helps developers maintain consistent coding styles between different editors
 		- [file-icons](https://atom.io/packages/file-icons) - Assign file extension icons and colours for improved visual grepping
 		- [highlight-selected](https://atom.io/packages/highlight-selected) - Highlights the current word selected when double clicking
-		- [indent-guide-improved](https://atom.io/packages/indent-guide-improved) - This draws indent guide more correctly and understandably.
-		- [js-hyperclick](https://atom.io/packages/js-hyperclick) - A hyperclick provider that lets you jump to where variables are defined.
+		- [indent-guide-improved](https://atom.io/packages/indent-guide-improved) - This draws indent guide more correctly and understandably
+		- [js-hyperclick](https://atom.io/packages/js-hyperclick) - A hyperclick provider that lets you jump to where variables are defined
 		- [js-refactor](https://atom.io/packages/js-refactor) - Refactoring support for JavaScript
-		- [language-babel](https://atom.io/packages/js-refactor) - JavaScript ES201x, React JSX, Flow and GraphQL Grammar. Babel Transpiler
+		- [language-babel](https://atom.io/packages/js-refactor) - Babel language grammar support
 		- [linter](https://atom.io/packages/linter) - A Base Linter with Cow Powers
 		- [linter-eslint](https://atom.io/packages/linter-eslint) - Lint JavaScript on the fly, using ESLint
-		- [local-history](https://atom.io/packages/local-history) - Maintaining local history of files (history of your changes to the code files).
-		- [node-debugger](https://atom.io/packages/node-debugger) - Debugger For NodeJS
-		- [open-this](https://atom.io/packages/open-this) - Open file under cursor like `gf`(Vim), `C-x C-f`(Emacs)
-		- [pigments](https://atom.io/packages/pigments) - A package to display colors in project and files.
-		- [project-plus](https://atom.io/packages/project-plus) - Simply awesome project management in Atom.
-		- [refactor](https://atom.io/packages/refactor) - Refactoring support
-		- [relative-numbers](https://atom.io/packages/relative-numbers) - Relative line numbers for Atom
-		- [script](https://atom.io/packages/script) - Script runner
-		- [todo-show](https://atom.io/packages/todo-show) - Finds all the TODOs, FIXMEs, CHANGEDs, etc. in your project.
-		- [tokamak-terminal](https://atom.io/packages/tokamak-terminal) - A terminal package for Atom, complete with themes, API and more for Tokamak IDE. Fork of terminal-plus.
+		- [local-history](https://atom.io/packages/local-history) - Maintaining local history of files
+		- [open-this](https://atom.io/packages/open-this) - Open file under cursor like `gf` in Vim
+		- [pigments](https://atom.io/packages/pigments) - A package to display colors in project and files
+		- [project-plus](https://atom.io/packages/project-plus) - Simply awesome project management
+		- [refactor](https://atom.io/packages/refactor) - Base refactoring support
+		- [relative-numbers](https://atom.io/packages/relative-numbers) - Relative line numbers
+		- [todo-show](https://atom.io/packages/todo-show) - Finds all the TODOs, FIXMEs, CHANGEDs, etc.
+		- [tokamak-terminal](https://atom.io/packages/tokamak-terminal) - A terminal package
 		- [vim-mode-plus](https://atom.io/packages/vim-mode-plus) - vim-mode improved
-		- [wakatime](https://atom.io/packages/wakatime) - Fitbit for programmers. Get automated metrics and insights about your programming.
+		- [wakatime](https://atom.io/packages/wakatime) - Get automated metrics and insights about your programming
 
 ## Installation
 
