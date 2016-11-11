@@ -1,7 +1,15 @@
 ZSH_THEME="kutsan"
 
 if [[ $(uname) = "Darwin" ]]; then
-	plugins=(git tmux osx z zsh-syntax-highlighting vi-style)
+	plugins=(
+		git
+		tmux
+		osx
+		z
+		zsh-syntax-highlighting
+		vi-style
+		zsh-autosuggestions
+	)
 
 	export ZSH=/Users/$(whoami)/.oh-my-zsh
 	export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/"
@@ -10,24 +18,38 @@ if [[ $(uname) = "Darwin" ]]; then
 	alias god="cd ~/Google\ Drive/Digital"
 
 elif [[ $(uname -o) = "Android" ]]; then
-   	plugins=(git tmux zsh-syntax-highlighting vi-style)
+   	plugins=(
+		git
+		tmux
+		zsh-syntax-highlighting
+		vi-style
+		zsh-autosuggestions
+	)
 
 	export ZSH=/data/data/com.termux/files/home/.oh-my-zsh
 	export PATH="/data/data/com.termux/files/usr/bin:/data/data/com.termux/files/usr/bin/applets"
 
 elif [[ $(uname) = "Linux" ]]; then
-   	plugins=(git tmux osx z zsh-syntax-highlighting vi-style)
+   	plugins=(
+		git
+		tmux
+		osx
+		z
+		zsh-syntax-highlighting
+		vi-style
+		zsh-autosuggestions
+	)
 
 	export ZSH=/home/$(whoami)/.oh-my-zsh
 fi
 
 # -- Plugins ---------------------------------------------------------------------------------------
 
-# Tmux
+# tmux
 ZSH_TMUX_AUTOSTART=true
 export TERM="xterm-256color" # For right colors
 
-# Vi-Style
+# vi-style
 bindkey -M viins 'jj' vi-cmd-mode # jj to switch Normal mode
 
 # -- Global Alias ----------------------------------------------------------------------------------

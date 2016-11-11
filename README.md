@@ -17,6 +17,7 @@
                 - Custom
                     - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) - Command highlighting
                     - [vi-style](https://github.com/Kutsan/dotfiles/tree/master/.oh-my-zsh/custom/plugins/vi-style/vi-style.plugin.zsh) - Vi mode (_forked from [robbyrussell/oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/vi-mode/vi-mode.plugin.zsh)_)
+					- [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) - Fish-like autosuggestions for Zsh
     - [Vim](http://www.vim.org) - The ubiquitous text editor
         - [VimPlug](https://github.com/junegunn/vim-plug) - Plugin manager
             - [NERDTree](https://github.com/scrooloose/nerdtree) - A tree explorer
