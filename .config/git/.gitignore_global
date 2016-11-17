@@ -13,6 +13,7 @@ fabric.properties
 logs
 *.log
 npm-debug.log*
+yarn-error.log
 pids
 *.pid
 *.seed
@@ -94,5 +95,3 @@ $RECYCLE.BIN/
 *.msp
 *.lnk
 Icon
-
-
