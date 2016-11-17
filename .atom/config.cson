@@ -10,7 +10,6 @@
     colors:
       abaseColor: "#7e57c2"
       accentColor: "#b0e457"
-      paintCursor: true
       predefinedColor: "Purple"
     fonts: {}
     tabs:
@@ -21,8 +20,8 @@
       animations: false
       panelContrast: true
       panelShadows: true
-  "atom-ternjs":
-    useSnippets: true
+  "atom-runner": {}
+  "atom-ternjs": {}
   autosave:
     enabled: true
   core:
@@ -75,6 +74,7 @@
     displayLinterStatus: false
     ignoreMatchedFiles: "/**/*.{min,bundle}.{js,css}"
     lintOnFlyInterval: 600
+    showErrorPanel: false
   "linter-eslint": {}
   "local-history":
     daysLimit: 2
@@ -84,6 +84,9 @@
     notifications: false
     showPath: true
   "relative-numbers": {}
+  runner:
+    scopes:
+      js: "node"
   tabs:
     enableVcsColoring: true
   "todo-show":
@@ -124,10 +127,13 @@
       fontFamily: "Roboto Mono for Powerline"
   "tree-view":
     hideIgnoredNames: true
+    hideVcsIgnoredFiles: true
+  "vim-mode-plus":
+    showCursorInVisualMode: false
   wakatime:
     apikey: "Saved in your ~/.wakatime.cfg file"
   "wakatime-hidden":
-    lastInit: 1478775648
+    lastInit: 1479351164
   welcome:
     showOnStartup: false
 ".attribute-values.js.jsx.source":

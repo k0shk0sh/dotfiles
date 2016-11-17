@@ -33,6 +33,7 @@
       - [NPM](https://www.npmjs.com) - Node Package Manager
           - [ngrok](https://www.npmjs.com/package/ngrok) - Secure tunnels to localhost
 		  - [eslint](https://www.npmjs.com/package/eslint) - An AST-based pattern checker for JavaScript
+		  - [yarn](https://yarnpkg.com/) - Fast, reliable, and secure dependency management
     - [git-extras](https://github.com/tj/git-extras) - Extra commands for Git
     - [GnuPG](https://www.gnupg.org) - Replacement for Symantec's PGP cryptographic software suite
     - [Tree](http://mama.indstate.edu/users/ice/tree) - Recursive directory listing
