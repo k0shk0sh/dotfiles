@@ -52,6 +52,7 @@
 		- [atom-material-syntax-dark](https://atom.io/packages/atom-material-syntax-dark) - A darker syntax theme for Atom that uses Google's Material Design color palette
 	- Packages
 		- [atom-beautify](https://atom.io/packages/atom-beautify) - Code beautify
+		- [atom-runner](https://atom.io/packages/atom-runner) - Script runner
 		- [atom-ternjs](https://atom.io/packages/atom-ternjs) - JavaScript intelligent code completion
 		- [docblockr](https://atom.io/packages/docblockr) - A helper package for writing documentation
 		- [editorconfig](https://atom.io/packages/editorconfig) - Helps developers maintain consistent coding styles between different editors

@@ -18,10 +18,10 @@ call plug#begin('~/.vim/plugged')
 
 		" Open files/folders using space
 		let NERDTreeMapActivateNode='<space>'
-	
+
 		" Automatically quit Vim if NERDTree is last and only buffer
 		autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-	
+
 		" Move the cursor to editor when Vim starts up
 		autocmd VimEnter * NERDTree | wincmd p
 
@@ -35,8 +35,10 @@ call plug#begin('~/.vim/plugged')
 
 	Plug 'pangloss/vim-javascript'
 		let g:javascript_plugin_jsdoc = 1
-	
+
 	Plug 'kien/ctrlp.vim'
+
+	Plug 'marijnh/tern_for_vim'
 
 call plug#end()
 
@@ -52,8 +54,6 @@ set ruler
 set wildmenu
 
 " Editor
-syntax enable
-
 set backspace=indent,eol,start " Allow backspacing over everything in insert mode.
 set showcmd " Display incomplete commands
 
@@ -77,6 +77,7 @@ nnoremap <esc> :noh<return><esc>
 nnoremap <esc>^[ <esc>^[
 
 " Syntax
+syntax enable
 syntax on
 colorscheme monokai
 set t_Co=256
