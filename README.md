@@ -27,7 +27,7 @@
             - [Auto Pairs](https://github.com/jiangmiao/auto-pairs) - Insert or delete brackets, parens, quotes in pair
             - [vim-javascript](https://github.com/pangloss/vim-javascript) - Vastly improved JavaScript indentation and syntax support
         - [Monokai](https://github.com/crusoexia/vim-monokai) - Color scheme
-    - [Git](https://git-scm.com) - Distributed version control system
+    - [Git](https://git-scm.com) - The Stupid Content Tracker
     - [Tmux](https://tmux.github.io) - Terminal multiplexer
     - [NodeJS](https://nodejs.org) - JavaScript runtime environment for developing a diverse variety of tools and applications
       - [NPM](https://www.npmjs.com) - Node Package Manager
@@ -46,6 +46,7 @@
 - [Termux](https://play.google.com/store/apps/details?id=com.termux) - Terminal emulator for Android
     - [Styling](https://play.google.com/store/apps/details?id=com.termux.styling) - Color schemes and powerline-ready font support
         - [Monokai](https://github.com/Kutsan/dotfiles/blob/master/.termux/colors.properties) - Color scheme
+		- Roboto Mono - Font
 - [Atom](https://atom.io) - A hackable text editor for the 21st Century
 	- Theme
 		- [atom-material-ui](https://atom.io/packages/atom-material-ui) - A dark UI theme for Atom that follows Google's Material Design Guidelines
