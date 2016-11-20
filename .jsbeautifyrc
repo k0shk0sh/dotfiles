@@ -51,3 +51,5 @@ js:
   space_in_paren: false
   unescape_strings: false
   wrap_line_length: 0
+json:
+  brace_style: collapse-preserve-inline

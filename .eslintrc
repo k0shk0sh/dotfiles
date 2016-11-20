@@ -1,21 +1,18 @@
 {
-	"env":
-	{
+	"env": {
 		"node": true,
-		"es6": true,
-		"browser": true
+		"browser": true,
+		"es6": true
 	},
 	"extends": "eslint:recommended",
-	"parserOptions":
-	{
-		"ecmaFeatures":
-		{
-			"impliedStrict": false
+	"parserOptions": {
+		"ecmaVersion": 6,
+		"ecmaFeatures": {
+			"impliedStrict": true
 		}
 	},
-	"rules":
-	{
-		"indent": ["warn", "tab", {"SwitchCase": 1}],
+	"rules": {
+		"indent": ["warn", "tab", { "SwitchCase": 1 }],
 		"linebreak-style": ["warn", "unix"],
 		"quotes": ["off", "single"],
 		"semi": ["off", "always"],

@@ -71,7 +71,6 @@
     ]
     usePendingPanes: true
   linter:
-    displayLinterStatus: false
     ignoreMatchedFiles: "/**/*.{min,bundle}.{js,css}"
     lintOnFlyInterval: 600
     showErrorPanel: false
@@ -133,7 +132,7 @@
   wakatime:
     apikey: "Saved in your ~/.wakatime.cfg file"
   "wakatime-hidden":
-    lastInit: 1479351164
+    lastInit: 1479613763
   welcome:
     showOnStartup: false
 ".attribute-values.js.jsx.source":
