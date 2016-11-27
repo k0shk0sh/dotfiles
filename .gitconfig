@@ -20,3 +20,5 @@
 [core]
 	editor = 'vim'
 	excludesfile = /Users/Kutsan/.config/git/.gitignore_global
+[commit]
+	gpgsign = true
