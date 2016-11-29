@@ -30,7 +30,7 @@ export TERM='xterm-256color' # For right colors
 # vi-style
 bindkey -M viins 'jj' vi-cmd-mode # jj to switch Normal mode
 
-# -- Global Alias ----------------------------------------------------------------------------------
+# -- Global Alias & Functions ----------------------------------------------------------------------
 
 alias god='cd ~/Google\ Drive/'
 alias zshrc='vim ~/.zshrc'
@@ -41,9 +41,20 @@ alias forgot='alias | grep $1'
 alias ip='curl ipecho.net/plain;echo'
 
 ## Node
+
 alias gulp='node_modules/.bin/gulp'
 
 ## Git
+
+git-create()
+{
+	USERNAME=Kutsan
+	ACCESS_TOKEN=`cat ~/.config/github-access-token`
+
+	curl -u $USERNAME:$ACCESS_TOKEN https://api.github.com/user/repos -d '{"name": "'$1'"}' -o /dev/null -s
+	echo "git remote add origin git@github.com:$USERNAME/$1.git"
+}
+
 alias g='git'
 alias gs='git status -sb'
 alias gc='git commit'
