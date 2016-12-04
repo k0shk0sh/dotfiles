@@ -58,7 +58,7 @@ prompt_git() {
     dirty=$(parse_git_dirty)
     ref=$(git symbolic-ref HEAD 2> /dev/null) || ref="➦ $(git show-ref --head -s --abbrev |head -n1 2> /dev/null)"
     if [[ -n $dirty ]]; then
-      prompt_segment yellow black
+      prompt_segment blue black
     else
       prompt_segment green black
     fi
@@ -69,9 +69,9 @@ prompt_git() {
 # Dir: current working directory
 prompt_dir() {
   if [[ $(uname -o) = "Android" ]] 2> /dev/null; then
-    prompt_segment white black "%-30<...<%~%<<"
+    prompt_segment black white "%-30<...<%~%<<"
   else
-    prompt_segment white black "%-55<...<%~%<<"
+    prompt_segment black white "%-55<...<%~%<<"
   fi
   # echo $(pwd | sed -e "s,^$HOME,~," | sed "s@\(.\)[^/]*/@\1/@g")
 }
