@@ -22,11 +22,10 @@
         - [VimPlug](https://github.com/junegunn/vim-plug) - Plugin manager
             - [NERDTree](https://github.com/scrooloose/nerdtree) - A tree explorer
             - [Airline](https://github.com/vim-airline/vim-airline) - Statusline bar & tabline
-                - [Laederon](https://github.com/vim-airline/vim-airline-themes/blob/master/autoload/airline/themes/laederon.vim) - Theme
-                - [Tmuxline](https://github.com/edkolev/tmuxline.vim) - Tmux statusline generator
+                - [Quantum](https://github.com/tyrannicaltoucan/vim-quantum) - Theme
             - [Auto Pairs](https://github.com/jiangmiao/auto-pairs) - Insert or delete brackets, parens, quotes in pair
             - [vim-javascript](https://github.com/pangloss/vim-javascript) - Vastly improved JavaScript indentation and syntax support
-        - [Monokai](https://github.com/crusoexia/vim-monokai) - Color scheme
+        - [Quantum](https://github.com/tyrannicaltoucan/vim-quantum) - Color scheme
     - [Git](https://git-scm.com) - The Stupid Content Tracker
     - [Tmux](https://tmux.github.io) - Terminal multiplexer
     - [NodeJS](https://nodejs.org) - JavaScript runtime environment for developing a diverse variety of tools and applications
@@ -37,15 +36,16 @@
     - [git-extras](https://github.com/tj/git-extras) - Extra commands for Git
     - [GnuPG](https://www.gnupg.org) - Replacement for Symantec's PGP cryptographic software suite
     - [Tree](http://mama.indstate.edu/users/ice/tree) - Recursive directory listing
-    - [Trash](https://github.com/sindresorhus/trash) - Move files and folders to the trash
+    - [trash](https://github.com/sindresorhus/trash) - Move files and folders to the trash
 	- [Nmap](https://nmap.org) - Network security scanner
 	- [android-sdk](https://developer.android.com/studio/index.html) - Development tools for Android
+    - [ranger](https://github.com/ranger/ranger) - A Vim-inspired filemanager for the console
 - [iTerm](https://www.iterm2.com) - Terminal emulator for Mac OS
     - [Roboto Mono](https://github.com/powerline/fonts) - Font
-    - [Monokai](https://github.com/Kutsan/dotfiles/blob/master/.config/iterm/monokai.itermcolors) - Color scheme
+    - [Atom Material](https://github.com/Kutsan/dotfiles/blob/master/.config/iterm/AtomMaterial.itermcolors) - Color scheme
 - [Termux](https://play.google.com/store/apps/details?id=com.termux) - Terminal emulator for Android
     - [Styling](https://play.google.com/store/apps/details?id=com.termux.styling) - Color schemes and powerline-ready font support
-        - [Monokai](https://github.com/Kutsan/dotfiles/blob/master/.termux/colors.properties) - Color scheme
+        - [Atom Material](https://github.com/Kutsan/dotfiles/blob/master/.termux/colors.properties) - Color scheme
 		- Roboto Mono - Font
 - [Atom](https://atom.io) - A hackable text editor for the 21st Century
 	- Theme
@@ -74,7 +74,6 @@
 		- [todo-show](https://atom.io/packages/todo-show) - Finds all the TODOs, FIXMEs, CHANGEDs, etc.
 		- [tokamak-terminal](https://atom.io/packages/tokamak-terminal) - A terminal package
 		- [vim-mode-plus](https://atom.io/packages/vim-mode-plus) - vim-mode improved
-		- [wakatime](https://atom.io/packages/wakatime) - Get automated metrics and insights about your programming
 
 ## Installation
 
@@ -86,5 +85,5 @@ curl -L https://raw.githubusercontent.com/Kutsan/dotfiles/master/.tools/install.
 
 - Logo from [jglovier/dotfiles-logo]
 
-[screenshot]: https://i.imgur.com/luTixwP.png
+[screenshot]: https://i.imgur.com/0Knfasb.png
 [jglovier/dotfiles-logo]: https://github.com/jglovier/dotfiles-logo
