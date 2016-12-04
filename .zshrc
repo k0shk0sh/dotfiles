@@ -10,16 +10,18 @@ plugins=(
 
 if [[ $(uname) = 'Darwin' ]]; then
 	export ZSH=/Users/$(whoami)/.oh-my-zsh
-	export PATH='/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/'
-	export GPG_TTY=$(tty) # For GPG
+	export PATH='$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/'
 
 elif [[ $(uname -o) = 'Android' ]]; then
 	export ZSH=/data/data/com.termux/files/home/.oh-my-zsh
-	export PATH='/data/data/com.termux/files/usr/bin:/data/data/com.termux/files/usr/bin/applets'
+	export PATH='$HOME/bin:/data/data/com.termux/files/usr/bin:/data/data/com.termux/files/usr/bin/applets'
 
 elif [[ $(uname) = 'Linux' ]]; then
 	export ZSH=/home/$(whoami)/.oh-my-zsh
+	export PATH='$HOME/bin:/usr/local/bin'
 fi
+
+export GPG_TTY=$(tty) # For GPG
 
 # -- Plugins ---------------------------------------------------------------------------------------
 
@@ -39,29 +41,17 @@ alias :q='exit'
 alias h='history'
 alias forgot='alias | grep $1'
 alias ip='curl ipecho.net/plain;echo'
-
-## Node
-
-alias gulp='node_modules/.bin/gulp'
+alias r='ranger'
 
 ## Git
 
-git-create()
-{
-	USERNAME=Kutsan
-	ACCESS_TOKEN=`cat ~/.config/github-access-token`
-
-	curl -u $USERNAME:$ACCESS_TOKEN https://api.github.com/user/repos -d '{"name": "'$1'"}' -o /dev/null -s
-	echo "git remote add origin git@github.com:$USERNAME/$1.git"
-}
-
 alias g='git'
 alias gs='git status -sb'
+alias gf='git fetch'
 alias gc='git commit'
 alias ga='git add'
 alias gd='git diff'
-alias gl="git log --graph --abbrev-commit --decorate --format=format:'%C(black)(%ar)%C(reset) %C(yellow)%h%C(reset) %C(white)%s%C(reset) %C(black)%an%C(reset)%C(bold yellow)%d%C(reset)' --all"
-alias glg="git log --graph --abbrev-commit --decorate --format=format:'%C(yellow)%h%C(reset) %C(blue)%aD%C(reset) %C(bold black)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(black)%an%C(reset)' --all"
+alias gl="git log --graph --abbrev-commit --decorate --format=format:'%C(blue)%ad%C(reset) %C(yellow)%h%C(reset) %C(white)%s%C(reset) %C(bold black)%an%C(reset)%C(bold yellow)%d%C(reset) %C(black)(%ar)%C(reset)' --date=format:'%H:%M %d.%m.%Y' --all"
 
 ###
 
