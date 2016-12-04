@@ -22,3 +22,6 @@
 	excludesfile = /Users/Kutsan/.config/git/.gitignore_global
 [commit]
 	gpgsign = true
+[gui]
+	fontdiff = -family Menlo -size 12 -weight normal -slant roman -underline 0 -overstrike 0
+	tabsize = 4
