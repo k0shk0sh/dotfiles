@@ -27,18 +27,12 @@ call plug#begin('~/.vim/plugged')
 
 	Plug 'bling/vim-airline'
 		let g:airline_powerline_fonts = 1
-		let g:airline_theme = "laederon"
-
-		Plug 'edkolev/tmuxline.vim'
+		let g:airline_theme='quantum'
 
 	Plug 'jiangmiao/auto-pairs'
 
 	Plug 'pangloss/vim-javascript'
 		let g:javascript_plugin_jsdoc = 1
-
-	Plug 'kien/ctrlp.vim'
-
-	Plug 'marijnh/tern_for_vim'
 
 call plug#end()
 
@@ -77,15 +71,13 @@ nnoremap <esc> :noh<return><esc>
 nnoremap <esc>^[ <esc>^[
 
 " Syntax
-syntax enable
-syntax on
-colorscheme monokai
+set background=dark
+colorscheme quantum
+let g:quantum_italics = 1
+let g:quantum_black = 1
 set t_Co=256
 set cursorline
-
-" Color Scheme
-let g:monokai_term_italic = 1
-let g:monokai_gui_italic = 1
+syntax on
 
 " Indentation
 set tabstop=4
@@ -101,11 +93,6 @@ map <S-Tab> <gv
 set undodir=~/.vim/temp/undo//
 set backupdir=~/.vim/temp/backup//
 set directory=~/.vim/temp/swap//
-
-" Other
-"let g:two_firewatch_italics=1
-"let g:one_allow_italics = 1
-"let g:material_allow_italics = 1
 
 "filetype off
 "filetype indent on
