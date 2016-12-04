@@ -4,7 +4,7 @@ rm .zshrc
 
 if [[ $(uname -o) = "Android" ]]; then
 	apt update
-	apt install -y git zsh vim tmux nodejs tree man
+	apt install -y git zsh vim tmux nodejs tree man ranger
 
 	# Oh My Zsh
 	sh -c "$(curl -fsSL https://raw.github.com/skeevy420/oh-my-zsh/skeevy420-termux/tools/install.sh)"
@@ -13,7 +13,7 @@ if [[ $(uname -o) = "Android" ]]; then
 
 elif [[ $(uname) = "Linux" ]]; then
 	sudo apt-get update
-	sudo apt-get -y install git zsh vim tmux nodejs npm tree nmap
+	sudo apt-get -y install git zsh vim tmux nodejs npm tree nmap ranger
 
 	# Oh My Zsh
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -23,7 +23,7 @@ elif [[ $(uname) = "Darwin" ]]; then
 		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	fi
 
-	brew install git zsh vim tmux node git-extras gnupg tree trash
+	brew install git zsh vim tmux node git-extras gnupg tree trash ranger
 
 	# Oh My Zsh
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
