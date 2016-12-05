@@ -28,8 +28,11 @@
         - [Quantum](https://github.com/tyrannicaltoucan/vim-quantum) - Color scheme
     - [Git](https://git-scm.com) - The Stupid Content Tracker
     - [Tmux](https://tmux.github.io) - Terminal multiplexer
+		- [tpm](https://github.com/tmux-plugins/tpm) - Tmux Plugin Manager
+			- [tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect) - Persists tmux environment across system restarts
+			- [tmux-yank](https://github.com/tmux-plugins/tmux-yank) - Tmux plugin for copying to system clipboard
     - [NodeJS](https://nodejs.org) - JavaScript runtime environment for developing a diverse variety of tools and applications
-      - [NPM](https://www.npmjs.com) - Node Package Manager
+      - [npm](https://www.npmjs.com) - Node Package Manager
           - [ngrok](https://www.npmjs.com/package/ngrok) - Secure tunnels to localhost
 		  - [eslint](https://www.npmjs.com/package/eslint) - An AST-based pattern checker for JavaScript
 		  - [yarn](https://yarnpkg.com/) - Fast, reliable, and secure dependency management
