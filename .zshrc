@@ -18,7 +18,7 @@ elif [[ $(uname -o) = 'Android' ]]; then
 
 elif [[ $(uname) = 'Linux' ]]; then
 	export ZSH=/home/$(whoami)/.oh-my-zsh
-	export PATH='$HOME/bin:/usr/local/bin'
+	export PATH='$HOME/bin:/usr/sbin:/usr/bin:/sbin:/bin'
 fi
 
 export GPG_TTY=$(tty) # For GPG
