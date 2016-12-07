@@ -2,6 +2,14 @@
 
 ![Terminal Screenshot][screenshot]
 
+## Installation
+
+Read source code first!
+
+```bash
+curl -L https://raw.githubusercontent.com/Kutsan/dotfiles/master/.tools/install.sh | bash
+```
+
 ## Overview
 - [Homebrew](http://brew.sh/) - Package manager for Mac OS
     - [Zsh](http://www.zsh.org) - Unix shell
@@ -77,12 +85,6 @@
 		- [todo-show](https://atom.io/packages/todo-show) - Finds all the TODOs, FIXMEs, CHANGEDs, etc.
 		- [tokamak-terminal](https://atom.io/packages/tokamak-terminal) - A terminal package
 		- [vim-mode-plus](https://atom.io/packages/vim-mode-plus) - vim-mode improved
-
-## Installation
-
-```bash
-curl -L https://raw.githubusercontent.com/Kutsan/dotfiles/master/.tools/install.sh | bash
-```
 
 ## Credits
 
