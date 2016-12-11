@@ -21,16 +21,17 @@ elif [[ $(uname) = 'Linux' ]]; then
 	export PATH='$HOME/bin:/usr/sbin:/usr/bin:/sbin:/bin'
 fi
 
-export GPG_TTY=$(tty) # For GPG
+export GPG_TTY=$(tty) # GnuPG
+export TERM='screen-256color'
 
 # -- Plugins ---------------------------------------------------------------------------------------
 
 # tmux
 ZSH_TMUX_AUTOSTART=true
-export TERM='xterm-256color' # For right colors
 
 # vi-style
-bindkey -M viins 'jj' vi-cmd-mode # jj to switch Normal mode
+bindkey -M viins 'jj' vi-cmd-mode # `jj` to switch Normal mode
+bindkey -M vicmd 'v' edit-command-line # Edit long commands in Vim by pressing `v`
 
 # -- Global Alias & Functions ----------------------------------------------------------------------
 
@@ -38,7 +39,7 @@ alias god='cd ~/Google\ Drive/'
 alias zshrc='vim ~/.zshrc'
 alias vimrc='vim ~/.vimrc'
 alias :q='exit'
-alias h='history'
+alias h='history | tail -n 25 | less'
 alias forgot='alias | grep $1'
 alias ip='curl ipecho.net/plain;echo'
 alias r='ranger'
