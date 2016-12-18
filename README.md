@@ -1,13 +1,15 @@
-<img alt="dotfiles" width="200" src="https://raw.githubusercontent.com/jglovier/dotfiles-logo/master/dotfiles-logo.png">
+<p align="center">
+	<img alt="dotfiles" width="200" src="https://raw.githubusercontent.com/jglovier/dotfiles-logo/master/dotfiles-logo.png">
+</p>
 
 ![Terminal Screenshot][screenshot]
 
 ## Installation
 
-Read source code first!
+Read the source code first!
 
 ```bash
-curl -L https://raw.githubusercontent.com/Kutsan/dotfiles/master/.tools/install.sh | bash
+please curl -L https://raw.githubusercontent.com/Kutsan/dotfiles/master/.tools/install.sh | bash
 ```
 
 ## Overview
