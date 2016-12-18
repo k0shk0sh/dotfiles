@@ -1,6 +1,8 @@
-" -- Plugins ---------------------------------------------------------------------------------------
+" -- Plugins {{{1
+" --------------------------------------------------------------------------------------------------
 
 call plug#begin('~/.vim/plugged')
+
 	Plug 'scrooloose/nerdtree'
 		autocmd vimenter * NERDTree
 		autocmd StdinReadPre * let s:std_in=1
@@ -36,7 +38,8 @@ call plug#begin('~/.vim/plugged')
 
 call plug#end()
 
-" -- Global Configuration --------------------------------------------------------------------------
+" -- Options {{{1
+" --------------------------------------------------------------------------------------------------
 
 " General
 set nocompatible " Use Vim settings, rather then Vi settings
@@ -109,7 +112,8 @@ set directory=~/.vim/temp/swap//
 "set wildmenu
 "set undofile
 
-" -- Shortcuts -------------------------------------------------------------------------------------
+" -- Shortcuts {{{1
+" --------------------------------------------------------------------------------------------------
 
 " ESC to normal mode
 imap jj <esc>
@@ -119,3 +123,5 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+
+" }}} vim: foldmethod=marker : foldlevel=0
