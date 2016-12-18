@@ -1,5 +1,8 @@
 "*":
   "atom-beautify":
+    css:
+      configPath: "~/.csscomb.json"
+      default_beautifier: "CSScomb"
     general:
       analytics: false
       beautifyEntireFileOnSave: false
@@ -44,7 +47,7 @@
       "exception-reporting"
     ]
     openEmptyEditorOnStart: false
-    projectHome: "/Users/Kutsan/Google Drive/"
+    projectHome: "/Users/Kutsan/Drive/"
     telemetryConsent: "no"
     themes: [
       "atom-material-ui"
@@ -102,23 +105,23 @@
   "tokamak-terminal":
     ansiColors:
       normal:
-        black: "#3c3c3c"
-        blue: "#ae81ff"
-        cyan: "#66d9ef"
-        green: "#a6e22e"
-        magenta: "#f92a72"
-        red: "#f92a72"
+        black: "#303030"
+        blue: "#c792ea"
+        cyan: "#78ccf0"
+        green: "#c3e88d"
+        magenta: "#ff5370"
+        red: "#ef5350"
         white: "#f1f1f1"
-        yellow: "#fd971f"
+        yellow: "#e2b93d"
       zBright:
-        brightBlack: "#75715e"
-        brightBlue: "#ae81ff"
-        brightCyan: "#66d9ef"
-        brightGreen: "#a6e22e"
+        brightBlack: "#424242"
+        brightBlue: "#82aaff"
+        brightCyan: "#8be9fd"
+        brightGreen: "#43d08a"
         brightMagenta: "#f92a72"
         brightRed: "#f92a72"
-        brightWhite: "#f8f8f2"
-        brightYellow: "#e6db74"
+        brightWhite: "#ffffff"
+        brightYellow: "#ffb86c"
     core: {}
     style:
       animationSpeed: 0
@@ -126,7 +129,6 @@
       fontFamily: "Roboto Mono for Powerline"
   "tree-view":
     hideIgnoredNames: true
-    hideVcsIgnoredFiles: true
   "vim-mode-plus":
     showCursorInVisualMode: false
   welcome:
