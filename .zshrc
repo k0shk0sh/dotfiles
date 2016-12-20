@@ -23,6 +23,8 @@ bindkey -M vicmd 'v' edit-command-line # Edit long commands in Vim by pressing `
 
 if [[ $(uname) = 'Darwin' ]]; then
 	export ZSH=/Users/$(whoami)/.oh-my-zsh
+	export ANDROID_HOME='/usr/local/opt/android-sdk'
+	export JAVA_HOME='$(/usr/libexec/java_home)'
 	export PATH='$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/'
 
 elif [[ $(uname -o) = 'Android' ]]; then
