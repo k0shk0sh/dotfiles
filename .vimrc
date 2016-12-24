@@ -116,7 +116,8 @@ set directory=~/.vim/temp/swap//
 " --------------------------------------------------------------------------------------------------
 
 " ESC to normal mode
-imap jj <esc>
+inoremap jk <esc>
+inoremap kj <esc>
 
 " Pane nagivation with ^ + h|j|k|l
 map <C-j> <C-W>j

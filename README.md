@@ -9,7 +9,7 @@
 Read the source code first!
 
 ```bash
-please curl -L https://raw.githubusercontent.com/Kutsan/dotfiles/master/.tools/install.sh | bash
+$ [sudo] curl -L https://raw.githubusercontent.com/Kutsan/dotfiles/master/.tools/install.sh | bash
 ```
 
 ## Overview
