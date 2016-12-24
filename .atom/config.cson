@@ -53,6 +53,7 @@
       "atom-material-ui"
       "atom-material-syntax-dark"
     ]
+    useCustomTitleBar: true
   editor:
     fontFamily: "Roboto Mono for Powerline"
     fontSize: 13
@@ -129,8 +130,7 @@
       fontFamily: "Roboto Mono for Powerline"
   "tree-view":
     hideIgnoredNames: true
-  "vim-mode-plus":
-    showCursorInVisualMode: false
+  "vim-mode-plus": {}
   welcome:
     showOnStartup: false
 ".attribute-values.js.jsx.source":
