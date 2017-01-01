@@ -20,6 +20,7 @@
 [core]
 	editor = 'vim'
 	excludesfile = /Users/Kutsan/.config/git/.gitignore_global
+	whitespace = warn
 [commit]
 	gpgsign = true
 [gui]
