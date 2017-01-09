@@ -113,10 +113,10 @@ alias gl="git log --graph --abbrev-commit --decorate --format=format:'%C(yellow)
 alias glt="git log --graph --abbrev-commit --decorate --format=format:'%C(bold black)%ad%C(reset) %C(yellow)%h%C(reset) %C(white)%s%C(reset) %C(bold black)%an%C(reset)%C(bold yellow)%d%C(reset) %C(black)(%ar)%C(reset)' --date=format:'%H:%M %d.%m.%Y' --all"
 
 if [[ $(uname) = 'Darwin' ]]; then
-	alias github="open -a Google\ Chrome 'https://github.com/Kutsan'"
+	alias gh="open -a Google\ Chrome 'https://github.com/Kutsan'"
 
 elif [[ $(uname) = 'Linux' ]]; then
-	alias github="google-chrome 'http://github.com/Kutsan'"
+	alias gh="google-chrome 'http://github.com/Kutsan'"
 fi
 
 # -- Functions {{{1
