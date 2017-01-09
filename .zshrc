@@ -24,7 +24,10 @@ bindkey -M viins 'jk' vi-cmd-mode # `jk` to switch Normal mode
 bindkey -M viins 'kj' vi-cmd-mode # `kj` to switch Normal mode
 bindkey -M vicmd 'v' edit-command-line # Edit long commands in Vim by pressing `v`
 
-# -- Options {{{1
+# Change the command execution time stamp shown in the history command output
+HIST_STAMPS='dd.mm.yyyy'
+
+# -- Exports {{{1
 # --------------------------------------------------------------------------------------------------
 
 if [[ $(uname) = 'Darwin' ]]; then
@@ -42,6 +45,9 @@ elif [[ $(uname) = 'Linux' ]]; then
 	export PATH='$HOME/bin:/usr/sbin:/usr/bin:/sbin:/bin'
 fi
 
+# Make Vim the default editor
+export EDITOR='vim'
+
 # GnuPG
 export GPG_TTY=$(tty)
 
@@ -53,7 +59,7 @@ export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'
 export LANGUAGE='en_US.UTF-8'
 
-# -- Alias {{{1
+# -- Aliases {{{1
 # --------------------------------------------------------------------------------------------------
 
 # Binaries
@@ -63,9 +69,11 @@ alias cp='cp -i'
 alias r='ranger'
 
 # Directories
-alias god='cd ~/Drive'
+alias god='cd ~/Drive/Digital'
 alias dow='cd ~/Downloads'
 alias doc='cd ~/Documents'
+alias des='cd ~/Desktop'
+alias web='cd ~/Drive/Digital/Web'
 
 # Configs
 alias zshrc='vim ~/.zshrc'
@@ -88,15 +96,7 @@ if [[ $(uname) = 'Darwin' ]]; then
 	alias fopen='open_command $PWD'
 
 	# `cd` current Finder directory
-	function fcd() { cd "$(pfd)" }
-
-function pfd() {
-  osascript 2>/dev/null <<EOF
-	tell application "Finder"
-	  return POSIX path of (target of window 1 as alias)
-	end tell
-EOF
-}
+	function fcd() { cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')" }
 
 elif [[ $(uname) = 'Linux' ]]; then
 	# TODO
@@ -118,6 +118,60 @@ if [[ $(uname) = 'Darwin' ]]; then
 elif [[ $(uname) = 'Linux' ]]; then
 	alias github="google-chrome 'http://github.com/Kutsan'"
 fi
+
+# -- Functions {{{1
+# --------------------------------------------------------------------------------------------------
+
+# Better git clone,
+# clones a repository, cds into it, and opens it in my editor.
+#
+# USAGE
+#   $ clone things
+#     .. git clone git@github.com:<your-username>/things.git things
+#     .. cd things
+#     .. atom .
+#
+#   $ clone yeoman generator
+#     .. git clone git@github.com:yeoman/generator.git generator
+#     .. cd generator
+#     .. atom .
+#
+#   $ clone git@github.com:<username>/<repo-name>.git
+#     .. git clone git@github.com:<username>/<repo-name>.git <repo-name>
+#     .. cd <repo-name>
+#     .. atom .
+#
+# @author addyosmani
+function clone
+{
+	local username='Kutsan'
+
+	local URL=$1
+	local REPO=$2
+
+	if [[ ${URL:0:4} == 'http' || ${URL:0:3} == 'git' ]]; then
+		# Usage: clone <repo-url>
+		# If $1 is a URL, just clone it as is
+
+		# Parse repo name from URL for directory name
+		REPO=$(echo $URL | awk -F/ '{print $NF}' | sed -e 's/.git$//')
+
+	elif [[ -z $REPO ]]; then
+		# Usage: clone <repo-name>
+		# If only $1 (as repo name) exists, then clone from my repos
+
+		REPO=$URL
+		URL='git@github.com:$username/$REPO'
+
+	else
+		# Usage: clone <username> <repo-name>
+		# Otherwise, obey the pattern
+
+		URL='git@github.com:$URL/$REPO.git'
+	fi
+
+	git clone $URL $REPO && cd $REPO && atom .
+}
 
 # -- Source {{{1
 # --------------------------------------------------------------------------------------------------
