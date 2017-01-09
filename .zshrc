@@ -1,8 +1,6 @@
 # -- Setup {{{1
 # --------------------------------------------------------------------------------------------------
 
-ZSH_THEME='kutsan'
-
 plugins=(
 	tmux
 	z
@@ -11,11 +9,19 @@ plugins=(
 	zsh-autosuggestions
 )
 
-# tmux
-ZSH_TMUX_AUTOSTART=true
+# If ~/.config/isserver.kutsan file exists then prepare for server environment.
+if [[ -f "$HOME/.config/isserver.kutsan" ]]; then
+	ZSH_THEME='kutsan-server'
+	ZSH_TMUX_AUTOSTART=false
+
+else
+	ZSH_THEME='kutsan'
+	ZSH_TMUX_AUTOSTART=true
+fi
 
 # vi-style
-bindkey -M viins 'jj' vi-cmd-mode # `jj` to switch Normal mode
+bindkey -M viins 'jk' vi-cmd-mode # `jk` to switch Normal mode
+bindkey -M viins 'kj' vi-cmd-mode # `kj` to switch Normal mode
 bindkey -M vicmd 'v' edit-command-line # Edit long commands in Vim by pressing `v`
 
 # -- Options {{{1
@@ -36,8 +42,13 @@ elif [[ $(uname) = 'Linux' ]]; then
 	export PATH='$HOME/bin:/usr/sbin:/usr/bin:/sbin:/bin'
 fi
 
-export GPG_TTY=$(tty) # GnuPG
+# GnuPG
+export GPG_TTY=$(tty)
+
+# Term
 export TERM='screen-256color'
+
+# Prefer US English and use UTF-8
 export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'
 export LANGUAGE='en_US.UTF-8'
@@ -45,26 +56,53 @@ export LANGUAGE='en_US.UTF-8'
 # -- Alias {{{1
 # --------------------------------------------------------------------------------------------------
 
-# Shortcuts
+# Binaries
+alias rm='rm -i'
+alias mv='mv -i'
+alias cp='cp -i'
 alias r='ranger'
 
 # Directories
-alias god='cd ~/Drive/'
+alias god='cd ~/Drive'
 alias dow='cd ~/Downloads'
 alias doc='cd ~/Documents'
 
 # Configs
 alias zshrc='vim ~/.zshrc'
 alias vimrc='vim ~/.vimrc'
-alias tmuxrc='vim ~/.tmux.conf'
+alias tmuxconf='vim ~/.tmux.conf'
 
 # Misc
 alias :q='exit'
 alias h='history | tail -n 25 | less'
 alias forgot='alias | grep $1'
 alias ip='curl ipecho.net/plain; echo'
+alias update='brew update; brew upgrade; brew cleanup; npm update npm -g; npm update -g; upgrade_oh_my_zsh;'
 
-# Git
+# Desktop Environment
+if [[ $(uname) = 'Darwin' ]]; then
+	# Open Finder
+	alias f='open -a Finder'
+
+	# Open Finder with current directory
+	alias fopen='open_command $PWD'
+
+	# `cd` current Finder directory
+	function fcd() { cd "$(pfd)" }
+
+function pfd() {
+  osascript 2>/dev/null <<EOF
+	tell application "Finder"
+	  return POSIX path of (target of window 1 as alias)
+	end tell
+EOF
+}
+
+elif [[ $(uname) = 'Linux' ]]; then
+	# TODO
+fi
+
+# Git & GitHub
 alias g='git'
 alias gs='git status -sb'
 alias gf='git fetch'
@@ -73,6 +111,13 @@ alias ga='git add'
 alias gd='git diff'
 alias gl="git log --graph --abbrev-commit --decorate --format=format:'%C(yellow)%h%C(reset) %C(white)%s%C(reset) %C(bold black)%an%C(reset)%C(bold yellow)%d%C(reset) %C(black)(%ar)%C(reset)' --date=format:'%H:%M %d.%m.%Y' --all"
 alias glt="git log --graph --abbrev-commit --decorate --format=format:'%C(bold black)%ad%C(reset) %C(yellow)%h%C(reset) %C(white)%s%C(reset) %C(bold black)%an%C(reset)%C(bold yellow)%d%C(reset) %C(black)(%ar)%C(reset)' --date=format:'%H:%M %d.%m.%Y' --all"
+
+if [[ $(uname) = 'Darwin' ]]; then
+	alias github="open -a Google\ Chrome 'https://github.com/Kutsan'"
+
+elif [[ $(uname) = 'Linux' ]]; then
+	alias github="google-chrome 'http://github.com/Kutsan'"
+fi
 
 # -- Source {{{1
 # --------------------------------------------------------------------------------------------------
