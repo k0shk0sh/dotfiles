@@ -144,33 +144,31 @@ fi
 # @author addyosmani
 function clone
 {
-	local username='Kutsan'
+	local USERNAME='Kutsan'
+	local EDITOR='atom'
 
-	local URL=$1
-	local REPO=$2
+	local url=$1
+	local repo=$2
 
-	if [[ ${URL:0:4} == 'http' || ${URL:0:3} == 'git' ]]; then
-		# Usage: clone <repo-url>
-		# If $1 is a URL, just clone it as is
-
+	# $ clone <repo-url>
+	# If $1 is a URL, just clone it as is
+	if [[ ${url:0:4} == 'http' || ${url:0:3} == 'git' ]]; then
 		# Parse repo name from URL for directory name
-		REPO=$(echo $URL | awk -F/ '{print $NF}' | sed -e 's/.git$//')
+		repo=$(echo $url | awk -F/ '{print $NF}' | sed -e 's/.git$//')
 
-	elif [[ -z $REPO ]]; then
-		# Usage: clone <repo-name>
-		# If only $1 (as repo name) exists, then clone from my repos
+	# $ clone <repo-name>
+	# If only $1 (as repo name) exists, then clone from my repos
+	elif [[ -z $repo ]]; then
+		repo=$url
+		url="git@github.com:$USERNAME/$repo"
 
-		REPO=$URL
-		URL='git@github.com:$username/$REPO'
-
+	# $ clone <username> <repo-name>
+	# Otherwise, obey the pattern
 	else
-		# Usage: clone <username> <repo-name>
-		# Otherwise, obey the pattern
-
-		URL='git@github.com:$URL/$REPO.git'
+		url="git@github.com:$url/$repo.git"
 	fi
 
-	git clone $URL $REPO && cd $REPO && atom .
+	git clone $url $repo && cd $repo && $EDITOR .
 }
 
 # -- Source {{{1
