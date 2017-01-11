@@ -52,6 +52,8 @@ elif [[ $(uname) = 'Linux' ]]; then
 	export PATH="$HOME/.bin:/usr/sbin:/usr/bin:/sbin:/bin"
 fi
 
+export IS_SERVER=$IS_SERVER
+
 # Make Vim the default editor
 export EDITOR='vim'
 
