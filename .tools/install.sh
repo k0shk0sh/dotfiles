@@ -12,8 +12,10 @@ if [[ $(uname -o) = "Android" ]]; then
 	termux-setup-storage
 
 elif [[ $(uname) = "Linux" ]]; then
-	sudo apt-get update
-	sudo apt-get -y install git zsh vim tmux nodejs npm tree nmap ranger
+	curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+
+	sudo apt update
+	sudo apt -y install git zsh vim tmux nodejs npm tree nmap ranger
 
 	# Oh My Zsh
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -41,6 +43,9 @@ git fetch origin
 git checkout --force -b master --track origin/master
 git submodule update --init --recursive
 
+# VimPlug
+curl -Lo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 vim +PlugInstall +qa
 
 echo
@@ -50,5 +55,4 @@ echo '         _           '
 echo ' _| _ |_(_.| _ _     '
 echo '(_|(_)|_| ||(-_)     ...is now installed!'
 echo ''
-echo 'Please, type "exit" to close the shell session and re-open.'
 echo
