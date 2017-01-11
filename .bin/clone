@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+
+##
+# Better git clone,
+# clones a repository, cds into it, and opens it in my editor.
+#
+# USAGE
+#   $ clone things
+#     .. git clone git@github.com:<your-username>/things.git things
+#     .. cd things
+#     .. atom .
+#
+#   $ clone yeoman generator
+#     .. git clone git@github.com:yeoman/generator.git generator
+#     .. cd generator
+#     .. atom .
+#
+#   $ clone git@github.com:<username>/<repo-name>.git
+#     .. git clone git@github.com:<username>/<repo-name>.git <repo-name>
+#     .. cd <repo-name>
+#     .. atom .
+#
+# @author addyosmani
+##
+
+if [ $# -eq 0 ]; then
+    echo "USAGE: $ clone <repo-url|username|own-repo-name> [repo-name (with $1 as <username>)]"
+    exit 1
+fi
+
+USERNAME='Kutsan'
+
+url=$1
+repo=$2
+
+if [[ $IS_SERVER = true ]]; then
+	local EDITOR='vim'
+
+else
+	local EDITOR='atom'
+fi
+
+# $ clone <repo-url>
+# If $1 is a URL, just clone it as is
+if [[ ${url:0:4} == 'http' || ${url:0:3} == 'git' ]]; then
+	# Parse repo name from URL for directory name
+	repo=$(echo $url | awk -F/ '{print $NF}' | sed -e 's/.git$//')
+
+# $ clone <repo-name>
+# If only $1 (as repo name) exists, then clone from my repos
+elif [[ -z $repo ]]; then
+	repo=$url
+	url="git@github.com:$USERNAME/$repo"
+
+# $ clone <username> <repo-name>
+# Otherwise, obey the pattern
+else
+	url="git@github.com:$url/$repo.git"
+fi
+
+git clone $url $repo && cd $repo && $EDITOR .

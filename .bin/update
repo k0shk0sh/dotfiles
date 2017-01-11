@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# Homebrew
+if which brew > /dev/null; then
+	brew update
+	brew upgrade
+	brew cleanup
+fi
+
+# npm
+npm update npm -g
+npm update -g
+
+# Oh My Zsh
+sh $ZSH/tools/upgrade.sh
+
+# Vim
+curl -Lo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+vim +PlugUpdate +qa

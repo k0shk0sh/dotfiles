@@ -1,6 +1,14 @@
 # -- Setup {{{1
 # --------------------------------------------------------------------------------------------------
 
+# If ~/.config/isserver.kutsan file exists then prepare for server environment.
+if [[ -f "$HOME/.config/isserver.kutsan" ]]; then
+	IS_SERVER=true
+
+else
+	IS_SERVER=false
+fi
+
 plugins=(
 	tmux
 	z
@@ -9,8 +17,7 @@ plugins=(
 	zsh-autosuggestions
 )
 
-# If ~/.config/isserver.kutsan file exists then prepare for server environment.
-if [[ -f "$HOME/.config/isserver.kutsan" ]]; then
+if [[ $IS_SERVER = true ]]; then
 	ZSH_THEME='kutsan-server'
 	ZSH_TMUX_AUTOSTART=false
 
@@ -34,15 +41,15 @@ if [[ $(uname) = 'Darwin' ]]; then
 	export ZSH=/Users/$(whoami)/.oh-my-zsh
 	export ANDROID_HOME='/usr/local/opt/android-sdk'
 	export JAVA_HOME='$(/usr/libexec/java_home)'
-	export PATH='$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/'
+	export PATH="$HOME/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 elif [[ $(uname -o) = 'Android' ]]; then
 	export ZSH=/data/data/com.termux/files/home/.oh-my-zsh
-	export PATH='$HOME/bin:/data/data/com.termux/files/usr/bin:/data/data/com.termux/files/usr/bin/applets'
+	export PATH="$HOME/.bin:/data/data/com.termux/files/usr/bin:/data/data/com.termux/files/usr/bin/applets"
 
 elif [[ $(uname) = 'Linux' ]]; then
 	export ZSH=/home/$(whoami)/.oh-my-zsh
-	export PATH='$HOME/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+	export PATH="$HOME/.bin:/usr/sbin:/usr/bin:/sbin:/bin"
 fi
 
 # Make Vim the default editor
@@ -54,7 +61,7 @@ export GPG_TTY=$(tty)
 # Term
 export TERM='screen-256color'
 
-# Prefer US English and use UTF-8
+# Locale
 export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'
 export LANGUAGE='en_US.UTF-8'
@@ -63,7 +70,7 @@ export LANGUAGE='en_US.UTF-8'
 # --------------------------------------------------------------------------------------------------
 
 # Binaries
-alias rm='rm -i'
+alias rm='echo No: '
 alias mv='mv -i'
 alias cp='cp -i'
 alias r='ranger'
@@ -85,7 +92,6 @@ alias :q='exit'
 alias h='history | tail -n 25 | less'
 alias forgot='alias | grep $1'
 alias ip='curl ipecho.net/plain; echo'
-alias update='brew update; brew upgrade; brew cleanup; npm update npm -g; npm update -g; upgrade_oh_my_zsh;'
 
 # Desktop Environment
 if [[ $(uname) = 'Darwin' ]]; then
@@ -118,58 +124,6 @@ if [[ $(uname) = 'Darwin' ]]; then
 elif [[ $(uname) = 'Linux' ]]; then
 	alias gh="google-chrome 'http://github.com/Kutsan'"
 fi
-
-# -- Functions {{{1
-# --------------------------------------------------------------------------------------------------
-
-# Better git clone,
-# clones a repository, cds into it, and opens it in my editor.
-#
-# USAGE
-#   $ clone things
-#     .. git clone git@github.com:<your-username>/things.git things
-#     .. cd things
-#     .. atom .
-#
-#   $ clone yeoman generator
-#     .. git clone git@github.com:yeoman/generator.git generator
-#     .. cd generator
-#     .. atom .
-#
-#   $ clone git@github.com:<username>/<repo-name>.git
-#     .. git clone git@github.com:<username>/<repo-name>.git <repo-name>
-#     .. cd <repo-name>
-#     .. atom .
-#
-# @author addyosmani
-function clone
-{
-	local USERNAME='Kutsan'
-	local EDITOR='atom'
-
-	local url=$1
-	local repo=$2
-
-	# $ clone <repo-url>
-	# If $1 is a URL, just clone it as is
-	if [[ ${url:0:4} == 'http' || ${url:0:3} == 'git' ]]; then
-		# Parse repo name from URL for directory name
-		repo=$(echo $url | awk -F/ '{print $NF}' | sed -e 's/.git$//')
-
-	# $ clone <repo-name>
-	# If only $1 (as repo name) exists, then clone from my repos
-	elif [[ -z $repo ]]; then
-		repo=$url
-		url="git@github.com:$USERNAME/$repo"
-
-	# $ clone <username> <repo-name>
-	# Otherwise, obey the pattern
-	else
-		url="git@github.com:$url/$repo.git"
-	fi
-
-	git clone $url $repo && cd $repo && $EDITOR .
-}
 
 # -- Source {{{1
 # --------------------------------------------------------------------------------------------------
