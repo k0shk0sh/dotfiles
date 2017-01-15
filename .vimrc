@@ -27,24 +27,28 @@ call plug#end()
 " -- Options {{{1
 " --------------------------------------------------------------------------------------------------
 
-" Editor
-set cursorline " Highlight the screen line of the cursor
-set mouse=a " Enable mouse use in all modes
+" Interface
+set visualbell " Instead of beeping, shows a visual bell on errors
 set title " Show title in title section
-set ruler " Show the line and column number of the cursor position
-set wildmenu " Command-line completion operates in an enhanced mode
-set wildmode=longest:list,full " wildmenu mode
+set lazyredraw " Redraw only when we need to
+
+" Editor
+set mouse=a " Enable mouse use in all modes
+set scrolloff=8 " Minimal number of screen lines to keep above and below the cursor
+set cursorline " Highlight the screen line of the cursor
 set backspace=indent,eol,start " Allow backspacing over everything in insert mode
-set showcmd " Display key presses at the right bottom
 set nowrap " Do not wrap long lines
 set showmatch " Show matching parantheses (), {}, [] etc.
-set visualbell " Instead of beeping, shows a visual bell on errors
-set relativenumber number " Show line numbers as default
 set splitright " Splitting a window will put the new window right of the current one
-set scrolloff=8 " Minimal number of screen lines to keep above and below the cursor
-set lazyredraw " Redraw only when we need to
+set relativenumber number " Show line numbers as default
 autocmd InsertEnter * :set norelativenumber " Disable relative numbers in Insert mode
 autocmd InsertLeave * :set relativenumber " Enable relative numbers in Normal mode
+
+" Command Mode
+set wildmenu " Command-line completion operates in an enhanced mode
+set wildmode=list:longest,list:full " wildmenu mode
+set showcmd " Display key presses at the right bottom
+set ruler " Show the line and column number of the cursor position
 
 " Indentation
 set tabstop=4 " TAB character length
@@ -58,6 +62,13 @@ set incsearch " Instantly show results when you start searching like /searchTerm
 set ignorecase " Default search is not case sensitive /searchresults
 set smartcase " If a uppercase character is entered, the search will be case sensitive
 
+" File Browsing
+let g:netrw_banner = 0 " Disable banner
+let g:netrw_liststyle = 3 " Tree view
+let g:netrw_browse_split = 4 " Open in prior window
+let g:netrw_altv = 1 " Open splits to the right
+let g:netrw_winsize = 20 " Specify initial size of new windows made with `(H|V)explorer`
+
 " Backup
 set undofile " Undotree to be saved to a file when exiting a buffer
 set undodir=~/.vim/temp/undo//
@@ -67,7 +78,10 @@ set directory=~/.vim/temp/swap//
 " -- Mappings {{{1
 " --------------------------------------------------------------------------------------------------
 
-" ESC to Normal mode
+" ## General {{{2
+" ------------------------------------------------
+
+" `jk|kj` to Normal mode
 inoremap jk <esc>
 inoremap kj <esc>
 
@@ -87,15 +101,21 @@ map Q gq
 " Map `help` to `vert help` for vertical help split
 cnoremap help vert help
 
-" -- Leaders {{{2
-" --------------------------------------------------------------------------------------------------
+" ## Leaders {{{2
+" ------------------------------------------------
 
-let mapleader=","
+" Leader key
+"let mapleader="\"
 
 " Quick save
 nnoremap <leader>w :w<cr>
 
 " Clear highlighting
 nnoremap <leader>h :let @/=""<cr>
+
+" -- Snippets {{{1
+" --------------------------------------------------------------------------------------------------
+
+" TODO
 
 " }}} vim: foldmethod=marker : foldlevel=0
