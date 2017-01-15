@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 ##
-# Better git clone,
-# clones a repository, cds into it, and opens it in my editor.
+# Better `git clone`
+# Clones a repository, cds into it, and opens it in my editor.
 #
 # USAGE
 #   $ clone things
@@ -20,7 +20,8 @@
 #     .. cd <repo-name>
 #     .. atom .
 #
-# @author addyosmani
+# CREDIT
+#   Forked from addyosmani/dotfiles
 ##
 
 if [ $# -eq 0 ]; then
@@ -28,16 +29,15 @@ if [ $# -eq 0 ]; then
     exit 1
 fi
 
-USERNAME='Kutsan'
+username=$GITHUB_USERNAME
 
 url=$1
 repo=$2
 
-if [[ $IS_SERVER = true ]]; then
-	local EDITOR='vim'
-
+if [[ -n $GUI_EDITOR ]]; then
+	edit=$GUI_EDITOR
 else
-	local EDITOR='atom'
+	edit='vim'
 fi
 
 # $ clone <repo-url>
@@ -50,7 +50,7 @@ if [[ ${url:0:4} == 'http' || ${url:0:3} == 'git' ]]; then
 # If only $1 (as repo name) exists, then clone from my repos
 elif [[ -z $repo ]]; then
 	repo=$url
-	url="git@github.com:$USERNAME/$repo"
+	url="git@github.com:$username/$repo"
 
 # $ clone <username> <repo-name>
 # Otherwise, obey the pattern
@@ -58,4 +58,4 @@ else
 	url="git@github.com:$url/$repo.git"
 fi
 
-git clone $url $repo && cd $repo && $EDITOR .
+git clone $url $repo && cd $repo && $edit .
