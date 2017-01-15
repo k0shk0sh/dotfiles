@@ -81,9 +81,6 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-" Clear highlighting on escape in normal mode
-nnoremap <esc> :noh<return><esc>
-
 " Don't use Ex mode, use Q for formatting and revert with `:unmap Q`
 map Q gq
 
@@ -95,6 +92,10 @@ cnoremap help vert help
 
 let mapleader=","
 
+" Quick save
 nnoremap <leader>w :w<cr>
+
+" Clear highlighting
+nnoremap <leader>h :let @/=""<cr>
 
 " }}} vim: foldmethod=marker : foldlevel=0
