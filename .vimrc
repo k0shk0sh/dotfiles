@@ -1,3 +1,13 @@
+" -- Setup {{{1
+" --------------------------------------------------------------------------------------------------
+
+set nocompatible " Use Vim settings, rather than Vi settings
+set encoding=utf-8 " Default encoding
+set background=dark " Choose dark colors if available
+syntax enable " Enable syntax highlighting
+colorscheme minimalist " The color scheme
+filetype plugin on " Turns on filetype detection for syntax highlighting
+
 " -- Plugins {{{1
 " --------------------------------------------------------------------------------------------------
 
@@ -17,13 +27,6 @@ call plug#end()
 " -- Options {{{1
 " --------------------------------------------------------------------------------------------------
 
-" Setup
-set nocompatible " Use Vim settings, rather then Vi settings
-set encoding=utf-8 " Default encoding
-syntax enable " Enable syntax highlighting
-set background=dark " Choose dark colors if available
-colorscheme minimalist " The color scheme
-
 " Editor
 set cursorline " Highlight the screen line of the cursor
 set mouse=a " Enable mouse use in all modes
@@ -40,7 +43,6 @@ set relativenumber number " Show line numbers as default
 set splitright " Splitting a window will put the new window right of the current one
 set scrolloff=8 " Minimal number of screen lines to keep above and below the cursor
 set lazyredraw " Redraw only when we need to
-filetype on " Turns on filetype detection for syntax highlighting
 autocmd InsertEnter * :set norelativenumber " Disable relative numbers in Insert mode
 autocmd InsertLeave * :set relativenumber " Enable relative numbers in Normal mode
 
@@ -87,5 +89,12 @@ map Q gq
 
 " Map `help` to `vert help` for vertical help split
 cnoremap help vert help
+
+" -- Leaders {{{2
+" --------------------------------------------------------------------------------------------------
+
+let mapleader=","
+
+nnoremap <leader>w :w<cr>
 
 " }}} vim: foldmethod=marker : foldlevel=0
