@@ -3,10 +3,13 @@
 
 # If ~/.config/isserver.kutsan file exists then prepare for server environment.
 if [[ -f "$HOME/.config/isserver.kutsan" ]]; then
-	IS_SERVER=true
+	ZSH_THEME='kutsan-server'
+	ZSH_TMUX_AUTOSTART=false
 
 else
-	IS_SERVER=false
+	ZSH_THEME='kutsan'
+	ZSH_TMUX_AUTOSTART=true
+	export GUI_EDITOR='atom'
 fi
 
 plugins=(
@@ -17,15 +20,6 @@ plugins=(
 	zsh-autosuggestions
 	shrink-path
 )
-
-if [[ $IS_SERVER = true ]]; then
-	ZSH_THEME='kutsan-server'
-	ZSH_TMUX_AUTOSTART=false
-
-else
-	ZSH_THEME='kutsan'
-	ZSH_TMUX_AUTOSTART=true
-fi
 
 # vi-style
 bindkey -M viins 'jk' vi-cmd-mode # `jk` to switch Normal mode
@@ -53,7 +47,8 @@ elif [[ $(uname) = 'Linux' ]]; then
 	export PATH="$HOME/.bin:/usr/sbin:/usr/bin:/sbin:/bin"
 fi
 
-export IS_SERVER=$IS_SERVER
+# For Git relevant functions
+export GITHUB_USERNAME='Kutsan'
 
 # Make Vim the default editor
 export EDITOR='vim'
@@ -115,14 +110,15 @@ alias gf='git fetch'
 alias gc='git commit'
 alias ga='git add'
 alias gd='git diff'
+alias gds='git diff --staged'
 alias gl="git log --graph --abbrev-commit --decorate --format=format:'%C(yellow)%h%C(reset) %C(white)%s%C(reset) %C(bold black)%an%C(reset)%C(bold yellow)%d%C(reset) %C(black)(%ar)%C(reset)' --date=format:'%H:%M %d.%m.%Y' --all"
 alias glt="git log --graph --abbrev-commit --decorate --format=format:'%C(bold black)%ad%C(reset) %C(yellow)%h%C(reset) %C(white)%s%C(reset) %C(bold black)%an%C(reset)%C(bold yellow)%d%C(reset) %C(black)(%ar)%C(reset)' --date=format:'%H:%M %d.%m.%Y' --all"
 
 if [[ $(uname) = 'Darwin' ]]; then
-	alias gh="open -a Google\ Chrome 'https://github.com/Kutsan'"
+	alias gh='open -a Google\ Chrome "https://github.com/$GITHUB_USERNAME"'
 
 elif [[ $(uname) = 'Linux' ]]; then
-	alias gh="google-chrome 'http://github.com/Kutsan'"
+	alias gh='google-chrome "https://github.com/$GITHUB_USERNAME"'
 fi
 
 # -- Source {{{1
