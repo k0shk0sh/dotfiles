@@ -15,6 +15,7 @@ plugins=(
 	zsh-syntax-highlighting
 	vi-style
 	zsh-autosuggestions
+	shrink-path
 )
 
 if [[ $IS_SERVER = true ]]; then
@@ -72,7 +73,7 @@ export LANGUAGE='en_US.UTF-8'
 # --------------------------------------------------------------------------------------------------
 
 # Binaries
-alias rm='echo No: '
+alias rm='trash'
 alias mv='mv -i'
 alias cp='cp -i'
 alias r='ranger'
@@ -93,15 +94,12 @@ alias tmuxconf='vim ~/.tmux.conf'
 alias :q='exit'
 alias h='history | tail -n 25 | less'
 alias forgot='alias | grep $1'
-alias ip='curl ipecho.net/plain; echo'
+alias whatsmyip='curl ipecho.net/plain; echo'
 
-# Desktop Environment
+# Environment Specific
 if [[ $(uname) = 'Darwin' ]]; then
-	# Open Finder
-	alias f='open -a Finder'
-
 	# Open Finder with current directory
-	alias fopen='open_command $PWD'
+	alias finder='open_command $PWD'
 
 	# `cd` current Finder directory
 	function fcd() { cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')" }
