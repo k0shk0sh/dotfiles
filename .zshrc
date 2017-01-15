@@ -12,6 +12,12 @@ else
 	export GUI_EDITOR='atom'
 fi
 
+# Change the command execution time stamp shown in the history command output
+HIST_STAMPS='dd.mm.yyyy'
+
+# -- Plugins {{{1
+# --------------------------------------------------------------------------------------------------
+
 plugins=(
 	tmux
 	z
@@ -25,9 +31,6 @@ plugins=(
 bindkey -M viins 'jk' vi-cmd-mode # `jk` to switch Normal mode
 bindkey -M viins 'kj' vi-cmd-mode # `kj` to switch Normal mode
 bindkey -M vicmd 'v' edit-command-line # Edit long commands in Vim by pressing `v`
-
-# Change the command execution time stamp shown in the history command output
-HIST_STAMPS='dd.mm.yyyy'
 
 # -- Exports {{{1
 # --------------------------------------------------------------------------------------------------
