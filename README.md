@@ -94,4 +94,4 @@ $ [sudo] curl -L https://raw.githubusercontent.com/Kutsan/dotfiles/master/.tools
 
 - Logo from [jglovier/dotfiles-logo](https://github.com/jglovier/dotfiles-logo)
 
-[screenshot]: https://i.imgur.com/0Knfasb.png
+[screenshot]: https://i.imgur.com/C4uj1c9.png
