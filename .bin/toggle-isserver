@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+if [[ -f "$HOME/.config/isserver.kutsan" ]]; then
+	rm "$HOME/.config/isserver.kutsan"
+
+else
+	touch "$HOME/.config/isserver.kutsan"
+fi
