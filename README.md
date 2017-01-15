@@ -26,14 +26,14 @@ $ [sudo] curl -L https://raw.githubusercontent.com/Kutsan/dotfiles/master/.tools
 					- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) - Command highlighting
 					- [vi-style](https://github.com/Kutsan/dotfiles/tree/master/.oh-my-zsh/custom/plugins/vi-style/vi-style.plugin.zsh) - Vi mode (_forked from [robbyrussell/oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/vi-mode/vi-mode.plugin.zsh)_)
 					- [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) - Fish-like autosuggestions for Zsh
+					- [shrink-path](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/shrink-path) - Shorten directory paths
 		- [Vim](http://www.vim.org) - The ubiquitous text editor
+			- [Minimalist](https://github.com/dikiaap/minimalist) - Color scheme
 			- [VimPlug](https://github.com/junegunn/vim-plug) - Plugin manager
-				- [NERDTree](https://github.com/scrooloose/nerdtree) - A tree explorer
 				- [Airline](https://github.com/vim-airline/vim-airline) - Statusline bar & tabline
-					- [Quantum](https://github.com/tyrannicaltoucan/vim-quantum) - Theme
+					- [Kutsan](https://github.com/Kutsan/dotfiles/blob/master/.vim/autoload/airline/themes/kutsan.vim) - Theme
 				- [Auto Pairs](https://github.com/jiangmiao/auto-pairs) - Insert or delete brackets, parens, quotes in pair
 				- [vim-javascript](https://github.com/pangloss/vim-javascript) - Vastly improved JavaScript indentation and syntax support
-			- [Quantum](https://github.com/tyrannicaltoucan/vim-quantum) - Color scheme
 		- [Git](https://git-scm.com) - The Stupid Content Tracker
 		- [Tmux](https://tmux.github.io) - Terminal multiplexer
 			- [tpm](https://github.com/tmux-plugins/tpm) - Tmux Plugin Manager
@@ -45,7 +45,7 @@ $ [sudo] curl -L https://raw.githubusercontent.com/Kutsan/dotfiles/master/.tools
 			  - [eslint](https://www.npmjs.com/package/eslint) - An AST-based pattern checker for JavaScript
 		- [git-extras](https://github.com/tj/git-extras) - Extra commands for Git
 		- [GnuPG](https://www.gnupg.org) - Replacement for Symantec's PGP cryptographic software suite
-		- trash - Move files and folders to the trash
+		- trash-cli ([1](https://github.com/andreafrancia/trash-cli))([2](http://hasseg.org/trash)) - Move files and folders to the trash
 		- [Nmap](https://nmap.org) - Network security scanner
 		- [JDK](http://www.oracle.com) - Java Development Kit
 		- [android-sdk](https://developer.android.com/studio/index.html) - Development tools for Android
