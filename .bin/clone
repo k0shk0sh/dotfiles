@@ -5,28 +5,28 @@
 # Clones a repository, cds into it, and opens it in my editor.
 #
 # USAGE
-#   $ clone things
-#     .. git clone git@github.com:<your-username>/things.git things
-#     .. cd things
-#     .. atom .
+#	$ clone things
+#	  .. git clone git@github.com:<your-username>/things.git things
+#	  .. cd things
+#	  .. atom .
 #
-#   $ clone yeoman generator
-#     .. git clone git@github.com:yeoman/generator.git generator
-#     .. cd generator
-#     .. atom .
+#	$ clone yeoman generator
+#	  .. git clone git@github.com:yeoman/generator.git generator
+#	  .. cd generator
+#	  .. atom .
 #
-#   $ clone git@github.com:<username>/<repo-name>.git
-#     .. git clone git@github.com:<username>/<repo-name>.git <repo-name>
-#     .. cd <repo-name>
-#     .. atom .
+#	$ clone git@github.com:<username>/<repo-name>.git
+#	  .. git clone git@github.com:<username>/<repo-name>.git <repo-name>
+#	  .. cd <repo-name>
+#	  .. atom .
 #
 # CREDIT
-#   Forked from addyosmani/dotfiles
+#	Forked from addyosmani/dotfiles
 ##
 
 if [ $# -eq 0 ]; then
-    echo "USAGE: $ clone <repo-url|username|own-repo-name> [repo-name (with $1 as <username>)]"
-    exit 1
+	echo "USAGE: $ clone <repo-url|username|own-repo-name> [repo-name (with $1 as <username>)]"
+	exit 1
 fi
 
 username=$GITHUB_USERNAME
