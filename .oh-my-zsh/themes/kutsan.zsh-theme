@@ -69,9 +69,9 @@ prompt_git() {
 # Dir: current working directory
 prompt_dir() {
   if [[ $(uname -o) = "Android" ]] 2> /dev/null; then
-    prompt_segment black white "%-30<...<%~%<<"
+    prompt_segment black white "$(shrink_path -f)"
   else
-    prompt_segment black white "%-55<...<%~%<<"
+    prompt_segment black white "$(shrink_path -f)"
   fi
   # echo $(pwd | sed -e "s,^$HOME,~," | sed "s@\(.\)[^/]*/@\1/@g")
 }
