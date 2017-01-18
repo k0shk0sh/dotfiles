@@ -106,7 +106,7 @@ elif [[ $(uname) = 'Linux' ]]; then
 	# TODO
 fi
 
-# Git & GitHub
+# Git
 alias g='git'
 alias gs='git status -sb'
 alias gf='git fetch'
@@ -116,13 +116,6 @@ alias gd='git diff'
 alias gds='git diff --staged'
 alias gl="git log --graph --abbrev-commit --decorate --format=format:'%C(yellow)%h%C(reset) %C(white)%s%C(reset) %C(bold black)%an%C(reset)%C(bold yellow)%d%C(reset) %C(black)(%ar)%C(reset)' --date=format:'%H:%M %d.%m.%Y' --all"
 alias glt="git log --graph --abbrev-commit --decorate --format=format:'%C(bold black)%ad%C(reset) %C(yellow)%h%C(reset) %C(white)%s%C(reset) %C(bold black)%an%C(reset)%C(bold yellow)%d%C(reset) %C(black)(%ar)%C(reset)' --date=format:'%H:%M %d.%m.%Y' --all"
-
-if [[ $(uname) = 'Darwin' ]]; then
-	alias gh='open -a Google\ Chrome "https://github.com/$GITHUB_USERNAME"'
-
-elif [[ $(uname) = 'Linux' ]]; then
-	alias gh='google-chrome "https://github.com/$GITHUB_USERNAME"'
-fi
 
 # -- Source {{{1
 # --------------------------------------------------------------------------------------------------
