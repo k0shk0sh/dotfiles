@@ -109,6 +109,35 @@ alias gds='git diff --staged'
 alias gl="git log --graph --abbrev-commit --decorate --format=format:'%C(yellow)%h%C(reset) %C(white)%s%C(reset) %C(bold black)%an%C(reset)%C(bold yellow)%d%C(reset) %C(black)(%ar)%C(reset)' --date=format:'%H:%M %d.%m.%Y' --all"
 alias glt="git log --graph --abbrev-commit --decorate --format=format:'%C(bold black)%ad%C(reset) %C(yellow)%h%C(reset) %C(white)%s%C(reset) %C(bold black)%an%C(reset)%C(bold yellow)%d%C(reset) %C(black)(%ar)%C(reset)' --date=format:'%H:%M %d.%m.%Y' --all"
 
+# -- Functions {{{1
+# --------------------------------------------------------------------------------------------------
+
+##
+# Goes GitHub and related links
+#
+# USAGE
+#	$ gh
+#	  .. goes https://github.com
+#	$ gh me
+#	  .. goes https://github.com/$GITHUB_USERNAME
+#	$ gh webpack
+#	  .. goes first Google "webpack GitHub" result
+##
+function gh()
+{
+	if [ $# -eq 0 ]; then
+		url="https://github.com"
+
+	elif [ $1 = "me" ]; then
+		url="https://github.com/$GITHUB_USERNAME"
+
+	else
+		url="https://www.google.com/search?q=$1%20GitHub&btnI="
+	fi
+
+	open_command $url
+}
+
 # -- Source {{{1
 # --------------------------------------------------------------------------------------------------
 
