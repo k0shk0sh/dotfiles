@@ -94,17 +94,9 @@ alias h='history | tail -n 25 | less'
 alias forgot='alias | grep $1'
 alias whatsmyip='curl ipecho.net/plain; echo'
 
-# Environment Specific
-if [[ $(uname) = 'Darwin' ]]; then
-	# Open Finder with current directory
-	alias finder='open_command $PWD'
-
-	# `cd` current Finder directory
-	function fcd() { cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')" }
-
-elif [[ $(uname) = 'Linux' ]]; then
-	# TODO
-fi
+# File Explorer
+alias f='open_command $PWD'
+alias fcd="cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')""
 
 # Git
 alias g='git'
