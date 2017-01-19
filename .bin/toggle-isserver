@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+##
+# Toggles environment according to my setup
+##
+
 if [[ -f "$HOME/.config/isserver.kutsan" ]]; then
 	rm "$HOME/.config/isserver.kutsan"
 

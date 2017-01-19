@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+##
+# Updates various environment, software and packages
+##
+
 # Homebrew
 if which brew > /dev/null; then
 	brew update
