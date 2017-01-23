@@ -9,7 +9,7 @@
 Read the source code first!
 
 ```bash
-$ [sudo] curl -L https://raw.githubusercontent.com/Kutsan/dotfiles/master/.tools/install.sh | bash
+$ curl -L https://raw.githubusercontent.com/Kutsan/dotfiles/master/.tools/install.sh | [sudo] bash
 ```
 
 ## Overview
@@ -40,16 +40,16 @@ $ [sudo] curl -L https://raw.githubusercontent.com/Kutsan/dotfiles/master/.tools
 				- [tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect) - Persists tmux environment across system restarts
 				- [tmux-yank](https://github.com/tmux-plugins/tmux-yank) - Tmux plugin for copying to system clipboard
 		- [NodeJS](https://nodejs.org) - JavaScript runtime environment for developing a diverse variety of tools and applications
-		  - [npm](https://www.npmjs.com) - Node Package Manager
-			  - [ngrok](https://www.npmjs.com/package/ngrok) - Secure tunnels to localhost
-			  - [eslint](https://www.npmjs.com/package/eslint) - An AST-based pattern checker for JavaScript
-		- [git-extras](https://github.com/tj/git-extras) - Extra commands for Git
+		- [npm](https://www.npmjs.com) - Node Package Manager
+			- [ngrok](https://www.npmjs.com/package/ngrok) - Secure tunnels to localhost
+			- [eslint](https://www.npmjs.com/package/eslint) - An AST-based pattern checker for JavaScript
 		- [GnuPG](https://www.gnupg.org) - Replacement for Symantec's PGP cryptographic software suite
 		- trash-cli ([1](https://github.com/andreafrancia/trash-cli))([2](http://hasseg.org/trash)) - Move files and folders to the trash
 		- [Nmap](https://nmap.org) - Network security scanner
 		- [JDK](http://www.oracle.com) - Java Development Kit
 		- [android-sdk](https://developer.android.com/studio/index.html) - Development tools for Android
 		- [ranger](https://github.com/ranger/ranger) - A Vim-inspired filemanager for the console
+		- [fzf](https://github.com/junegunn/fzf) - Command-line fuzzy finder
 	- GUI
 		- [iTerm](https://www.iterm2.com) - Terminal emulator for macOS
 			- [Roboto Mono](https://github.com/powerline/fonts) - Font
