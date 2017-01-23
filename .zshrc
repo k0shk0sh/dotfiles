@@ -98,7 +98,7 @@ alias whatsmyip='curl ipecho.net/plain; echo'
 
 # File Explorer
 alias f='open_command $PWD'
-alias fcd="cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')""
+[[ $(uname) = "Darwin" ]] && alias fcd="cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')""
 
 # Git
 alias g='git'
@@ -115,34 +115,45 @@ alias glt="git log --graph --abbrev-commit --decorate --format=format:'%C(bold b
 # --------------------------------------------------------------------------------------------------
 
 ##
-# Goes GitHub and related links
+# Automatically do an ls after each cd
+##
+lc()
+{
+	cd $1
+	ls -GA
+}
+
+##
+# Show weather and moon phase
 #
 # USAGE
-#	$ gh
-#	  .. goes https://github.com
-#	$ gh me
-#	  .. goes https://github.com/$GITHUB_USERNAME
-#	$ gh webpack
-#	  .. goes first Google "webpack GitHub" result
+#	$ wttr <city>
 ##
-function gh()
+wttr()
 {
-	if [ $# -eq 0 ]; then
-		url="https://github.com"
-
-	elif [ $1 = "me" ]; then
-		url="https://github.com/$GITHUB_USERNAME"
-
-	else
-		url="https://www.google.com/search?q=$1%20GitHub&btnI="
-	fi
-
-	open_command $url
+	curl -s http://wttr.in/$1 http://wttr.in/moon | less
 }
 
 # -- Source {{{1
 # --------------------------------------------------------------------------------------------------
 
+# Oh My Zsh
 source $ZSH/oh-my-zsh.sh
+
+# fzf
+if [[ $(uname) = 'Darwin' ]]; then
+	FZF_DIR="/usr/local/opt/fzf/shell"
+
+elif [[ $(uname -o) = 'Android' ]]; then
+	FZF_DIR="/data/data/com.termux/files/usr/share/fzf"
+
+elif [[ $(uname) = 'Linux' ]]; then
+	FZF_DIR="$HOME/.fzf/shell"
+
+else
+	FZF_DIR=""
+fi
+
+[[ -d $FZF_DIR ]] && source "$FZF_DIR/key-bindings.zsh" "$FZF_DIR/completion.zsh"
 
 # }}} vim: foldmethod=marker : foldlevel=0
