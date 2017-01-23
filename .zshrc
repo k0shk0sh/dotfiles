@@ -203,6 +203,9 @@ else
 	FZF_DIR=""
 fi
 
-[[ -d $FZF_DIR ]] && source "$FZF_DIR/key-bindings.zsh" "$FZF_DIR/completion.zsh"
+if [[ -d $FZF_DIR ]]; then
+	source "$FZF_DIR/key-bindings.zsh"
+	source "$FZF_DIR/completion.zsh"
+fi
 
 # }}} vim: foldmethod=marker : foldlevel=0
