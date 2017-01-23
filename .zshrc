@@ -115,7 +115,7 @@ alias glt="git log --graph --abbrev-commit --decorate --format=format:'%C(bold b
 # --------------------------------------------------------------------------------------------------
 
 ##
-# Automatically do an ls after each cd
+# Automatically do an `ls` after each `cd`
 ##
 lc()
 {
@@ -132,6 +132,54 @@ lc()
 wttr()
 {
 	curl -s http://wttr.in/$1 http://wttr.in/moon | less
+}
+
+##
+# `z` with `fzf`
+##
+j()
+{
+	if [[ -z "$*" ]]; then
+		cd "$(_z -l 2>&1 | fzf +s --tac --height 40% --reverse | sed 's/^[0-9,.]* *//')"
+	else
+		_last_z_args="$@"
+		_z "$@"
+	fi
+}
+
+##
+# `cd` to selected directory with `fzf`
+##
+fd()
+{
+	local dir
+	dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m --height 40% --reverse) && cd "$dir"
+}
+
+##
+# Better `git log` with `fzf`
+##
+fgl()
+{
+	git log --graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
+	fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
+		--bind "ctrl-m:execute:
+				(grep -o '[a-f0-9]\{7\}' | head -1 |
+				xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
+				{}
+FZF-EOF"
+}
+
+##
+# Open files in ~/.viminfo with `fzf`
+##
+v()
+{
+	local files
+	files=$(grep '^>' ~/.viminfo | cut -c3- |
+	while read line; do
+		[ -f "${line/\~/$HOME}" ] && echo "$line"
+	done | fzf-tmux -d -m -q "$*" -1) && vim ${files//\~/$HOME}
 }
 
 # -- Source {{{1
