@@ -30,42 +30,44 @@ plugins=(
 # vi-style
 bindkey -M viins 'jk' vi-cmd-mode # `jk` to switch Normal mode
 bindkey -M viins 'kj' vi-cmd-mode # `kj` to switch Normal mode
-bindkey -M vicmd 'v' edit-command-line # Edit long commands in Vim by pressing `v`
 
 # -- Exports {{{1
 # --------------------------------------------------------------------------------------------------
 
 if [[ $(uname) = 'Darwin' ]]; then
-	export ZSH=/Users/$(whoami)/.oh-my-zsh
+	export PATH="$HOME/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 	export ANDROID_HOME='/usr/local/opt/android-sdk'
 	export JAVA_HOME='$(/usr/libexec/java_home)'
-	export PATH="$HOME/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 elif [[ $(uname -o) = 'Android' ]]; then
-	export ZSH=/data/data/com.termux/files/home/.oh-my-zsh
 	export PATH="$HOME/.bin:/data/data/com.termux/files/usr/bin:/data/data/com.termux/files/usr/bin/applets"
 
 elif [[ $(uname) = 'Linux' ]]; then
-	export ZSH=/home/$(whoami)/.oh-my-zsh
 	export PATH="$HOME/.bin:/usr/sbin:/usr/bin:/sbin:/bin"
 fi
-
-# For Git relevant functions
-export GITHUB_USERNAME='Kutsan'
 
 # Make Vim the default editor
 export EDITOR='vim'
 
-# GnuPG
-export GPG_TTY=$(tty)
-
 # Term
 export TERM='screen-256color'
+
+# OhMyZsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Locale
 export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'
 export LANGUAGE='en_US.UTF-8'
+
+# GnuPG
+export GPG_TTY=$(tty)
+
+# For Git relevant functions
+export GITHUB_USERNAME='Kutsan'
+
+# fzf
+export FZF_CTRL_T_COMMAND='ag --hidden --skip-vcs-ignores --ignore node_modules --ignore .git --ignore-case -g ""'
 
 # -- Aliases {{{1
 # --------------------------------------------------------------------------------------------------
