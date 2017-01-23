@@ -149,6 +149,7 @@ elif [[ $(uname -o) = 'Android' ]]; then
 
 elif [[ $(uname) = 'Linux' ]]; then
 	FZF_DIR="$HOME/.fzf/shell"
+	export PATH="$PATH:$HOME/.fzf/bin"
 
 else
 	FZF_DIR=""
