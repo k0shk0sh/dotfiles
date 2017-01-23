@@ -1,58 +1,128 @@
+info() {
+	echo -e "\n\033[32m  info \033[0m$1\n"
+}
+info__oneline() {
+	echo -e "\033[32m  info \033[0m$1"
+}
+error() {
+	echo -e "\n\033[31m  error \033[0m$1\n"
+}
+warn() {
+	echo -e "\n\033[33m  warning \033[0m$1\n"
+}
+warn__oneline() {
+	echo -e "\033[33m  warning \033[0m$1"
+}
+log() {
+	echo -e "  $1"
+}
+
+echo ''
+echo -e "\033[1m  #\033[0m Kutsan's dotfiles\033[30m\033[1m from https://github.com/Kutsan/dotfiles \033[0m\n"
+log 'This script can change your entire setup.'
+log 'I recommend to read first. You can even copy commands one by one.'
+read -p "$(warn__oneline 'Are you sure you want to install it? (y/n): ')" -n 1 -r
+echo ''
+
+if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+	error 'Installation failed'
+	exit 0
+fi
+
+info "Installation has been started"
+
 cd $HOME
-rm -rf .git .vim .oh-my-zsh
-rm .zshrc
+mkdir BACKUP
+mv .zshrc .git .vim .oh-my-zsh BACKUP
+
+APPS=(
+	git
+	zsh
+	vim
+	tmux
+	nodejs
+	ranger
+	nmap
+	gnupg
+	fzf
+)
 
 if [[ $(uname -o) = "Android" ]]; then
-	apt update
-	apt install -y git zsh vim tmux nodejs tree man ranger
+	APPS=(
+		$APPS
+		man
+		silversearcher-ag
+	)
 
-	# Oh My Zsh
+	info "apt update"
+	apt update
+
+	info "apt install -y $APPS"
+	apt install -y $APPS
+
+	info "Oh My Zsh"
 	sh -c "$(curl -fsSL https://raw.github.com/skeevy420/oh-my-zsh/skeevy420-termux/tools/install.sh)"
 
+	info "termux-setup-storage"
 	termux-setup-storage
 
 elif [[ $(uname) = "Linux" ]]; then
+	APPS=(
+		$APPS
+		npm
+		trash-cli
+		silversearcher-ag
+	)
+
+	info "NodeJS"
 	curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
 
+	info "sudo apt update"
 	sudo apt update
-	sudo apt -y install git zsh vim tmux nodejs npm tree nmap ranger
 
-	# Oh My Zsh
+	info "sudo apt -y install $APPS"
+	sudo apt -y install $APPS
+
+	info "Oh My Zsh"
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
+	info "fzf"
+	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+
 elif [[ $(uname) = "Darwin" ]]; then
+	APPS=(
+		$APPS
+		trash
+		the_silver_searcher
+	)
+
 	if ! which brew > /dev/null; then
+		info "Homebrew"
 		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	fi
 
-	brew install git zsh vim tmux node git-extras gnupg tree trash ranger
+	info "brew install $APPS"
+	brew install $APPS
 
-	# Oh My Zsh
+	info "Oh My Zsh"
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 else
-	echo
-	echo 'Something happened.'
-	echo
+	error "Incompatible platform"
 	exit 1
 fi
 
+info "dotfiles"
 git init
 git remote add origin https://github.com/Kutsan/dotfiles.git
 git fetch origin
 git checkout --force -b master --track origin/master
 git submodule update --init --recursive
 
-# VimPlug
+info "VimPlug"
 curl -Lo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-vim +PlugInstall +qa
+info "vim +PlugInstall +qa"
+vim +PlugInstall +qa;
 
-echo
-echo '|_/   |_ _ _  _    _ '
-echo '| \|_|| _)(_|| )  _) '
-echo '         _           '
-echo ' _| _ |_(_.| _ _     '
-echo '(_|(_)|_| ||(-_)     ...is now installed!'
-echo ''
-echo
+info "Installation successfully completed"
