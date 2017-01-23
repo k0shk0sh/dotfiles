@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+
+##
+# Goes GitHub related links
+# Open remote URL in GitHub, go GitHub home or first Google result
+#
+# USAGE
+#	$ gh
+#	  .. open current Git project in browser
+#	  .. goes https://github.com/<username>/<repo-name>
+#
+#	$ gh me
+#	  .. goes https://github.com/$GITHUB_USERNAME
+#
+#	$ gh home
+#	  .. goes https://github.com
+#
+#	$ gh webpack
+#	  .. goes first Google "webpack GitHub" result
+##
+
+if [ $# -eq 0 ]; then
+	# (https|git)://github.com/Kutsan/dotfiles OR git@github.com:Kutsan/dotfiles.git
+	bare_repo_url=`git config --get remote.origin.url`
+
+	# github.com/Kutsan/dotfiles OR github.com:Kutsan/dotfiles.git
+	#repo_url_without_protocol=`echo $bare_repo_url | perl -pe 's/(git@)|((git|https?):\/\/)//'`
+
+	# github.com OR gitlab.com
+	#provider=`echo $repo_url_without_protocol | perl -pe 's/(:|\/)(\w|-)+\/(\w|-)+(\.git$)?//'`
+
+	# Kutsan/dotfiles
+	username_and_reponame=`echo $bare_repo_url | perl -pe 's/.+(\w|-)+\.\w+(\/|:)//' | perl -pe 's/.git$//'`
+
+	# https://github.com/Kutsan/dotfiles
+	url="https://${provider:-github.com}/$username_and_reponame"
+
+	echo -e "\n\033[32m  url\033[0m $url\n"
+
+elif [ $1 = "me" ]; then
+	url="https://github.com/$GITHUB_USERNAME"
+
+elif [ $1 = "home" ]; then
+	url="https://github.com"
+
+else
+	url="https://www.google.com/search?q=$1%20GitHub&btnI="
+fi
+
+function open_command()
+{
+	local open_cmd
+
+	case "$OSTYPE" in
+		darwin*)  open_cmd='open' ;;
+		cygwin*)  open_cmd='cygstart' ;;
+		linux-android*) open_cmd='termux-open-url' ;;
+		linux*)   open_cmd='xdg-open' ;;
+		msys*)    open_cmd='start ""' ;;
+		*)        echo "Platform $OSTYPE not supported"
+		return 1
+		;;
+	esac
+
+	if [[ "$OSTYPE" == darwin* ]]; then
+		$open_cmd "$@" &>/dev/null
+	else
+		nohup $open_cmd "$@" &>/dev/null
+	fi
+}
+
+open_command $url
