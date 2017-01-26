@@ -9,7 +9,7 @@
 Read the source code first!
 
 ```bash
-$ curl -L https://raw.githubusercontent.com/Kutsan/dotfiles/master/.tools/install.sh | [sudo] bash
+$ curl -fsSL https://raw.githubusercontent.com/Kutsan/dotfiles/master/.tools/install.sh | bash
 ```
 
 ## Overview
@@ -24,7 +24,6 @@ $ curl -L https://raw.githubusercontent.com/Kutsan/dotfiles/master/.tools/instal
 					- [tmux](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins#tmux) - Several options for effecting the startup behavior of tmux
 					- [z](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/z) - Tracks your most used directories, based on frecency
 					- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) - Command highlighting
-					- [vi-style](https://github.com/Kutsan/dotfiles/tree/master/.oh-my-zsh/custom/plugins/vi-style/vi-style.plugin.zsh) - Vi mode (_forked from [robbyrussell/oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/vi-mode/vi-mode.plugin.zsh)_)
 					- [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) - Fish-like autosuggestions for Zsh
 					- [shrink-path](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/shrink-path) - Shorten directory paths
 		- [Vim](http://www.vim.org) - The ubiquitous text editor
