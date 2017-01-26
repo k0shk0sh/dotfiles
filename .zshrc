@@ -7,7 +7,7 @@ if [[ -f "$HOME/.config/isserver.kutsan" ]]; then
 	ZSH_TMUX_AUTOSTART=false
 
 else
-	ZSH_THEME='kutsan'
+	ZSH_THEME='pure'
 	ZSH_TMUX_AUTOSTART=true
 	export GUI_EDITOR='atom'
 fi

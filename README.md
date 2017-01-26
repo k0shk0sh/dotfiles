@@ -19,7 +19,7 @@ $ curl -fsSL https://raw.githubusercontent.com/Kutsan/dotfiles/master/.tools/ins
 		- [Zsh](http://www.zsh.org) - Unix shell
 			- [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) - Framework for managing Zsh configuration
 				- Theme
-					- [kutsan](https://github.com/Kutsan/dotfiles/blob/master/.oh-my-zsh/themes/kutsan.zsh-theme) - (_forked from [wesbos/Cobalt2-iterm](https://github.com/wesbos/Cobalt2-iterm)_)
+					- [pure](https://github.com/sindresorhus/pure) - Pretty, minimal and fast ZSH prompt
 				- Plugins
 					- [tmux](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins#tmux) - Several options for effecting the startup behavior of tmux
 					- [z](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/z) - Tracks your most used directories, based on frecency
