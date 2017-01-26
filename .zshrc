@@ -127,6 +127,19 @@ alias gds='git diff --staged'
 alias gl="git log --graph --abbrev-commit --decorate --format=format:'%C(yellow)%h%C(reset) %C(white)%s%C(reset) %C(bold black)%an%C(reset)%C(bold yellow)%d%C(reset) %C(black)(%ar)%C(reset)' --date=format:'%H:%M %d.%m.%Y' --all"
 alias glt="git log --graph --abbrev-commit --decorate --format=format:'%C(bold black)%ad%C(reset) %C(yellow)%h%C(reset) %C(white)%s%C(reset) %C(bold black)%an%C(reset)%C(bold yellow)%d%C(reset) %C(black)(%ar)%C(reset)' --date=format:'%H:%M %d.%m.%Y' --all"
 
+# Package Managers
+if [[ $(uname -o) = 'Android' ]] &> /dev/null; then
+	alias apti='apt update && apt install $1'
+	alias aptr='apt remove $1 && apt autoremove && apt autoclean'
+
+else
+	alias apti='sudo apt update && sudo apt install $1'
+	alias aptr='sudo apt remove $1 && sudo apt autoremove && sudo apt autoclean'
+
+	alias paci='pacman -Syu $1'
+	alias pacr='sudo pacman -Rs $1'
+fi
+
 # -- Functions {{{1
 # --------------------------------------------------------------------------------------------------
 
