@@ -69,6 +69,22 @@ export GITHUB_USERNAME='Kutsan'
 # fzf
 export FZF_CTRL_T_COMMAND='ag --hidden --skip-vcs-ignores --ignore node_modules --ignore .git --ignore-case -g ""'
 
+# less
+export LESS="--ignore-case --status-column --LINE-NUMBERS --jump-target=10 --RAW-CONTROL-CHARS"
+export LESS_TERMCAP_md=$(tput bold; tput setaf 147) # Turn on bold (extra bright) mode
+export LESS_TERMCAP_me=$(tput sgr0) # Turn off all attributes
+export LESS_TERMCAP_so=$(tput bold; tput setaf 214) # Begin standout mode
+export LESS_TERMCAP_se=$(tput rmso; tput sgr0) # Exit standout mode
+export LESS_TERMCAP_us=$(tput smul; tput bold; tput setaf 250) # Begin underline mode
+export LESS_TERMCAP_ue=$(tput rmul; tput sgr0) # Exit underline mode
+export LESS_TERMCAP_mr=$(tput rev) # Turn on reverse video mode
+export LESS_TERMCAP_mh=$(tput dim) # turn on half-bright mode
+export LESS_TERMCAP_ZN=$(tput ssubm) # Enter subscript mode
+export LESS_TERMCAP_ZV=$(tput rsubm) # End subscript mode
+export LESS_TERMCAP_ZO=$(tput ssupm) # Enter superscript mode
+export LESS_TERMCAP_ZW=$(tput rsupm) # End superscript mode
+	# Docs at `man 5 terminfo|termcap`
+
 # -- Aliases {{{1
 # --------------------------------------------------------------------------------------------------
 
