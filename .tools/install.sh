@@ -21,7 +21,7 @@ echo ''
 echo -e "\033[1m  #\033[0m Kutsan's dotfiles\033[30m\033[1m from https://github.com/Kutsan/dotfiles \033[0m\n"
 log 'This script can change your entire setup.'
 log 'I recommend to read first. You can even copy commands one by one.'
-read -p "$(warn__oneline 'Are you sure you want to install it? (y/n): ')" -n 1 -r
+read -p "$(warn__oneline 'Are you sure you want to install it? [y/n] ')" -n 1 -r
 echo ''
 
 if [[ ! $REPLY =~ ^[Yy]$ ]]; then
@@ -52,6 +52,8 @@ if [[ $(uname -o) = "Android" ]]; then
 		$APPS
 		man
 		silversearcher-ag
+		coreutils
+		ncurses-utils
 	)
 
 	info "apt update"
@@ -88,6 +90,7 @@ elif [[ $(uname) = "Linux" ]]; then
 
 	info "fzf"
 	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+	~/.fzf/install --bin
 
 elif [[ $(uname) = "Darwin" ]]; then
 	APPS=(
@@ -106,6 +109,9 @@ elif [[ $(uname) = "Darwin" ]]; then
 
 	info "Oh My Zsh"
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+	info "fzf"
+	/usr/local/opt/fzf/install --bin
 
 else
 	error "Incompatible platform"
