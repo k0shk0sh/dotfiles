@@ -49,6 +49,7 @@ set wildmenu " Command-line completion operates in an enhanced mode
 set wildmode=list:longest,list:full " wildmenu mode
 set showcmd " Display key presses at the right bottom
 set ruler " Show the line and column number of the cursor position
+set path+=** " Clever completion with the :find command
 
 " Indentation
 set tabstop=4 " TAB character length
