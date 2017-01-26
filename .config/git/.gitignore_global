@@ -1,20 +1,18 @@
+# -- Platforms -----------------------------------
+
 # Node
 logs
 *.log
 npm-debug.log*
-yarn-error.log
 pids
 *.pid
 *.seed
 *.pid.lock
 lib-cov
 coverage
-.nyc_output
-.grunt
 .lock-wscript
 build/Release
 node_modules
-jspm_packages
 .npm
 .eslintcache
 .node_repl_history
@@ -42,6 +40,8 @@ proguard/
 captures/
 *.jks
 
+# -- Editors & IDEs ------------------------------
+
 # Vim
 [._]*.s[a-w][a-z]
 [._]s[a-w][a-z]
@@ -54,12 +54,9 @@ tags
 .idea/
 *.iws
 /out/
-atlassian-ide-plugin.xml
-com_crashlytics_export_strings.xml
-crashlytics.properties
-crashlytics-build.properties
-fabric.properties
 *.iml
+
+# -- Others --------------------------------------
 
 # OS generated files
 .DS_Store
