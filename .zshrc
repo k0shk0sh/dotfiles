@@ -94,7 +94,6 @@ alias god='cd ~/Drive/Digital'
 alias dow='cd ~/Downloads'
 alias doc='cd ~/Documents'
 alias des='cd ~/Desktop'
-alias web='cd ~/Drive/Digital/Web'
 
 # Configs
 alias zshrc='vim ~/.zshrc'
