@@ -1,4 +1,4 @@
-# Oh-My-Zsh
+# Oh My Zsh
 
 [submodule ".oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
 	path = .oh-my-zsh/custom/plugins/zsh-syntax-highlighting
