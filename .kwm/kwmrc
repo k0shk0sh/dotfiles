@@ -1,0 +1,66 @@
+# Set default values for screen padding
+kwmc config padding 20 0 50 0
+
+# Set default values for container gaps
+kwmc config gap 0 0
+
+# Border colors
+kwmc config border focused on
+kwmc config border focused size 2
+kwmc config border focused color 0xFF3498db
+kwmc config border focused radius 6
+
+kwmc config border marked on
+kwmc config border marked color 0xFFEC5F67
+kwmc config border marked size 2
+kwmc config border marked radius 6
+
+# Default tiling mode for Kwm (bsp | monocle | float)
+kwmc config tiling bsp
+
+# Automatically float windows that fail to resize
+kwmc config float-non-resizable on
+
+# Automatically resize the window to its container
+kwmc config lock-to-container on
+
+# Set focus-follows-mouse-mode to autoraise
+kwmc config focus-follows-mouse on
+
+# Focus-follows-mouse is temporarily disabled when a floating window has focus
+kwmc config standby-on-float on
+
+# Center window when made floating
+kwmc config center-on-float on
+
+# The mouse will automatically move to the center of the focused window
+kwmc config mouse-follows-focus on
+
+# Allows a window to be moved/resized by dragging with mod key
+kwmc config mouse-drag on
+
+# The modifier keys to be held down to initiate mouse-drag
+kwmc config mouse-drag mod shift+ctrl
+
+# Allow window focus to wrap-around
+kwmc config cycle-focus on
+
+kwmc display -c vertical
+
+# Set default container split-ratio
+kwmc config split-ratio 0.5
+
+# New splits become the right leaf-node
+kwmc config spawn right
+
+# Add custom tiling rules for applications that does not get tiled by Kwm by default
+kwmc rule owner="iTerm2" properties={role="AXDialog"}
+
+# kwm layout rules for apps
+kwmc rule owner="System Preferences" properties={float="true"}
+
+# Let Kwm listen for hotkeys
+kwmc config hotkeys on
+
+# Automatically float non-resizable applicationsitutit
+kwmc config float-non-resizable on

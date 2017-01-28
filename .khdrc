@@ -1,0 +1,179 @@
+# -- Setup {{{1
+# --------------------------------------------------------------------------------------------------
+
+# Enable kwm compatibility mode
+khd kwm on
+
+khd mode prefix prefix on
+khd mode prefix timeout 0.5
+
+# Set border color for different modes
+khd mode default color         0xFF
+khd mode prefix color          0xdd2ecc71
+khd mode manage color          0xddC594C5
+khd mode workspace color       0xddf1c40f
+
+# Toggle between modes
+ctrl - s                     : khd -e "mode activate prefix"
+prefix - m                   : khd -e "mode activate manage"
+prefix - w                   : khd -e "mode activate workspace"
+
+# D (default) to default mode from any mode
+prefix - d                   : khd -e "mode activate default"
+workspace - d                : khd -e "mode activate default"
+manage - d                   : khd -e "mode activate default"
+
+# -- Default Mode {{{1
+# --------------------------------------------------------------------------------------------------
+
+# Reload config
+prefix + cmd + shift - r     : khd -e "reload"
+
+# Focus Navigation
+prefix - h                   : kwmc window -f west
+prefix - l                   : kwmc window -f east
+prefix - j                   : kwmc window -f south
+prefix - k                   : kwmc window -f north
+prefix - n                   : kwmc window -fm prev
+prefix - m                   : kwmc window -fm next
+
+# Workspace
+prefix - 1                   : kwmc space -fExperimental 1
+prefix - 2                   : kwmc space -fExperimental 2
+prefix - 3                   : kwmc space -fExperimental 3
+prefix - 4                   : kwmc space -fExperimental 4
+prefix - 5                   : kwmc space -fExperimental 5
+prefix - 6                   : kwmc space -fExperimental 6
+prefix - z                   : kwmc space -fExperimental left
+prefix - c                   : kwmc space -fExperimental right
+prefix - f                   : kwmc space -fExperimental previous
+
+# Manage
+prefix - f                   : kwmc window -z fullscreen
+prefix - p                   : kwmc window -z parent
+prefix + shift - f           : kwmc window -t focused
+prefix + shift - z           : kwmc window -m workspace left; kwmc workspace -fExperimental left
+prefix + shift - c           : kwmc window -m workspace right; kwmc workspace -fExperimental right
+prefix + shift - 1           : kwmc display -f 0
+prefix + shift - 2           : kwmc display -f 1
+prefix + shift - 3           : kwmc display -f 2
+
+# -- Manage Mode {{{1
+# --------------------------------------------------------------------------------------------------
+
+# Swap windows
+manage - h                   : kwmc window -s west
+manage - j                   : kwmc window -s south
+manage - k                   : kwmc window -s north
+manage - l                   : kwmc window -s east
+manage - m                   : kwmc window -s mark # Swap window with marked window
+manage + shift - k           : kwmc window -m north
+manage + shift - l           : kwmc window -m east
+manage + shift - j           : kwmc window -m south
+manage + shift - h           : kwmc window -m west
+manage + shift - m           : kwmc window -m mark # Detach marked window and reinsert at focused Window
+
+manage - r                   : kwmc tree rotate 90
+manage - s                   : kwmc window -c split - mode toggle
+manage - c                   : kwmc window -c type toggle
+
+# Resize
+manage + cmd - h             : kwmc window -c expand 0.025 west
+manage + cmd - j             : kwmc window -c expand 0.025 south
+manage + cmd - k             : kwmc window -c expand 0.025 north
+manage + cmd - l             : kwmc window -c expand 0.025 east
+manage + cmd + shift - h     : kwmc window -c reduce 0.025 west
+manage + cmd + shift - j     : kwmc window -c reduce 0.025 south
+manage + cmd + shift - k     : kwmc window -c reduce 0.025 north
+manage + cmd + shift - l     : kwmc window -c reduce 0.025 east
+
+manage - p                   : kwmc tree -pseudo create
+manage + shift - p           : kwmc tree -pseudo destroy
+
+manage - o                   : kwmc window -s prev
+manage + shift - o           : kwmc window -s next
+
+manage + shift - 1           : kwmc window -m space 1
+manage + shift - 2           : kwmc window -m space 2
+manage + shift - 3           : kwmc window -m space 3
+
+# -- Workspace Mode {{{1
+# --------------------------------------------------------------------------------------------------
+
+workspace - a                : kwmc space -t bsp
+workspace - s                : kwmc space -t monocle
+workspace - d                : kwmc space -t float
+
+workspace - x                : kwmc space -g increase horizontal
+workspace - y                : kwmc space -g increase vertical
+
+workspace + shift - x        : kwmc space -g decrease horizontal
+workspace + shift - y        : kwmc space -g decrease vertical
+
+workspace - left             : kwmc space -p increase left
+workspace - right            : kwmc space -p increase right
+workspace - up               : kwmc space -p increase top
+workspace - down             : kwmc space -p increase bottom
+workspace - p                : kwmc space -p increase all
+
+workspace + shift - left     : kwmc space -p decrease left
+workspace + shift - right    : kwmc space -p decrease right
+workspace + shift - up       : kwmc space -p decrease top
+workspace + shift - down     : kwmc space -p decrease bottom
+workspace + shift - p        : kwmc space -p decrease all
+
+# Set space tiling mode
+workspace + b                : kwmc space -t bsp
+workspace + f                : kwmc space -t monocle
+workspace + w                : kwmc space -t float
+
+# -- Key Bindings {{{1
+# --------------------------------------------------------------------------------------------------
+
+# Remap ^h|j|k|l to arrow keys
+lctrl - h         ![iTerm2]  : khd -p "- left"
+lctrl - j         ![iTerm2]  : khd -p "- down"
+lctrl - k         ![iTerm2]  : khd -p "- up"
+lctrl - l         ![iTerm2]  : khd -p "- right"
+
+# Remap
+shift + lctrl - h ![iTerm2]  : khd -p "shift - left"
+shift + lctrl - j ![iTerm2]  : khd -p "shift - down"
+shift + lctrl - k ![iTerm2]  : khd -p "shift - up"
+shift + lctrl - l ![iTerm2]  : khd -p "shift - right"
+
+# Remap ^ +  g / G  -> start / end of text
+lctrl + alt - h   ![iTerm2]  : khd -p "cmd - left"
+lctrl + alt - l   ![iTerm2]  : khd -p "cmd - right"
+
+# Remap
+lctrl + shift - h ![iTerm2]  : khd -p "shift + cmd - left"
+lctrl + shift - l ![iTerm2]  : khd -p "shift + cmd - right"
+
+# Open iTerm with CMD+Enter
+cmd - return                 : open -a /Applications/iTerm.app; khd -e "mode activate default"
+
+# Default
+cmd + alt + ctrl - m         : kwmc window -mk focused
+cmd + alt + ctrl - h         : kwmc window -mk west wrap
+cmd + alt + ctrl - l         : kwmc window -mk east wrap
+cmd + alt + ctrl - j         : kwmc window -mk south wrap
+cmd + alt + ctrl - k         : kwmc window -mk north wrap
+
+# -- Seed Mode {{{1
+# --------------------------------------------------------------------------------------------------
+
+seeded - 1                   : kwmc window -m workspace 1
+seeded - 2                   : kwmc window -m workspace 2
+seeded - 3                   : kwmc window -m workspace 3
+seeded - 4                   : kwmc window -m workspace 4
+seeded - 5                   : kwmc window -m workspace 5
+
+seeded - z                   : kwmc window -m workspace left
+seeded - c                   : kwmc window -m workspace right
+
+seeded + shift - 1           : kwmc window -m display 0
+seeded + shift - 2           : kwmc window -m display 1
+seeded + shift - 3           : kwmc window -m display 2
+
+# }}} vim: foldmethod=marker : foldlevel=0
