@@ -147,17 +147,6 @@ lc()
 }
 
 ##
-# Show weather and moon phase
-#
-# USAGE
-#	$ wttr <city>
-##
-wttr()
-{
-	curl -s http://wttr.in/$1 http://wttr.in/moon | less
-}
-
-##
 # `z` with `fzf`
 ##
 j()
@@ -210,7 +199,7 @@ v()
 
 # Oh My Zsh
 source $ZSH/oh-my-zsh.sh
-bindkey -v # Enable Vi emulation for ZLE (it's have to be here)
+bindkey -v # Enable Vi emulation for ZLE
 
 # fzf
 if [[ $(uname) = 'Darwin' ]]; then
@@ -232,7 +221,7 @@ if [[ -d $FZF_DIR ]]; then
 	source "$FZF_DIR/completion.zsh"
 fi
 
-# -- Key Bindings {{{1
+# -- Mappings {{{1
 # --------------------------------------------------------------------------------------------------
 
 # General
@@ -244,8 +233,8 @@ bindkey '^N' history-beginning-search-forward # ^N to next relative command
 # Insert mode
 bindkey -M viins 'jk' vi-cmd-mode # `jk` to switch Normal mode
 bindkey -M viins 'kj' vi-cmd-mode # `kj` to switch Normal mode
-bindkey -M viins "^H" vi-backward-char # ^H left arrow key
-bindkey -M viins "^L" vi-forward-char # ^L right arrow key
+bindkey -M viins '^H' vi-backward-char # ^H left arrow key
+bindkey -M viins '^L' vi-forward-char # ^L right arrow key
 
 # Normal mode
 bindkey -M vicmd 'v' edit-command-line # Edit long commands in Vim by pressing `v` in Normal mode
