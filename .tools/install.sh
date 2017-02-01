@@ -48,8 +48,7 @@ APPS=(
 )
 
 if [[ $(uname -o) = "Android" ]]; then
-	APPS=(
-		$APPS
+	APPS+=(
 		man
 		silversearcher-ag
 		coreutils
@@ -59,8 +58,8 @@ if [[ $(uname -o) = "Android" ]]; then
 	info "apt update"
 	apt update
 
-	info "apt install -y $APPS"
-	apt install -y $APPS
+	info "apt install -y ${APPS[*]}"
+	apt install -y ${APPS[*]}
 
 	info "Oh My Zsh"
 	sh -c "$(curl -fsSL https://raw.github.com/skeevy420/oh-my-zsh/skeevy420-termux/tools/install.sh)"
@@ -69,8 +68,7 @@ if [[ $(uname -o) = "Android" ]]; then
 	termux-setup-storage
 
 elif [[ $(uname) = "Linux" ]]; then
-	APPS=(
-		$APPS
+	APPS+=(
 		npm
 		trash-cli
 		silversearcher-ag
@@ -82,8 +80,8 @@ elif [[ $(uname) = "Linux" ]]; then
 	info "sudo apt update"
 	sudo apt update
 
-	info "sudo apt -y install $APPS"
-	sudo apt -y install $APPS
+	info "sudo apt -y install ${APPS[*]}"
+	sudo apt -y install ${APPS[*]}
 
 	info "Oh My Zsh"
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -93,8 +91,8 @@ elif [[ $(uname) = "Linux" ]]; then
 	~/.fzf/install --bin
 
 elif [[ $(uname) = "Darwin" ]]; then
-	APPS=(
-		$APPS
+	APPS+=(
+		bash
 		trash
 		the_silver_searcher
 	)
@@ -104,8 +102,8 @@ elif [[ $(uname) = "Darwin" ]]; then
 		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	fi
 
-	info "brew install $APPS"
-	brew install $APPS
+	info "brew install ${APPS[*]}"
+	brew install ${APPS[*]}
 
 	info "Oh My Zsh"
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
