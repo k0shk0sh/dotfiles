@@ -26,3 +26,5 @@
 [gui]
 	fontdiff = -family Menlo -size 12 -weight normal -slant roman -underline 0 -overstrike 0
 	tabsize = 4
+[diff]
+	tool = vimdiff
