@@ -95,6 +95,10 @@ alias dow='cd ~/Downloads'
 alias doc='cd ~/Documents'
 alias des='cd ~/Desktop'
 
+# Global Aliases
+alias -g L='| less'
+alias -g G='| grep'
+
 # Configs
 alias zshrc='vim ~/.zshrc'
 alias vimrc='vim ~/.vimrc'
