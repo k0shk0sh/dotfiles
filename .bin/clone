@@ -25,14 +25,11 @@
 ##
 
 if [ $# -eq 0 ]; then
-	echo 'USAGE: $ clone <repo-url|username|own-repo-name> [repo-name (with $1 as <username>)]'
+	echo 'USAGE: $ clone <repo-url|own-repo-name|username/repo-name>'
 	exit 1
 fi
 
 username=$GITHUB_USERNAME
-
-url=$1
-repo=$2
 
 if [[ -n $GUI_EDITOR ]]; then
 	edit=$GUI_EDITOR
@@ -41,21 +38,22 @@ else
 fi
 
 # $ clone <repo-url>
-# If $1 is a URL, just clone it as is
-if [[ ${url:0:4} == 'http' || ${url:0:3} == 'git' ]]; then
+if [[ ${1:0:4} == 'http' || ${url:0:3} == 'git' ]]; then
+	url=$1
+
 	# Parse repo name from URL for directory name
 	repo=$(echo $url | awk -F/ '{print $NF}' | sed -e 's/.git$//')
 
-# $ clone <repo-name>
-# If only $1 (as repo name) exists, then clone from my repos
-elif [[ -z $repo ]]; then
-	repo=$url
-	url="git@github.com:$username/$repo"
+# $ clone <username>/<repo-name>
+elif [[ $1 =~ "/"  ]]; then
+	username=`dirname $1`
+	repo=`basename $1`
+	url="git@github.com:$username/$repo.git"
 
-# $ clone <username> <repo-name>
-# Otherwise, obey the pattern
+# $ clone <repo-name>
 else
-	url="git@github.com:$url/$repo.git"
+	repo=$1
+	url="git@github.com:$username/$repo"
 fi
 
 git clone $url $repo && cd $repo && $edit .
