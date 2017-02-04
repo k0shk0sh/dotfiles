@@ -41,7 +41,7 @@ elif [[ $(uname) = 'Linux' ]]; then
 	export PATH="$HOME/.bin:/usr/sbin:/usr/bin:/sbin:/bin"
 fi
 
-# Make Vim the default editor
+# Default editor
 export EDITOR='vim'
 
 # Term
@@ -88,6 +88,7 @@ alias rm='trash'
 alias mv='mv -i'
 alias cp='cp -i'
 alias r='ranger'
+alias du='du -d1 -h'
 
 # Directories
 alias god='cd ~/Drive/Digital'
@@ -98,11 +99,15 @@ alias des='cd ~/Desktop'
 # Global Aliases
 alias -g L='| less'
 alias -g G='| grep'
+alias -g V='| vim -R -'
 
 # Configs
-alias zshrc='vim ~/.zshrc'
-alias vimrc='vim ~/.vimrc'
-alias tmuxconf='vim ~/.tmux.conf'
+alias c-zshrc='$EDITOR ~/.zshrc'
+alias c-vimrc='$EDITOR ~/.vimrc'
+alias c-tmuxconf='$EDITOR ~/.tmux.conf'
+alias c-gitconfig='EDITOR ~/.gitconfig'
+alias c-ranger='$EDITOR ~/.config/ranger/rc.conf'
+alias c-netrc='EDITOR ~/.netrc'
 
 # Misc
 alias :q='exit'
