@@ -114,6 +114,27 @@ nnoremap <leader>w :w<cr>
 " Clear highlighting
 nnoremap <leader>h :let @/=""<cr>
 
+" -- Functions {{{1
+" --------------------------------------------------------------------------------------------------
+
+""
+" Autocomplete already-existing words in the file with tab
+"
+" NOTE
+" 	Use CTRL-Y or space to accept and CTRL-E to deny suggestion
+""
+function InsertTabWrapper()
+	let col = col('.') - 1
+
+	if !col || getline('.')[col - 1] !~ '\k'
+		return "\<tab>"
+	else
+		return "\<c-n>"
+	endif
+endfunction
+
+inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+
 " -- Snippets {{{1
 " --------------------------------------------------------------------------------------------------
 
