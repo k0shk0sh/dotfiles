@@ -203,6 +203,24 @@ v()
 	done | fzf-tmux -d -m -q "$*" -1) && vim ${files//\~/$HOME}
 }
 
+##
+# Launch HTTP server in current directory with port 8080
+##
+http()
+{
+	local PORT=${1:-8080}
+
+	if hash python3 2>/dev/null; then
+		python3 -m http.server $PORT
+
+	elif hash python 2>/dev/null; then
+		python -m SimpleHTTPServer $PORT
+
+	else
+		exit 1
+	fi
+}
+
 # -- Source {{{1
 # --------------------------------------------------------------------------------------------------
 
