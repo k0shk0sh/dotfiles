@@ -34,7 +34,7 @@ username=$GITHUB_USERNAME
 if [[ -n $GUI_EDITOR ]]; then
 	edit=$GUI_EDITOR
 else
-	edit='vim'
+	edit=${EDITOR:-vim}
 fi
 
 # $ clone <repo-url>

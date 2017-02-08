@@ -4,34 +4,31 @@
 # Updates various environment, software and packages
 ##
 
-info() {
-	echo -e "\n\033[32m  info \033[0m$1\n"
-}
+info() { echo -e "\n\033[32m  info \033[0m$1\n"; }
 
 if [[ $(uname) = 'Darwin' ]] 2> /dev/null; then
-	info 'Homebrew'
-	if which brew 2> /dev/null; then
-		brew update
-		brew upgrade
-		brew cleanup
-	fi
+	info 'brew update; brew upgrade; brew cleanup'
+	brew update
+	brew upgrade
+	brew cleanup
 
 elif [[ $(uname -o) = 'Android' ]] 2> /dev/null; then
-	info 'Packages'
+	info 'apt upgrade; apt autoremove; apt autoclean'
 	apt upgrade
 	apt autoremove
 	apt autoclean
 
 elif [[ $(uname) = 'Linux' ]] 2> /dev/null; then
-	info 'Packages'
+	info 'sudo apt upgrade; sudo apt autoremove; sudo apt autoclean'
 	sudo apt upgrade
 	sudo apt autoremove
 	sudo apt autoclean
 fi
 
-info 'npm'
+info 'npm update npm -g; npm update -g; npm cache clean'
 npm update npm -g
 npm update -g
+npm cache clean
 
 info 'Oh My Zsh'
 sh $ZSH/tools/upgrade.sh
