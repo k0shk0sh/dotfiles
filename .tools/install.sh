@@ -1,35 +1,23 @@
-info() {
-	echo -e "\n\033[32m  info \033[0m$1\n"
-}
-info__oneline() {
-	echo -e "\033[32m  info \033[0m$1"
-}
-error() {
-	echo -e "\n\033[31m  error \033[0m$1\n"
-}
-warn() {
-	echo -e "\n\033[33m  warning \033[0m$1\n"
-}
-warn__oneline() {
-	echo -e "\033[33m  warning \033[0m$1"
-}
-log() {
-	echo -e "  $1"
-}
+info() { echo -e "\n\033[32m  info \033[0m$1\n"; }
+info__oneline() { echo -e "\033[32m  info \033[0m$1"; }
+error() { echo -e "\n\033[31m  error \033[0m$1\n"; }
+warn() { echo -e "\n\033[33m  warning \033[0m$1\n"; }
+warn__oneline() { echo -e "\033[33m  warning \033[0m$1"; }
+log() { echo -e "  $1"; }
 
 echo ''
 echo -e "\033[1m  #\033[0m Kutsan's dotfiles\033[30m\033[1m from https://github.com/Kutsan/dotfiles \033[0m\n"
 log 'This script can change your entire setup.'
 log 'I recommend to read first. You can even copy commands one by one.'
-read -p "$(warn__oneline 'Are you sure you want to install it? [y/n] ')" -n 1 -r
+read -p "$(warn__oneline 'Are you sure you want to install it? [y/N] ')" -n 1 -r
 echo ''
 
 if [[ ! $REPLY =~ ^[Yy]$ ]]; then
 	error 'Installation failed'
-	exit 0
+	exit 1
 fi
 
-info "Installation has been started"
+info 'Installation has been started'
 
 cd $HOME
 mkdir BACKUP
@@ -97,7 +85,7 @@ elif [[ $(uname) = "Darwin" ]]; then
 		the_silver_searcher
 	)
 
-	if ! which brew > /dev/null; then
+	if ! hash brew 2> /dev/null; then
 		info "Homebrew"
 		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	fi
