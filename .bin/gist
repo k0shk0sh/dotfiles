@@ -1,0 +1,78 @@
+#!/usr/bin/env node
+
+/**
+ * Quickly upload files to GitHub Gists
+ *
+ * @author Kutsan Kaplan <me@kutsankaplan.com>
+ * @license MIT
+ */
+
+/*
+	TODO
+
+	--help -h
+	--description -d
+	--save -s
+	--debug
+*/
+
+const https = require('https')
+const fs = require('fs')
+
+if (!(process.argv.length >= 3))
+{
+	console.log('USAGE: $ gist <file>')
+	process.exit(1)
+}
+
+let debug = false
+
+const fileName = process.argv[2]
+const filePath = `${process.cwd()}/${process.argv[2]}`
+const fileContent = fs.readFileSync(filePath, 'utf8').trim()
+
+let postData = JSON.stringify({
+	"public": true,
+	"files": {
+		[fileName]: {
+			"content": fileContent
+		}
+	}
+})
+
+let options = {
+	hostname: 'api.github.com',
+	method: 'POST',
+	port: 443,
+	path: '/gists',
+	headers: {
+		'User-Agent': 'gists-cli',
+		'Content-Type': 'application/json',
+		'Content-Length': Buffer.byteLength(postData)
+	}
+}
+
+let req = https.request(options, (res) =>
+	{
+		if (debug) console.log(`STATUS: ${res.statusCode}`)
+		if (debug) console.log(`HEADERS: ${JSON.stringify(res.headers, null, 4)}`)
+
+		res.setEncoding('utf8')
+
+		let data = ''
+
+		res.on('data', (chunk) => data = data + chunk)
+		res.on('end', () =>
+		{
+			let parsedData = JSON.parse(data)
+
+			if (debug) console.log('DATA:', JSON.stringify(parsedData, null, 2))
+
+			console.log('url', parsedData.html_url)
+		})
+	})
+
+req.on('error', (err) => console.log(err))
+
+req.write(postData)
+req.end()
