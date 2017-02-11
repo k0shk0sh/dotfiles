@@ -342,7 +342,7 @@ prompt_pure_async_callback() {
 }
 
 prompt_pure_setup() {
-	local autoload_name=$1; shift
+	local autoload_name=$1; shift 2>/dev/null
 
 	# prevent percentage showing up
 	# if output doesn't end with a newline

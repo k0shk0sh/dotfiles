@@ -1,54 +1,73 @@
 # -- Setup {{{1
 # --------------------------------------------------------------------------------------------------
 
-# If ~/.config/isserver.kutsan file exists then prepare for server environment.
-if [[ -f "$HOME/.config/isserver.kutsan" ]]; then
-	ZSH_THEME='kutsan-server'
-	ZSH_TMUX_AUTOSTART=false
+fpath+=("$HOME/.zsh/functions")
 
-else
-	ZSH_THEME='pure'
-	ZSH_TMUX_AUTOSTART=true
-	export GUI_EDITOR='atom'
+# Prompt
+autoload -U promptinit && promptinit
+prompt pure
+
+# Auto-attach or start `tmux` at login
+if [[ $TMUX == "" ]] && [[ $SSH_CONNECTION == "" ]] && [[ `uname -o` != "Android" ]] 2>/dev/null; then
+	local main_session='main'
+
+	tmux attach-session -t $main_session \
+	|| tmux new -s $main_session && exit 0;
 fi
 
-# Change the command execution time stamp shown in the history command output
-HIST_STAMPS='dd.mm.yyyy'
+# Welcome message
+task list
 
-# -- Plugins {{{1
-# --------------------------------------------------------------------------------------------------
+# History
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt APPEND_HISTORY
+setopt EXTENDED_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS # Ignore duplication command history list
+setopt HIST_IGNORE_SPACE
+setopt HIST_VERIFY
+setopt inc_append_history
+setopt SHARE_HISTORY # Share command history data
+HIST_STAMPS='dd.mm.yyyy' # Time stamp format
 
-plugins=(
-	tmux
-	z
-	zsh-syntax-highlighting
-	zsh-autosuggestions
-	shrink-path
-)
+# Autocomplete
+autoload -U compinit && compinit # Enable autocompletion
+unsetopt menu_complete # Do not autoselect the first completion entry
+setopt completealiases # Autocompletion CLI switches for aliases
+zstyle ':completion:*' menu select; # To activate the menu, press tab twice
+zstyle ':completion:*' list-colors '' # Show colors on menu completion
+zstyle ':completion:*' rehash true # When new programs is installed, auto update autocomplete without reloading shell
+setopt complete_in_word # tab completion from both ends
+setopt glob_complete # wildcard completion eg. *-tar
+
+# Globbing
+setopt extendedglob
+unsetopt caseglob
 
 # -- Exports {{{1
 # --------------------------------------------------------------------------------------------------
 
-if [[ $(uname) = 'Darwin' ]]; then
-	export PATH="$HOME/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-	export ANDROID_HOME='/usr/local/opt/android-sdk'
-	export JAVA_HOME='$(/usr/libexec/java_home)'
-
-elif [[ $(uname -o) = 'Android' ]]; then
-	export PATH="$HOME/.bin:/data/data/com.termux/files/usr/bin:/data/data/com.termux/files/usr/bin/applets"
-
-elif [[ $(uname) = 'Linux' ]]; then
-	export PATH="$HOME/.bin:/usr/sbin:/usr/bin:/sbin:/bin"
-fi
-
-# Default editor
+# Default editors
 export EDITOR='vim'
+hash atom 2>/dev/null && export GUI_EDITOR='atom'
 
 # Term
 export TERM='screen-256color'
 
-# OhMyZsh
-export ZSH=$HOME/.oh-my-zsh
+if [[ $(uname) = 'Darwin' ]]; then
+	export PATH="$HOME/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+	export ANDROID_HOME='/usr/local/opt/android-sdk'
+	export JAVA_HOME=$(/usr/libexec/java_home)
+
+elif [[ $(uname -o) = 'Android' ]]; then
+	export PATH="$HOME/.bin:/data/data/com.termux/files/usr/bin:/data/data/com.termux/files/usr/bin/applets"
+	export TERM='xterm-256color'
+
+elif [[ $(uname) = 'Linux' ]]; then
+	export PATH="$HOME/.bin:/usr/sbin:/usr/bin:/sbin:/bin"
+fi
 
 # Locale
 export LANG='en_US.UTF-8'
@@ -62,7 +81,9 @@ export GPG_TTY=$(tty)
 export GITHUB_USERNAME='Kutsan'
 
 # fzf
-export FZF_CTRL_T_COMMAND='ag --hidden --skip-vcs-ignores --ignore node_modules --ignore .git --ignore-case -g ""'
+local FZF_DEFAULT_COMMAND='ag --hidden --skip-vcs-ignores --ignore node_modules --ignore .git --ignore .atom --ignore-case -g ""'
+export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
+export FZF_ALT_C_COMMAND=$FZF_DEFAULT_COMMAND
 
 # less
 export LESS="--ignore-case --status-column --LINE-NUMBERS --jump-target=10 --RAW-CONTROL-CHARS"
@@ -83,14 +104,21 @@ export LESS_TERMCAP_ZW=$(tput rsupm) # End superscript mode
 # -- Aliases {{{1
 # --------------------------------------------------------------------------------------------------
 
-# Binaries
+# Shortcuts
+alias _='sudo'
 alias rm='trash'
-alias mv='mv -i'
-alias cp='cp -i'
+alias mv='mv -iv'
+alias cp='cp -iv'
+alias v='vim'
 alias r='ranger'
 alias du='du -d1 -h'
+alias c='clear'
+alias we='weechat'
+alias ls='ls -AGF'
+alias lsa='ls -lh'
+alias grep='grep --color=auto --exclude-dir .git'
 
-# Directories
+# Bookmarks
 alias god='cd ~/Drive/Digital'
 alias dow='cd ~/Downloads'
 alias doc='cd ~/Documents'
@@ -102,18 +130,13 @@ alias -g G='| grep'
 alias -g V='| vim -R -'
 
 # Configs
-alias c-zshrc='$EDITOR ~/.zshrc'
-alias c-vimrc='$EDITOR ~/.vimrc'
-alias c-tmuxconf='$EDITOR ~/.tmux.conf'
-alias c-gitconfig='EDITOR ~/.gitconfig'
+alias c-zsh='$EDITOR ~/.zshrc'
+alias c-vim='$EDITOR ~/.vimrc'
+alias c-tmux='$EDITOR ~/.tmux.conf'
+alias c-git='$EDITOR ~/.gitconfig'
 alias c-ranger='$EDITOR ~/.config/ranger/rc.conf'
-alias c-netrc='EDITOR ~/.netrc'
-
-# Misc
-alias :q='exit'
-alias h='history | tail -n 25 | less'
-alias forgot='alias | grep $1'
-alias whatsmyip='curl ipecho.net/plain; echo'
+alias c-ssh='$EDITOR ~/.ssh/config'
+alias c-netrc='$EDITOR ~/.netrc'
 
 # File Explorer
 alias f='open_command $PWD'
@@ -124,88 +147,28 @@ alias g='git'
 alias gs='git status -sb'
 alias gf='git fetch'
 alias gc='git commit'
-alias ga='git add'
+ga() { git add $@; gs }
 alias gd='git diff'
 alias gds='git diff --staged'
 alias gl="git log --graph --abbrev-commit --decorate --format=format:'%C(yellow)%h%C(reset) %C(white)%s%C(reset) %C(bold black)%an%C(reset)%C(bold yellow)%d%C(reset) %C(black)(%ar)%C(reset)' --date=format:'%H:%M %d.%m.%Y' --all"
 alias glt="git log --graph --abbrev-commit --decorate --format=format:'%C(bold black)%ad%C(reset) %C(yellow)%h%C(reset) %C(white)%s%C(reset) %C(bold black)%an%C(reset)%C(bold yellow)%d%C(reset) %C(black)(%ar)%C(reset)' --date=format:'%H:%M %d.%m.%Y' --all"
 
-# Package Managers
-if [[ $(uname -o) = 'Android' ]] &> /dev/null; then
-	alias apti='apt update && apt install $1'
-	alias aptr='apt remove $1 && apt autoremove && apt autoclean'
-
-else
-	alias apti='sudo apt update && sudo apt install $1'
-	alias aptr='sudo apt remove $1 && sudo apt autoremove && sudo apt autoclean'
-
-	alias paci='pacman -Syu $1'
-	alias pacr='sudo pacman -Rs $1'
-fi
-
 # -- Functions {{{1
 # --------------------------------------------------------------------------------------------------
 
-##
+# ## General {{{2
+# ------------------------------------------------
+
 # Automatically do an `ls` after each `cd`
-##
-lc()
-{
-	cd $1
-	ls -GA
-}
+lc() { cd $1; ls -GA }
 
-##
-# `z` with `fzf`
-##
-j()
-{
-	if [[ -z "$*" ]]; then
-		cd "$(_z -l 2>&1 | fzf +s --tac --height 40% --reverse | sed 's/^[0-9,.]* *//')"
-	else
-		_last_z_args="$@"
-		_z "$@"
-	fi
-}
+# Package Managers
+apti() { sudo apt update && sudo apt install $@ }
+aptr() { sudo apt remove $@ && sudo apt autoremove && sudo apt autoclean }
+paci() { sudo pacman -Syu $@ }
+pacr() { sudo pacman -Rs $@ }
 
-##
-# `cd` to selected directory with `fzf`
-##
-fd()
-{
-	local dir
-	dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m --height 40% --reverse) && cd "$dir"
-}
-
-##
-# Better `git log` with `fzf`
-##
-fgl()
-{
-	git log --graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
-	fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
-		--bind "ctrl-m:execute:
-				(grep -o '[a-f0-9]\{7\}' | head -1 |
-				xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
-				{}
-FZF-EOF"
-}
-
-##
-# Open files in ~/.viminfo with `fzf`
-##
-v()
-{
-	local files
-	files=$(grep '^>' ~/.viminfo | cut -c3- |
-	while read line; do
-		[ -f "${line/\~/$HOME}" ] && echo "$line"
-	done | fzf-tmux -d -m -q "$*" -1) && vim ${files//\~/$HOME}
-}
-
-##
 # Launch HTTP server in current directory with port 8080
-##
 http()
 {
 	local PORT=${1:-8080}
@@ -221,35 +184,57 @@ http()
 	fi
 }
 
-# -- Source {{{1
-# --------------------------------------------------------------------------------------------------
+# ## fzf {{{2
+# ------------------------------------------------
 
-# Oh My Zsh
-source $ZSH/oh-my-zsh.sh
-bindkey -v # Enable Vi emulation for ZLE
+# `z` with `fzf`
+fz()
+{
+	if [[ -z "$*" ]]; then
+		cd "$(_z -l 2>&1 | fzf +s --tac --height 40% --reverse | sed 's/^[0-9,.]* *//')"
+	else
+		_last_z_args="$@"
+		_z "$@"
+	fi
+}
 
-# fzf
-if [[ $(uname) = 'Darwin' ]]; then
-	FZF_DIR="/usr/local/opt/fzf/shell"
+# `cd` to selected directory with `fzf`
+fd()
+{
+	local dir
+	dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m --height 40% --reverse) && cd "$dir"
+}
 
-elif [[ $(uname -o) = 'Android' ]]; then
-	FZF_DIR="/data/data/com.termux/files/usr/share/fzf"
+# Better `git log` with `fzf`
+fgl()
+{
+	git log --graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
+	fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
+		--bind "ctrl-m:execute:
+				(grep -o '[a-f0-9]\{7\}' | head -1 |
+				xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
+				{}
+FZF-EOF"
+}
 
-elif [[ $(uname) = 'Linux' ]]; then
-	FZF_DIR="$HOME/.fzf/shell"
-	export PATH="$PATH:$HOME/.fzf/bin"
-
-else
-	FZF_DIR=""
-fi
-
-if [[ -d $FZF_DIR ]]; then
-	source "$FZF_DIR/key-bindings.zsh"
-	source "$FZF_DIR/completion.zsh"
-fi
+# Open files in ~/.viminfo with `fzf`
+fv()
+{
+	local files
+	files=$(grep '^>' ~/.viminfo | cut -c3- |
+	while read line; do
+		[ -f "${line/\~/$HOME}" ] && echo "$line"
+	done | fzf-tmux -d -m -q "$*" -1) && vim ${files//\~/$HOME}
+}
 
 # -- Mappings {{{1
 # --------------------------------------------------------------------------------------------------
+
+# Enable Vi emulation for ZLE
+bindkey -v
+
+autoload -U edit-command-line
+zle -N edit-command-line
 
 # General
 bindkey '^K' up-history # ^K to previous command
@@ -262,8 +247,38 @@ bindkey -M viins 'jk' vi-cmd-mode # `jk` to switch Normal mode
 bindkey -M viins 'kj' vi-cmd-mode # `kj` to switch Normal mode
 bindkey -M viins '^H' vi-backward-char # ^H left arrow key
 bindkey -M viins '^L' vi-forward-char # ^L right arrow key
+bindkey -M viins '^?' backward-delete-char # Delete left char with backspace key
 
 # Normal mode
 bindkey -M vicmd 'v' edit-command-line # Edit long commands in Vim by pressing `v` in Normal mode
+
+# -- Source {{{1
+# --------------------------------------------------------------------------------------------------
+
+# fzf
+if [[ `uname` == 'Darwin' ]]; then
+	FZF_DIR="/usr/local/opt/fzf/shell"
+
+elif [[ `uname -o` == 'Android' ]]; then
+	FZF_DIR="/data/data/com.termux/files/usr/share/fzf"
+
+elif [[ `uname` == 'Linux' ]]; then
+	FZF_DIR="$HOME/.fzf/shell"
+	export PATH="$PATH:$HOME/.fzf/bin"
+fi
+
+if [[ -d $FZF_DIR ]] 2>/dev/null; then
+	source $FZF_DIR/key-bindings.zsh
+	source $FZF_DIR/completion.zsh
+fi
+
+# z
+source $HOME/.zsh/plugins/z/z.sh
+
+# zsh-autosuggestions
+source $HOME/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# zsh-syntax-highlighting
+source $HOME/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # }}} vim: foldmethod=marker : foldlevel=0
