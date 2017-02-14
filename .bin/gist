@@ -1,35 +1,42 @@
 #!/usr/bin/env node
 
 /**
- * Quickly upload files to GitHub Gists
+ * Quickly upload anonymous files to GitHub Gists
+ *
+ * USAGE
+ *   $ gist <file>
+ *
+ * OPTIONS
+ *   --debug: Prints status code, headers and HTTP response data
  *
  * @author Kutsan Kaplan <me@kutsankaplan.com>
  * @license MIT
+ * @version v0.1.0
  */
-
-/*
-	TODO
-
-	--help -h
-	--description -d
-	--save -s
-	--debug
-*/
 
 const https = require('https')
 const fs = require('fs')
 
 if (!(process.argv.length >= 3))
 {
-	console.log('USAGE: $ gist <file>')
+	console.log('Quickly upload files to GitHub Gists')
+	console.log('\nUSAGE\n  $ gist <file>')
 	process.exit(1)
 }
 
-let debug = false
+let debug = process.argv.includes('--debug')
 
-const fileName = process.argv[2]
-const filePath = `${process.cwd()}/${process.argv[2]}`
-const fileContent = fs.readFileSync(filePath, 'utf8').trim()
+let fileContent = ''
+const fileName = process.argv[2] // TODO: Grab correct parameter not just argv[2]
+const filePath = `${process.cwd()}/${fileName}`
+
+try {
+	fileContent = fs.readFileSync(filePath, 'utf8').trim()
+} catch (e) {
+	if (debug) console.log(e)
+	console.error(`'${fileName}' no such file`)
+	process.exit(1)
+}
 
 let postData = JSON.stringify({
 	"public": true,
@@ -46,7 +53,7 @@ let options = {
 	port: 443,
 	path: '/gists',
 	headers: {
-		'User-Agent': 'gists-cli',
+		'User-Agent': 'gist',
 		'Content-Type': 'application/json',
 		'Content-Length': Buffer.byteLength(postData)
 	}
@@ -68,7 +75,8 @@ let req = https.request(options, (res) =>
 
 			if (debug) console.log('DATA:', JSON.stringify(parsedData, null, 2))
 
-			console.log('url', parsedData.html_url)
+			console.log(`\n\x1b[32m  html_url\x1b[0m ${parsedData.html_url}`)
+			console.log(`\x1b[32m  raw_url\x1b[0m ${parsedData.files[fileName].raw_url}\n`)
 		})
 	})
 

@@ -4,35 +4,34 @@
 # Updates various environment, software and packages
 ##
 
-info() { echo -e "\n\033[32m  info \033[0m$1\n"; }
+info() { echo -e "\n\033[32m  $1 \033[0m\`$2\`\n"; }
 
 if [[ $(uname) = 'Darwin' ]] 2> /dev/null; then
-	info 'brew update; brew upgrade; brew cleanup'
+	info 'Homebrew' 'brew update; brew upgrade; brew cleanup'
 	brew update
 	brew upgrade
 	brew cleanup
 
 elif [[ $(uname -o) = 'Android' ]] 2> /dev/null; then
-	info 'apt upgrade; apt autoremove; apt autoclean'
+	info 'Packages' 'apt update; apt upgrade; apt autoremove; apt autoclean'
 	apt upgrade
 	apt autoremove
 	apt autoclean
 
 elif [[ $(uname) = 'Linux' ]] 2> /dev/null; then
-	info 'sudo apt upgrade; sudo apt autoremove; sudo apt autoclean'
+	info 'Packages' 'sudo apt update; sudo apt upgrade; sudo apt autoremove; sudo apt autoclean'
 	sudo apt upgrade
 	sudo apt autoremove
 	sudo apt autoclean
 fi
 
-info 'npm update npm -g; npm update -g; npm cache clean'
-npm update npm -g
+info 'npm' 'npm install npm -g; npm update -g; npm cache clean'
+npm install npm -g
 npm update -g
 npm cache clean
 
-info 'Oh My Zsh'
-sh $ZSH/tools/upgrade.sh
-
-info 'VimPlug & Vim Plugins'
+info 'VimPlug' 'curl -Lo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 curl -Lo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+info 'Vim Plugins' 'vim +PlugUpdate +qa'
 vim +PlugUpdate +qa

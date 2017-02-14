@@ -1,13 +1,16 @@
 #!/usr/bin/env bash
 
 ##
-# https://transfer.sh
-# Easy file sharing from the command line
+# Easy file sharing from the command line via https://transfer.sh (files stored for 14 days)
+#
+# USAGE
+#	$ transfer <file>
 ##
 
 if [ $# -eq 0 ]; then
-	echo "No arguments specified. \n\nUSAGE:\n  $ echo transfer /tmp/test.md\n  $ cat /tmp/test.md | transfer test.md"
-	return 1
+	echo -e "Easy file sharing from the command line via https://transfer.sh (files stored for 14 days)\n"
+	echo -e "USAGE\n  $ transfer <file>"
+	exit 1
 fi
 
 tmpfile=$( mktemp -t transferXXX )

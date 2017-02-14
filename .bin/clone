@@ -2,30 +2,31 @@
 
 ##
 # Better `git clone`
-# Clones a repository, cds into it, and opens it in my editor.
+# Clones a repository, cds into it, and opens it in $EDITOR|$GUI_EDITOR.
 #
 # USAGE
-#	$ clone things
-#	  .. git clone git@github.com:<your-username>/things.git things
-#	  .. cd things
-#	  .. atom .
+#	$ clone <repo-name>
+#	  .. git clone git@github.com:<your-username>/<repo-name>.git <repo-name>
+#	  .. cd <repo-name>
+#	  .. $EDITOR .
 #
-#	$ clone yeoman generator
-#	  .. git clone git@github.com:yeoman/generator.git generator
-#	  .. cd generator
-#	  .. atom .
+#	$ clone <username>/<repo-name>
+#	  .. git clone git@github.com:<username>/<repo-name>.git <repo-name>
+#	  .. cd <repo-name>
+#	  .. $EDITOR .
 #
 #	$ clone git@github.com:<username>/<repo-name>.git
 #	  .. git clone git@github.com:<username>/<repo-name>.git <repo-name>
 #	  .. cd <repo-name>
-#	  .. atom .
+#	  .. $EDITOR .
 #
 # CREDIT
-#	Forked from addyosmani/dotfiles
+#	Originally taken from addyosmani/dotfiles
 ##
 
 if [ $# -eq 0 ]; then
-	echo 'USAGE: $ clone <repo-url|own-repo-name|username/repo-name>'
+	echo -e 'Better `git clone`. Clones a repository, cds into it, and opens it in $EDITOR|$GUI_EDITOR.\n'
+	echo -e 'USAGE\n  $ clone <repo-url|username/repo-name|own-repo-name>'
 	exit 1
 fi
 
