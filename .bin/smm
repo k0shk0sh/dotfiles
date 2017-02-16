@@ -1,0 +1,125 @@
+#!/usr/bin/env bash
+
+##
+# SSHFS Mount Manager
+# `smm` uses your ~/.ssh/config file.
+#
+# USAGE
+#	$ smm <server-name (Host from ~/.ssh/config)>:[<server-path>] [<volume-name>]
+#
+# EXAMPLES
+#   $ smm felis:/storage/emulated/0 MyPhone
+#	  .. mounts to /media/$USERNAME/MyPhone
+#
+#	$ smm felis MyPhone
+#	  .. shows a dropdown list for predefined remote paths that you can choose
+#	  .. optional $2 for volume-name otherwise will be used server-name as default
+#	  .. mounts /media/$USERNAME/MyPhone
+#
+# 	$ smm felis
+# 	  .. shows a dropdown list for predefined remote paths that you can choose
+# 	  .. mounts /media/$USERNAME/felis
+#
+# @author Kutsan Kaplan <me@kutsankaplan.com>
+# @license MIT
+# @version v0.1.0
+##
+
+info() { echo -e "\033[32m  info \033[0m$1"; }
+error() { echo -e "\033[31m  error \033[0m$1"; }
+warn() { echo -e "\033[33m  warning \033[0m$1"; }
+
+if [ $# -eq 0 ]; then
+cat << EOF
+SSHFS Mount Manager
+
+USAGE
+  $ smm <server-name (Host from ~/.ssh/config)>:[<server-path>] [<volume-name>]
+
+EXAMPLES
+  $ smm felis:/storage/emulated/0 MyPhone
+    .. mounts to /media/\$USERNAME/MyPhone
+
+  $ smm felis MyPhone
+    .. shows a dropdown list for predefined remote paths that you can choose
+    .. optional \$2 for volume-name otherwise will be used server-name as default
+    .. mounts /media/\$USERNAME/MyPhone
+
+  $ smm felis
+    .. shows a dropdown list for predefined remote paths that you can choose
+    .. mounts /media/\$USERNAME/felis
+EOF
+
+	exit 1
+fi
+
+USERNAME=$(whoami)
+SERVER_NAME="${1%:*}" # String before colon
+SERVER_PATH="${1##*:}" # String after colon
+MOUNT_PATH="/media/$USERNAME/${2:-$SERVER_NAME}"
+
+echo ''
+
+if mount | grep $MOUNT_PATH >/dev/null; then
+	error "$MOUNT_PATH already mounted\n"
+	exit 1
+fi
+
+# If user did not specify any path
+if [[ ! $1 =~ ":" ]]; then
+	PRE_PATHS=(
+		'$HOME'
+		'/storage/emulated/0'
+	)
+
+	warn 'You did not specify any path. Choose one of them.'
+	echo ''
+
+	PS3='> '
+	select choice in ${PRE_PATHS[*]}; do
+		case $REPLY in
+		    1) SERVER_PATH=''; SERVER_PATH_ALIAS='~/' ;;
+		    2) SERVER_PATH=$choice ;;
+		    *) warn 'Invalid option' ;;
+		esac
+
+		# If $choice valid
+		if [[ -n $choice ]]; then
+	        break
+	    fi
+	done
+
+	echo ''
+fi
+
+# If mount path does not exist
+if [ ! -d "$MOUNT_PATH" ]; then
+	info "Mount path does not exist, creating $MOUNT_PATH"
+	mkdir -p $MOUNT_PATH
+
+	# sudo chown $USERNAME:$GROUP $MOUNT_PATH
+	# chmod 700 $MOUNT_PATH
+fi
+
+VOLUME_NAME="${2:-$SERVER_NAME ${SERVER_PATH_ALIAS:-$SERVER_PATH}}"
+
+sshfs \
+	-F ~/.ssh/config \
+	-o local,noappledouble,nolocalcaches,volname="$VOLUME_NAME" \
+	$SERVER_NAME:$SERVER_PATH \
+	$MOUNT_PATH
+
+if (( $? == 0 )); then
+	info "Mounted on $MOUNT_PATH"
+	echo ''
+
+else
+	error "There was an error mounting $SERVER_NAME:${SERVER_PATH_ALIAS:-$SERVER_PATH} to local $MOUNT_PATH, check your configuration."
+	echo "        Broken $MOUNT_PATH unmounting..."
+
+	umount -f $MOUNT_PATH
+	rm -rf $MOUNT_PATH
+
+	echo ''
+	exit 1
+fi
