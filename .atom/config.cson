@@ -37,7 +37,6 @@
       "language-objective-c"
       "language-perl"
       "language-php"
-      "language-python"
       "language-ruby"
       "language-ruby-on-rails"
       "language-toml"
@@ -61,6 +60,7 @@
     preferredLineLength: 100
     scrollPastEnd: true
     softTabs: false
+    softWrap: false
     tabLength: 4
   "file-icons": {}
   "git-diff": {}

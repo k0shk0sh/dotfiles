@@ -1,10 +1,2 @@
 'atom-text-editor.vim-mode-plus.insert-mode':
-    'j k': 'vim-mode-plus:activate-normal-mode'
-
-'atom-text-editor.vim-mode-plus.normal-mode':
-	'g f':      'open-this:here'
-	'ctrl-w f': 'open-this:split-down'
-	'ctrl-w F': 'open-this:split-right'
-
-'.platform-darwin atom-text-editor':
-	'ctrl-shift-r': 'run:file'
+	'j k': 'vim-mode-plus:activate-normal-mode'
