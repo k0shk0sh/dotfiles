@@ -2,7 +2,7 @@
 
 ##
 # Goes GitHub related links
-# Open remote URL in GitHub, go GitHub home or first Google result
+# Open remote URL in GitHub, go GitHub home and more
 #
 # USAGE
 #   $ gh
@@ -15,37 +15,40 @@
 #   $ gh home
 #     .. goes https://github.com
 #
-#   $ gh .zshrc
-#    .. goes https://github.com/kutsan/dotfiles/blob/master/.zshrc
+#   $ gh index.js
+#     .. goes https://github.com/<username>/<repo-name>/blob/master/index.js
+#
+#   $ gh index.js dev
+#     .. goes https://github.com/<username>/<repo-name>/blob/dev/index.js
 #
 #   $ gh webpack
-#    .. goes first Google "webpack GitHub" result
+#     .. goes first Google "webpack GitHub" result
 #
 # @author Kutsan Kaplan <me@kutsankaplan.com>
 # @license MIT
-# @version v0.1.0
+# @version v0.2.0
 ##
 
 info() { echo -e "\n\033[32m  info \033[0m$1\n"; }
 error() { echo -e "\n\033[31m  error \033[0m$1\n"; }
 
 # (https|git)://github.com/Kutsan/dotfiles or git@github.com:Kutsan/dotfiles.git
-bare_repo_url=`git config --get remote.origin.url`
+bare_repo_url=$(git config --get remote.origin.url)
 
 # Extract protocol. Like github.com/Kutsan/dotfiles or github.com:Kutsan/dotfiles.git
-repo_url_without_protocol=`echo $bare_repo_url | perl -pe 's/(git@)|((git|https?):\/\/)//'`
+repo_url_without_protocol=$(echo "$bare_repo_url" | perl -pe 's/(git@)|((git|https?):\/\/)//')
 
 # Extract provider name. It returns something like gitlab.com or github.com.
-provider=`echo $repo_url_without_protocol | perl -pe 's/(:|\/)(\w|-|_)+\/(\w|-|_)+(\.git$)?//'`
+provider=$(echo "$repo_url_without_protocol" | perl -pe 's/(:|\/)(\w|-|_|\.)+\/(\w|-|_|\.)+(\.git$)?//')
 
 # https://github.com
 base_url="https://${provider:-github.com}"
 
 # Kutsan/dotfiles
-username_and_reponame=`echo $bare_repo_url | perl -pe 's/.+(\w|-|_)+\.\w+(\/|:)//' | perl -pe 's/.git$//'`
+username_and_reponame=$(echo "$bare_repo_url" | perl -pe 's/.+(\w|-|_|\.)+\.\w+(\/|:)//' | perl -pe 's/.git$//')
 
 # $ gh
-if [ $# -eq 0 ]; then
+if [[ $# == 0 ]]; then
 	if [ -z "$username_and_reponame" ]; then
 		error "Not a git repository or any of the parent directories."
 		exit 1
@@ -55,26 +58,26 @@ if [ $# -eq 0 ]; then
 	info "$url"
 
 # $ gh me
-elif [ $1 = "me" ]; then
+elif [[ "$1" == "me" ]]; then
 	url="$base_url/$GITHUB_USERNAME"
 	info "$url"
 
 # $ gh home
-elif [ $1 = "home" ]; then
+elif [[ "$1" == "home" ]]; then
 	url="$base_url"
 	info "$url"
 
 # $ gh .zshrc
 elif [ -f "$PWD/$1" ]; then
-	url="$base_url/$username_and_reponame/blob/master/$1"
+	url="$base_url/$username_and_reponame/blob/${2:-master}/$1"
 	info "$url"
 
 # $ gh webpack
 else
 	url="https://www.google.com/search?q=$1%20GitHub&btnI="
+	info "https://www.google.com/search?q=$1%20GitHub"
 fi
 
-xdg-open $url 2>/dev/null \
-	|| open $url 2>/dev/null \
-	|| termux-open-url $url 2>/dev/null \
-	|| error "Couldn't find any utility to open $url"
+xdg-open "$url" 2>/dev/null \
+	|| open "$url" 2>/dev/null \
+	|| error "Couldn't find any utility to open '$url'"
