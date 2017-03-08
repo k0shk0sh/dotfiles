@@ -21,7 +21,7 @@ if (!(process.argv.length >= 3))
 {
 	console.log('Quickly upload files to GitHub Gists')
 	console.log('\nUSAGE\n  $ gist <file>')
-	process.exit(1)
+	process.exit(0)
 }
 
 let debug = process.argv.includes('--debug')

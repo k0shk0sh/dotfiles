@@ -4,13 +4,13 @@
 # Easy file sharing from the command line via https://transfer.sh (files stored for 14 days)
 #
 # USAGE
-#	$ transfer <file>
+#   $ transfer <file>
 ##
 
 if [ $# -eq 0 ]; then
 	echo -e "Easy file sharing from the command line via https://transfer.sh (files stored for 14 days)\n"
 	echo -e "USAGE\n  $ transfer <file>"
-	exit 1
+	exit 0
 fi
 
 tmpfile=$( mktemp -t transferXXX )
