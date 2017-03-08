@@ -5,20 +5,20 @@
 # Clones a repository, cds into it, and opens it in $EDITOR|$GUI_EDITOR.
 #
 # USAGE
-#	$ clone <repo-name>
-#	  .. git clone git@github.com:<your-username>/<repo-name>.git <repo-name>
-#	  .. cd <repo-name>
-#	  .. $EDITOR .
+#   $ clone <repo-name>
+#     .. git clone git@github.com:<your-username>/<repo-name>.git <repo-name>
+#     .. cd <repo-name>
+#     .. $EDITOR .
 #
-#	$ clone <username>/<repo-name>
-#	  .. git clone git@github.com:<username>/<repo-name>.git <repo-name>
-#	  .. cd <repo-name>
-#	  .. $EDITOR .
+#   $ clone <username>/<repo-name>
+#     .. git clone git@github.com:<username>/<repo-name>.git <repo-name>
+#     .. cd <repo-name>
+#     .. $EDITOR .
 #
-#	$ clone git@github.com:<username>/<repo-name>.git
-#	  .. git clone git@github.com:<username>/<repo-name>.git <repo-name>
-#	  .. cd <repo-name>
-#	  .. $EDITOR .
+#   $ clone git@github.com:<username>/<repo-name>.git
+#     .. git clone git@github.com:<username>/<repo-name>.git <repo-name>
+#     .. cd <repo-name>
+#     .. $EDITOR .
 #
 # CREDIT
 #	Originally taken from addyosmani/dotfiles
@@ -27,7 +27,7 @@
 if [ $# -eq 0 ]; then
 	echo -e 'Better `git clone`. Clones a repository, cds into it, and opens it in $EDITOR|$GUI_EDITOR.\n'
 	echo -e 'USAGE\n  $ clone <repo-url|username/repo-name|own-repo-name>'
-	exit 1
+	exit 0
 fi
 
 username=$GITHUB_USERNAME
@@ -47,8 +47,8 @@ if [[ ${1:0:4} == 'http' || ${url:0:3} == 'git' ]]; then
 
 # $ clone <username>/<repo-name>
 elif [[ $1 =~ "/"  ]]; then
-	username=`dirname $1`
-	repo=`basename $1`
+	username=$(dirname "$1")
+	repo=$(basename "$1")
 	url="git@github.com:$username/$repo.git"
 
 # $ clone <repo-name>
@@ -57,4 +57,4 @@ else
 	url="git@github.com:$username/$repo"
 fi
 
-git clone $url $repo && cd $repo && $edit .
+git clone "$url" "$repo" && cd "$repo" && $edit .
