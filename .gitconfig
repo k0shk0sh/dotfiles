@@ -2,29 +2,41 @@
 	name = Kutsan Kaplan
 	email = me@kutsankaplan.com
 	signingkey = 439AC30C
+
+[core]
+	editor = 'vim'
+	excludesfile = ~/.config/git/.gitignore_global
+	whitespace = warn
+
 [color]
 	ui = true
+
+[alias]
+	today = log --since=midnight --oneline --graph --decorate
+	yesterday = log --after=yesterday.midnight --before 0am --oneline --graph --decorate
+
+[diff]
+	tool = vimdiff
+
+[commit]
+	gpgsign = true
+
 [color "branch"]
 	current = yellow reverse
 	local = yellow
 	remote = green
+
 [color "diff"]
 	meta = yellow bold
 	frag = magenta bold
 	old = red bold
 	new = green bold
+
 [color "status"]
 	added = yellow
 	changed = blue
 	untracked = red
-[core]
-	editor = 'vim'
-	excludesfile = /Users/Kutsan/.config/git/.gitignore_global
-	whitespace = warn
-[commit]
-	gpgsign = true
+
 [gui]
 	fontdiff = -family Menlo -size 12 -weight normal -slant roman -underline 0 -overstrike 0
 	tabsize = 4
-[diff]
-	tool = vimdiff
