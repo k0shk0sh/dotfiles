@@ -24,6 +24,7 @@ $ curl -fsSL https://raw.githubusercontent.com/kutsan/dotfiles/master/.tools/ins
 					- [Kutsan](https://github.com/kutsan/dotfiles/blob/master/.vim/autoload/airline/themes/kutsan.vim) - Theme
 				- [Auto Pairs](https://github.com/jiangmiao/auto-pairs) - Insert or delete brackets, parens, quotes in pair
 				- [vim-javascript](https://github.com/pangloss/vim-javascript) - Vastly improved JavaScript indentation and syntax support
+				- [fzf.vim](https://github.com/junegunn/fzf.vim) - Fuzzy finder fzf as Vim plugin
 		- [Git](https://git-scm.com) - The Stupid Content Tracker
 		- [NodeJS](https://nodejs.org) - JavaScript runtime environment for developing a diverse variety of tools and applications
 			- [npm](https://www.npmjs.com) - Node Package Manager
@@ -49,6 +50,7 @@ $ curl -fsSL https://raw.githubusercontent.com/kutsan/dotfiles/master/.tools/ins
 		- [mutt](http://www.mutt.org) - Mail User Agent
 		- [taskwarrior](https://github.com/taskwarrior/task) - CLI task, todo list manager
 		- [ncdu](https://dev.yorhel.nl/ncdu) - Disk usage analyzer with ncurses interface
+		- [tree](https://github.com/execjosh/tree) - Recursive directory listing
 		- [SSHFS](https://github.com/libfuse/sshfs) - Network filesystem client to connect to SSH servers
 		- [ripgrep](https://github.com/BurntSushi/ripgrep) - Line oriented search tool
 		- [shellcheck](https://github.com/koalaman/shellcheck) - Static analysis tool for shell scripts
@@ -56,7 +58,7 @@ $ curl -fsSL https://raw.githubusercontent.com/kutsan/dotfiles/master/.tools/ins
 
 	- GUI
 		- [GIMP](https://www.gimp.org) - GNU Image Manipulation Program
-		- [IntelliJ IDEA](https://www.jetbrains.com/idea) - Integrated Development Environment
+		- [Android Studio](https://developer.android.com/studio) - Integrated Development Environment for mainly Android Application Development
 			- [IdeaVim](https://github.com/JetBrains/ideavim) - Vim emulation plugin for IntelliJ IDEA
 
 - Arch Linux
